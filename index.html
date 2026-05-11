@@ -8,44 +8,30 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif; background: #f0f2f5; color: #1a1a1a; line-height: 1.6; }
         .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
-        
         .header { background: linear-gradient(135deg, #1a73e8, #4285f4); color: white; padding: 30px; border-radius: 12px; margin-bottom: 24px; }
         .header h1 { font-size: 28px; margin-bottom: 8px; }
         .header .meta { opacity: 0.9; font-size: 14px; }
-        
         .section { background: white; border-radius: 12px; padding: 24px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
         .section h2 { font-size: 20px; color: #1a73e8; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e8eaed; }
-        .section h3 { font-size: 16px; color: #333; margin: 16px 0 8px; }
-        
-        table { width: 100%; border-collapse: collapse; font-size: 14px; }
-        th { background: #f8f9fa; padding: 12px; text-align: left; font-weight: 600; color: #444; border-bottom: 2px solid #e8eaed; }
-        td { padding: 12px; border-bottom: 1px solid #e8eaed; vertical-align: top; }
-        tr:hover { background: #f8f9fa; }
-        
-        .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 500; }
-        .badge-red { background: #fce8e8; color: #c5221f; }
-        .badge-yellow { background: #fef3e8; color: #b06000; }
-        .badge-green { background: #e6f4ea; color: #137333; }
-        .badge-blue { background: #e8f0fe; color: #1967d2; }
-        .badge-purple { background: #f3e8fd; color: #9334e6; }
-        
-        .priority-1 { border-left: 4px solid #c5221f; }
-        .priority-2 { border-left: 4px solid #b06000; }
-        .priority-3 { border-left: 4px solid #1967d2; }
-        
-        .risk-box { background: #fef3e8; border-left: 4px solid #b06000; padding: 16px; margin: 12px 0; border-radius: 4px; }
-        .risk-box h4 { color: #b06000; margin-bottom: 8px; }
-        .risk-box ul { margin-left: 20px; }
-        .risk-box li { margin: 4px 0; }
-        
-        .task-detail { margin: 16px 0; padding: 16px; background: #f8f9fa; border-radius: 8px; }
-        .task-detail h4 { color: #1a73e8; margin-bottom: 8px; }
-        .task-detail p { margin: 4px 0; font-size: 13px; color: #555; }
-        
         .nav { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
         .nav a { padding: 8px 16px; background: white; border-radius: 20px; text-decoration: none; color: #444; font-size: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
         .nav a:hover { background: #1a73e8; color: white; }
-        
+        .project-card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-left: 4px solid #1a73e8; }
+        .project-card h3 { color: #1a73e8; font-size: 18px; margin-bottom: 12px; }
+        .project-card .desc { color: #666; font-size: 13px; margin-bottom: 12px; }
+        .task-list { display: grid; gap: 8px; }
+        .task-item { padding: 12px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #ccc; }
+        .task-item.p0 { border-left-color: #c5221f; }
+        .task-item.p1 { border-left-color: #b06000; }
+        .task-item.p2 { border-left-color: #1967d2; }
+        .task-item .task-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+        .task-item .task-name { font-weight: 600; color: #333; }
+        .task-item .task-meta { font-size: 12px; color: #888; }
+        .task-item .task-status { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 500; }
+        .status-done { background: #e6f4ea; color: #137333; }
+        .status-progress { background: #e8f0fe; color: #1967d2; }
+        .status-blocked { background: #fce8e8; color: #c5221f; }
+        .status-pending { background: #fef3e8; color: #b06000; }
         .footer { text-align: center; color: #888; font-size: 12px; margin-top: 40px; padding: 20px; }
     </style>
 </head>
@@ -53,313 +39,164 @@
     <div class="container">
         <div class="header">
             <h1>工作任务管理台账</h1>
-            <div class="meta">最后更新：2026-05-11 15:47 | 共4个项目，13个任务 | 数据来源：项目清单docx + 6个企微/飞书文档 + Web搜索补充</div>
+            <div class="meta">最后更新：2026-05-11 16:05 | 共5个项目，15个任务 | 数据来源：项目清单docx + 6个企微/飞书文档 + Web搜索补充</div>
         </div>
-        
+
         <div class="nav">
             <a href="#overview">任务总览</a>
-            <a href="#project1">项目1：易视云接DMP</a>
-            <a href="#project2">项目2：DMP平台迭代</a>
-            <a href="#project3">项目3：智能门锁</a>
-            <a href="#project4">项目4：用户体验治理</a>
-            <a href="#risks">风险预警</a>
+            <a href="#project1">P1 易视云接DMP</a>
+            <a href="#project2">P2 DMP平台迭代</a>
+            <a href="#project3">P3 智能门锁</a>
+            <a href="#project4">P4 用户体验治理</a>
+            <a href="#project5">P5 团队管理</a>
         </div>
-        
+
         <div class="section" id="overview">
-            <h2>📋 任务总览</h2>
-            <table>
-                <tr>
-                    <th>任务编号</th>
-                    <th>任务名称</th>
-                    <th>所属项目</th>
-                    <th>负责人</th>
-                    <th>优先级</th>
-                    <th>状态</th>
-                    <th>关键进展/卡点</th>
-                </tr>
-                <tr class="priority-1">
-                    <td>T1-1</td>
-                    <td>DMP平台升级</td>
-                    <td>易视云接DMP</td>
-                    <td>彦晖</td>
-                    <td><span class="badge badge-red">P0-重要紧急</span></td>
-                    <td><span class="badge badge-green">开发中</span></td>
-                    <td>评审通过，开发中</td>
-                </tr>
-                <tr class="priority-1">
-                    <td>T1-2</td>
-                    <td>App升级</td>
-                    <td>易视云接DMP</td>
-                    <td>徐俑</td>
-                    <td><span class="badge badge-red">P0-重要紧急</span></td>
-                    <td><span class="badge badge-yellow">第三轮验证</span></td>
-                    <td>依赖易视云App重构版</td>
-                </tr>
-                <tr class="priority-1">
-                    <td>T1-3</td>
-                    <td>价值点挖掘与包装</td>
-                    <td>易视云接DMP</td>
-                    <td>Adan汪</td>
-                    <td><span class="badge badge-red">P0-重要紧急</span></td>
-                    <td><span class="badge badge-yellow">准备中</span></td>
-                    <td>6月安防沙龙，5个价值点已梳理</td>
-                </tr>
-                <tr class="priority-2">
-                    <td>T2-1</td>
-                    <td>DMP平台多语言</td>
-                    <td>DMP平台迭代</td>
-                    <td>彦晖</td>
-                    <td><span class="badge badge-yellow">P1-重要不紧急</span></td>
-                    <td><span class="badge badge-blue">待启动</span></td>
-                    <td>需求明确，待排期</td>
-                </tr>
-                <tr class="priority-1">
-                    <td>T2-2</td>
-                    <td>WWA服务端改造</td>
-                    <td>DMP平台迭代</td>
-                    <td>彦晖</td>
-                    <td><span class="badge badge-red">P0-重要紧急</span></td>
-                    <td><span class="badge badge-yellow">进行中</span></td>
-                    <td>基础接口已对接，RTC/门铃/门锁控制未对接</td>
-                </tr>
-                <tr class="priority-1">
-                    <td>T2-3</td>
-                    <td>WWA App改造</td>
-                    <td>DMP平台迭代</td>
-                    <td>徐俑</td>
-                    <td><span class="badge badge-red">P0-重要紧急</span></td>
-                    <td><span class="badge badge-red">严重阻塞</span></td>
-                    <td>SDK无法同时merge P2P和WebRTC——根本性技术瓶颈</td>
-                </tr>
-                <tr class="priority-2">
-                    <td>T3-1</td>
-                    <td>Warner客户视频门锁</td>
-                    <td>智能门锁专项</td>
-                    <td>—</td>
-                    <td><span class="badge badge-yellow">P1-重要不紧急</span></td>
-                    <td><span class="badge badge-green">软件收尾</span></td>
-                    <td>首批200台订单确认，App/模组/电控/MCU联调完成</td>
-                </tr>
-                <tr class="priority-2">
-                    <td>T3-2</td>
-                    <td>美A客户萤石门锁选型</td>
-                    <td>智能门锁专项</td>
-                    <td>—</td>
-                    <td><span class="badge badge-yellow">P1-重要不紧急</span></td>
-                    <td><span class="badge badge-red">跟进滞后</span></td>
-                    <td>萤石一段时间未回复，需主动跟进</td>
-                </tr>
-                <tr class="priority-2">
-                    <td>T3-3</td>
-                    <td>安凯门锁面板需求</td>
-                    <td>智能门锁专项</td>
-                    <td>—</td>
-                    <td><span class="badge badge-yellow">P1-重要不紧急</span></td>
-                    <td><span class="badge badge-yellow">待评审</span></td>
-                    <td>PRD已出：4种→6种状态+系统消息推送+云存bug修复</td>
-                </tr>
-                <tr class="priority-3">
-                    <td>T3-4</td>
-                    <td>粤丰门锁选型拓展</td>
-                    <td>智能门锁专项</td>
-                    <td>—</td>
-                    <td><span class="badge badge-blue">P2-一般</span></td>
-                    <td><span class="badge badge-blue">等契机</span></td>
-                    <td>需订单量条件触发</td>
-                </tr>
-                <tr class="priority-1">
-                    <td>T4-1</td>
-                    <td>美版4G强制升级引导</td>
-                    <td>用户体验治理</td>
-                    <td>徐俑/曾柔/陈湘</td>
-                    <td><span class="badge badge-red">P0-重要紧急</span></td>
-                    <td><span class="badge badge-yellow">开发中</span></td>
-                    <td>5月交付压力，MRD已明确弹窗强制引导逻辑</td>
-                </tr>
-                <tr class="priority-2">
-                    <td>T4-2</td>
-                    <td>设备配网绑定专项</td>
-                    <td>用户体验治理</td>
-                    <td>团队轮值</td>
-                    <td><span class="badge badge-yellow">P1-重要不紧急</span></td>
-                    <td><span class="badge badge-yellow">数据收集中</span></td>
-                    <td>32条进线问题已登记，5月中下旬出分析报告</td>
-                </tr>
-                <tr class="priority-2">
-                    <td>T4-3</td>
-                    <td>低功耗产品灵敏度优化</td>
-                    <td>用户体验治理</td>
-                    <td>吴鹏/汪洲</td>
-                    <td><span class="badge badge-yellow">P1-重要不紧急</span></td>
-                    <td><span class="badge badge-yellow">方案设计中</span></td>
-                    <td>数据口径已对齐（PIR周触发次数），待数据团队建看板</td>
-                </tr>
-            </table>
-        </div>
-        
-        <div class="section" id="risks">
-            <h2>⚠️ 风险预警</h2>
-            
-            <div class="risk-box">
-                <h4>🔴 严重：WWA认证可能卡死（T2-2 + T2-3）</h4>
-                <ul>
-                    <li>进度表显示RTC半双工/全双工、门铃事件源、门锁控制均未对接</li>
-                    <li>T2-3发现SDK无法同时merge P2P和WebRTC两种协议</li>
-                    <li><strong>建议</strong>：立即评估Alexa Connect Kit (ACK)的协议兼容性，确认Alexa是否必须要求WebRTC，或可用P2P替代</li>
-                </ul>
+            <h2>任务总览</h2>
+
+            <!-- P1 -->
+            <div class="project-card">
+                <h3>P1 易视云接DMP设备 <span style="font-size:12px;color:#666;font-weight:normal">—— 目前最重要的项目</span></h3>
+                <div class="task-list">
+                    <div class="task-item p0">
+                        <div class="task-header">
+                            <span class="task-name">T1-1 DMP平台升级</span>
+                            <span><span class="badge">彦晖</span> <span class="task-status status-progress">开发中</span></span>
+                        </div>
+                        <div class="task-meta">优先级：重要-高 / 紧急-高 | 评审通过，开发中</div>
+                    </div>
+                    <div class="task-item p0">
+                        <div class="task-header">
+                            <span class="task-name">T1-2 App升级</span>
+                            <span><span class="badge">徐俑</span> <span class="task-status status-pending">第三轮验证</span></span>
+                        </div>
+                        <div class="task-meta">优先级：重要-高 / 紧急-高 | 依赖易视云App重构版</div>
+                    </div>
+                    <div class="task-item p0">
+                        <div class="task-header">
+                            <span class="task-name">T1-3 价值点挖掘与包装</span>
+                            <span><span class="badge">Adan汪</span> <span class="task-status status-pending">准备中</span></span>
+                        </div>
+                        <div class="task-meta">优先级：重要-高 / 紧急-低 | 6月安防沙龙，5个价值点已梳理</div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="risk-box">
-                <h4>🟡 重要：美版4G 5月交付压力（T4-1）</h4>
-                <ul>
-                    <li>MRD已明确弹窗强制引导逻辑，比"强提醒"方案更完善</li>
-                    <li>首次绑定后弹窗只留【确认】，失败后每天一次保留【取消】</li>
-                    <li>需支持按模组型号/版本/固件/设备ID筛选</li>
-                    <li><strong>建议</strong>：徐俑确认强制弹窗逻辑，曾柔提供目标固件和设备范围，陈湘配置"美国桶"</li>
-                </ul>
+
+            <!-- P2 -->
+            <div class="project-card">
+                <h3>P2 DMP平台产品迭代</h3>
+                <div class="task-list">
+                    <div class="task-item p1">
+                        <div class="task-header">
+                            <span class="task-name">T2-1 DMP平台多语言</span>
+                            <span><span class="badge">彦晖</span> <span class="task-status status-pending">待启动</span></span>
+                        </div>
+                        <div class="task-meta">优先级：重要-中 / 紧急-中 | 通用多语言配置机制</div>
+                    </div>
+                    <div class="task-item p0">
+                        <div class="task-header">
+                            <span class="task-name">T2-2 WWA服务端改造</span>
+                            <span><span class="badge">彦晖</span> <span class="task-status status-pending">进行中</span></span>
+                        </div>
+                        <div class="task-meta">优先级：重要-高 / 紧急-高 | 基础接口已对接，RTC/门铃/门锁控制未对接</div>
+                    </div>
+                    <div class="task-item p0">
+                        <div class="task-header">
+                            <span class="task-name">T2-3 WWA App改造</span>
+                            <span><span class="badge">徐俑</span> <span class="task-status status-blocked">严重阻塞</span></span>
+                        </div>
+                        <div class="task-meta">优先级：重要-高 / 紧急-高 | SDK无法merge P2P和WebRTC——根本性技术瓶颈</div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="risk-box">
-                <h4>🟡 重要：萤石门锁跟丢（T3-2）</h4>
-                <ul>
-                    <li>美A（萤石）门锁选型一段时间未收到后续回复</li>
-                    <li>萤石是AI智能锁引领者，2024年增速100%+</li>
-                    <li><strong>建议</strong>：主动邮件跟进liuwei129，争取回复</li>
-                </ul>
+
+            <!-- P3 -->
+            <div class="project-card">
+                <h3>P3 智能门锁专项</h3>
+                <div class="task-list">
+                    <div class="task-item p1">
+                        <div class="task-header">
+                            <span class="task-name">T3-1 Warner客户视频门锁</span>
+                            <span><span class="badge">—</span> <span class="task-status status-progress">软件收尾</span></span>
+                        </div>
+                        <div class="task-meta">优先级：重要-中 / 紧急-中 | 200台订单确认，App/模组/电控/MCU联调完成</div>
+                    </div>
+                    <div class="task-item p1">
+                        <div class="task-header">
+                            <span class="task-name">T3-2 美A客户萤石门锁选型</span>
+                            <span><span class="badge">—</span> <span class="task-status status-blocked">跟进滞后</span></span>
+                        </div>
+                        <div class="task-meta">优先级：重要-中 / 紧急-低 | 萤石一段时间未回复，需主动跟进liuwei129</div>
+                    </div>
+                    <div class="task-item p1">
+                        <div class="task-header">
+                            <span class="task-name">T3-3 安凯门锁面板需求</span>
+                            <span><span class="badge">—</span> <span class="task-status status-pending">待评审</span></span>
+                        </div>
+                        <div class="task-meta">优先级：重要-中 / 紧急-高 | PRD已出：6种状态+系统消息+云存bug修复</div>
+                    </div>
+                    <div class="task-item p2">
+                        <div class="task-header">
+                            <span class="task-name">T3-4 粤丰门锁选型拓展</span>
+                            <span><span class="badge">—</span> <span class="task-status status-pending">等契机</span></span>
+                        </div>
+                        <div class="task-meta">优先级：重要-低 / 紧急-低 | 需订单量条件触发</div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="risk-box">
-                <h4>🟡 重要：低功耗数据待落地（T4-3）</h4>
-                <ul>
-                    <li>专项文档已明确设备范围（全量低功耗非AOV）、指标（PIR周触发次数）</li>
-                    <li>需数据团队建看板，产品确定命令行工具使用方式</li>
-                    <li>数据仅存储近一个月，历史数据缺失</li>
-                </ul>
+
+            <!-- P4 -->
+            <div class="project-card">
+                <h3>P4 平台用户体验治理专项</h3>
+                <div class="task-list">
+                    <div class="task-item p0">
+                        <div class="task-header">
+                            <span class="task-name">T4-1 美版4G强制升级引导</span>
+                            <span><span class="badge">徐俑/曾柔/陈湘</span> <span class="task-status status-progress">开发中</span></span>
+                        </div>
+                        <div class="task-meta">优先级：重要-高 / 紧急-高 | 5月交付压力，MRD已明确弹窗强制引导逻辑</div>
+                    </div>
+                    <div class="task-item p1">
+                        <div class="task-header">
+                            <span class="task-name">T4-2 设备配网绑定专项</span>
+                            <span><span class="badge">团队轮值</span> <span class="task-status status-pending">数据收集中</span></span>
+                        </div>
+                        <div class="task-meta">优先级：重要-中 / 紧急-中 | 32条进线问题已登记，5月中下旬出分析报告</div>
+                    </div>
+                    <div class="task-item p1">
+                        <div class="task-header">
+                            <span class="task-name">T4-3 低功耗产品灵敏度优化</span>
+                            <span><span class="badge">吴鹏/汪洲</span> <span class="task-status status-pending">方案设计中</span></span>
+                        </div>
+                        <div class="task-meta">优先级：重要-中 / 紧急-中 | 数据口径已对齐（PIR周触发次数），待建看板</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- P5 -->
+            <div class="project-card">
+                <h3>P5 团队管理</h3>
+                <div class="task-list">
+                    <div class="task-item p1">
+                        <div class="task-header">
+                            <span class="task-name">T5-1 开会同步团队核心工作范围</span>
+                            <span><span class="badge">Adan汪</span> <span class="task-status status-pending">待安排</span></span>
+                        </div>
+                        <div class="task-meta">优先级：重要-中 / 紧急-中 | 建议用当前台账总览做会议材料，本周内安排</div>
+                    </div>
+                    <div class="task-item p1">
+                        <div class="task-header">
+                            <span class="task-name">T5-2 沐香配网治理专项辅导</span>
+                            <span><span class="badge">Adan汪</span> <span class="task-status status-pending">待安排</span></span>
+                        </div>
+                        <div class="task-meta">优先级：重要-中 / 紧急-中 | 建议本周安排1on1，先了解具体问题类型再定辅导策略</div>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <div class="section" id="project1">
-            <h2>📱 项目1：易视云接DMP设备</h2>
-            <p><strong>定位</strong>：目前最重要的项目 | <strong>目标</strong>：6月安防沙龙对外宣贯</p>
-            
-            <div class="task-detail">
-                <h4>T1-1 DMP平台升级（彦晖）</h4>
-                <p><strong>状态</strong>：评审通过，开发中</p>
-                <p><strong>信息来源</strong>：飞书wiki（7大章节：项目背景、产测阶段、用户添加设备、设备查看与控制、设备消息推送、增值服务、核心系统改造）</p>
-            </div>
-            
-            <div class="task-detail">
-                <h4>T1-2 App升级（徐俑）</h4>
-                <p><strong>状态</strong>：第三轮验证中</p>
-                <p><strong>依赖</strong>：易视云App重构版</p>
-            </div>
-            
-            <div class="task-detail">
-                <h4>T1-3 价值点挖掘与包装（Adan汪）</h4>
-                <p><strong>目标</strong>：6月安防沙龙，面向经销商/整机商抛出价值点</p>
-                <p><strong>5个价值点</strong>：</p>
-                <p>1. 政策风险大幅降低——设备数据全面合规</p>
-                <p>2. 更强大的平台支持能力——售后能力全面升级</p>
-                <p>3. 能支持WWA（Work With Alexa）</p>
-                <p>4. 贴标问题——彦晖想到解决办法，需确认真实需求</p>
-                <p>5. 可针对每款产品配置定制面板</p>
-            </div>
-        </div>
-        
-        <div class="section" id="project2">
-            <h2>🔧 项目2：DMP平台产品迭代</h2>
-            <p><strong>定位</strong>：平台产品的长期迭代需求管理</p>
-            
-            <div class="task-detail">
-                <h4>T2-1 DMP平台多语言（彦晖）</h4>
-                <p><strong>需求</strong>：通用多语言配置机制，支持各模块（印度-英语、越南-越南语等）</p>
-            </div>
-            
-            <div class="task-detail">
-                <h4>T2-2 WWA服务端改造（彦晖）</h4>
-                <p><strong>进展</strong>：基础接口已对接，RTC/门铃/门锁控制未对接</p>
-                <p><strong>WWA认证信息</strong>：周期8-10个工作日，费用€1,000-3,500</p>
-            </div>
-            
-            <div class="task-detail">
-                <h4>T2-3 WWA App改造（徐俑）—— ⚠️ 严重阻塞</h4>
-                <p><strong>问题</strong>：SDK无法同时merge P2P私有协议和WebRTC协议</p>
-                <p><strong>背景</strong>：部分客户用P2P，部分用WebRTC，没有平台同时支持两种</p>
-                <p><strong>影响</strong>：WWA认证的门铃/门锁对讲功能直接依赖WebRTC</p>
-                <p><strong>建议</strong>：评估Alexa Connect Kit协议兼容性</p>
-            </div>
-        </div>
-        
-        <div class="section" id="project3">
-            <h2>🔐 项目3：智能门锁专项</h2>
-            <p><strong>定位</strong>：门锁产品需求/前端/后端/设计/供应链全链路管理</p>
-            
-            <div class="task-detail">
-                <h4>T3-1 Warner客户视频门锁</h4>
-                <p><strong>进展</strong>：软件收尾，App/模组/七芯电控/MCU联调完成</p>
-                <p><strong>订单</strong>：首批200台预售订单确认，用于渠道试点</p>
-                <p><strong>方向</strong>：人脸识别视频锁</p>
-                <p><strong>方案商</strong>：七芯（电控）+ 豪力士（整机）</p>
-                <p><strong>价值</strong>：DMP体系能力的关键补强与验证</p>
-            </div>
-            
-            <div class="task-detail">
-                <h4>T3-2 美A客户萤石门锁选型 — ⚠️ 跟进滞后</h4>
-                <p><strong>背景</strong>：萤石是AI智能锁引领者，2024年增速100%+</p>
-                <p><strong>问题</strong>：一段时间未收到后续回复</p>
-                <p><strong>建议</strong>：主动跟进liuwei129</p>
-            </div>
-            
-            <div class="task-detail">
-                <h4>T3-3 安凯门锁面板需求 — 待评审</h4>
-                <p><strong>PRD要点</strong>：</p>
-                <p>1. 电子锁体新型号：App支持6种锁体状态展示（当前4种）</p>
-                <p>2. 新增门锁事件系统消息推送</p>
-                <p>3. 优化用户管理页昵称展示</p>
-                <p>4. 修复云存领取bug（本地删除连接后绑定用户无法领取）</p>
-            </div>
-            
-            <div class="task-detail">
-                <h4>T3-4 粤丰门锁选型拓展 — 等契机</h4>
-                <p><strong>条件</strong>：需订单量触发</p>
-            </div>
-        </div>
-        
-        <div class="section" id="project4">
-            <h2>🛠️ 项目4：平台用户体验治理专项</h2>
-            <p><strong>负责人</strong>：吴鹏 | <strong>定位</strong>：平台基础体验治理，识别共性问题+特殊事件</p>
-            
-            <div class="task-detail">
-                <h4>T4-1 美版4G强制升级引导（徐俑/曾柔/陈湘）</h4>
-                <p><strong>根因</strong>：中云信安4G模块438-488版本DNS缺陷，首次出图失败率高</p>
-                <p><strong>升级目标</strong>：AOV升5.7.2.54，低功耗升5.6.0.0及以上</p>
-                <p><strong>弹窗逻辑</strong>：</p>
-                <p>1. 首次绑定后进入设备列表页，弹窗正中间、颜色突出、按钮明确</p>
-                <p>2. 只留【确认】选项，逼着用户点</p>
-                <p>3. 支持按模组型号/模块版本/固件版本/设备ID筛选</p>
-                <p>4. 失败重试：预览页/回放页再次弹窗，每天一次，保留【取消】，直到成功</p>
-                <p><strong>配置注意</strong>：使用"美国桶"，避免从国内拉流太慢</p>
-            </div>
-            
-            <div class="task-detail">
-                <h4>T4-2 设备配网绑定专项</h4>
-                <p><strong>进展</strong>：32条进线问题已登记</p>
-                <p><strong>问题类型</strong>：安装、低功耗wifi、密码wifi、视频门铃、电池门铃、模组、快递</p>
-                <p><strong>预计</strong>：5月中下旬形成分析报告</p>
-            </div>
-            
-            <div class="task-detail">
-                <h4>T4-3 低功耗产品灵敏度优化（吴鹏/汪洲）</h4>
-                <p><strong>设备范围</strong>：全量低功耗非AOV摄像头</p>
-                <p><strong>数据指标</strong>：PIR周触发次数，支持按灵敏度下钻，区分真实触发vs误触</p>
-                <p><strong>数据依赖</strong>：PIR触发上报、智能移动侦测开关、灵敏度参数</p>
-                <p><strong>后续行动</strong>：数据团队建看板 + 产品确定命令行工具使用方式</p>
-                <p><strong>技术参考</strong>：ESP32-S2深度睡眠45μA；TI MSP430方案6μA；阈值自适应算法可降低75%无效触发</p>
-            </div>
-        </div>
-        
+
         <div class="footer">
-            工作任务管理台账 | 自动更新于 2026-05-11 15:47 | 数据来源于项目清单文档、企微/飞书文档、Web搜索补充
+            工作任务管理台账 | 自动更新于 2026-05-11 16:05 | 数据来源于项目清单文档、企微/飞书文档、Web搜索补充
         </div>
     </div>
 </body>
