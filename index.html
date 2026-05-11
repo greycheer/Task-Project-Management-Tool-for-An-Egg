@@ -679,10 +679,11 @@
     <h4>WWA认证对接进度（来自企微进度表）</h4>
     <ul>
       <li><strong>已对接</strong>：AppToApp、Alexa Discovery、CameraStream等基础接口</li>
-      <li><strong style="color:#da3633">⚠️ 未对接</strong>：门铃事件源（Alexa.DoorbellEventSource）</li>
-      <li><strong style="color:#da3633">⚠️ 未对接</strong>：门锁控制（Alexa.LockController）</li>
-      <li><strong style="color:#da3633">⚠️ 未对接</strong>：RTC半双工/全双工</li>
+      <li><strong style="color:#da3633">⚠️ 未对接</strong>：门铃事件源（Alexa.DoorbellEventSource）— 门铃按键触发事件推给Alexa</li>
+      <li><strong style="color:#da3633">⚠️ 未对接</strong>：门锁控制（Alexa.LockController）— 门锁上锁/解锁的Alexa控制</li>
+      <li><strong style="color:#da3633">⚠️ 未对接</strong>：RTC半双工/全双工 — 对讲功能依赖WebRTC</li>
       <li>备注：协议组仅联调，理论上RTCSessionController对接完就支持</li>
+      <li>认证标准周期8-10个工作日，但需所有接口对接完成</li>
     </ul>
   </div>
   <div class="task-section">
@@ -776,6 +777,7 @@
       <li><strong>方案商</strong>：七芯（电控）+ 豪力士（整机）</li>
       <li><strong>核心价值</strong>：对DMP体系能力的关键补强与验证</li>
       <li><strong>合作历史</strong>：去年合作过Wi-Fi智能门锁，这次是新品类扩展</li>
+      <li>App/模组/电控/MCU联调完成</li>
     </ul>
   </div>
   <div class="warning">
@@ -842,8 +844,10 @@
   <div class="task-section">
     <h4>关键进展</h4>
     <ul>
-      <li>安凯的需求已收集</li>
-      <li>Adan正在撰写需求文档</li>
+      <li><strong>已访问企微文档-门锁PRD</strong>（5/11提取）</li>
+      <li>安凯门锁要求App支持<strong>4种→6种</strong>锁体状态展示</li>
+      <li><strong>新增</strong>：门锁事件系统消息推送</li>
+      <li><strong>修复</strong>：云存领取bug（本地删除连接后绑定用户无法正常领取云存）</li>
     </ul>
   </div>
   <div class="task-section">
@@ -907,17 +911,27 @@
   <div class="task-section">
     <h4>关键进展</h4>
     <ul>
-      <li>问题根因已确认：4G模块异常，需升级固件</li>
-      <li>路线B"强制升级"新功能成为主路径</li>
-      <li>曾柔承诺5/11输出设备ID和固件版本</li>
+      <li>问题根因已确认：中云信安4G模块DNS缺陷</li>
+      <li><strong>已访问企微文档-MRD</strong>（5/11提取）：弹窗强制引导升级逻辑已明确</li>
+      <li><strong>MRD弹窗逻辑</strong>：首次绑定后弹窗只留【确认】，失败后每天一次保留【取消】</li>
+      <li>AOV升5.7.2.54 / 低功耗升5.6.0.0</li>
+    </ul>
+  </div>
+  <div class="task-section">
+    <h4>MRD要点（来自企微文档）</h4>
+    <ul>
+      <li><strong>首次绑定弹窗</strong>：只留【确认】按钮，用户必须点击确认</li>
+      <li><strong>失败后每日弹窗</strong>：每天一次，保留【取消】按钮</li>
+      <li><strong>筛选能力</strong>：需支持按模组型号/版本/固件/设备ID筛选</li>
+      <li><strong>路线A已被弃用</strong>：现有"强提醒升级"无法实现多次提醒，主攻强制弹窗新功能</li>
     </ul>
   </div>
   <div class="task-section">
     <h4>下一步</h4>
     <ul>
-      <li><strong>今日跟踪</strong>：确认曾柔是否已输出设备ID和固件版本清单</li>
-      <li>加速路线B"强制升级"新功能开发排期</li>
-      <li>建议Adan与吴总同步：路线A有机制限制，主攻路线B</li>
+      <li>徐俑确认强制弹窗开发排期</li>
+      <li>曾柔提供目标固件和设备范围</li>
+      <li>陈湘配置"美国桶"</li>
     </ul>
   </div>
 </div>
@@ -942,14 +956,16 @@
     <h4>关键进展</h4>
     <ul>
       <li>团队已建立轮流参与客服入线的机制</li>
-      <li>每天都在记录配网问题</li>
+      <li><strong>已访问企微文档-进线问题登记</strong>（5/11提取）</li>
+      <li><strong>32条进线记录已登记</strong></li>
+      <li>主要问题类型：安装问题、低功耗WiFi、密码WiFi、视频门铃、电池门铃</li>
     </ul>
   </div>
   <div class="task-section">
     <h4>下一步</h4>
     <ul>
       <li>确认是否有统一的配网问题记录模板</li>
-      <li>跟踪数据收集进度</li>
+      <li>跟踪数据收集进度（目标5月中下旬出分析报告）</li>
       <li>提前规划分析报告的框架和评审流程</li>
     </ul>
   </div>
@@ -976,6 +992,16 @@
       <li><strong>4/17重大发现</strong>：16万台设备中只有2台有灵敏度历史数据——基线数据严重缺失</li>
       <li>5/6: 钟杰群初步结论——灵敏度调节后，P50以上档位设备平均唤醒次数下降，误唤醒率降低</li>
       <li><strong>5/7 Adan质疑</strong>：样本太少、很多噪音、实验组不降反升，决定继续观察一周</li>
+      <li><strong>已访问企微文档-低功耗专项</strong>（5/11提取）</li>
+    </ul>
+  </div>
+  <div class="task-section">
+    <h4>低功耗专项要点（来自企微文档）</h4>
+    <ul>
+      <li><strong>设备范围</strong>：全量低功耗非AOV摄像头</li>
+      <li><strong>核心指标</strong>：PIR周触发次数看板</li>
+      <li><strong>待解决问题</strong>：需区分真实触发vs误触</li>
+      <li><strong>后续动作</strong>：数据团队建看板 + 产品确定命令行工具</li>
     </ul>
   </div>
   <div class="task-section">
