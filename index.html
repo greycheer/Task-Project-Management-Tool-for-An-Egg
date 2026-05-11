@@ -21,7 +21,7 @@
     max-width: 1600px;
     margin: 0 auto;
   }
-
+  
   /* ===== LEFT PANEL ===== */
   .left-panel {
     width: 480px;
@@ -84,7 +84,7 @@
   .project-block.t3 { border-left: 3px solid #3fb950; }
   .project-block.t4 { border-left: 3px solid #8957e5; }
   .project-block.t5 { border-left: 3px solid #f778ba; }
-
+  
   .project-header {
     display: flex;
     justify-content: space-between;
@@ -181,7 +181,7 @@
   .badge-todo { background: #8b949e; color: #000; }
   .badge-wait { background: #8957e5; color: #fff; }
   .badge-check { background: #a371f7; color: #fff; }
-
+  
   /* ===== RIGHT PANEL ===== */
   .right-panel {
     flex: 1;
@@ -291,7 +291,7 @@
     font-size: 13px;
     color: #a0c0f0;
   }
-
+  
   /* ===== PASSWORD OVERLAY ===== */
   #password-overlay {
     position: fixed;
@@ -361,7 +361,7 @@
     margin-top: 12px;
     display: none;
   }
-
+  
   .footer {
     text-align: center;
     color: #8b949e;
@@ -369,7 +369,7 @@
     font-size: 12px;
     padding-bottom: 20px;
   }
-
+  
   @media (max-width: 900px) {
     .left-panel { width: 100%; min-width: auto; border-right: none; }
     .app-container { flex-direction: column; }
@@ -398,15 +398,16 @@
 <div class="left-panel">
   <div class="left-header">
     <h1>📋 项目任务台账</h1>
-    <p class="meta">最后更新：2026-05-11 21:13 | 共5项目，17个任务</p>
+    <p class="meta">最后更新：2026-05-11 21:14 | 共5项目，17个任务</p>
   </div>
   <div class="stats-bar">
     <div class="stat-chip"><div class="num">5</div><div class="lbl">项目</div></div>
-    <div class="stat-chip"><div class="num">16</div><div class="lbl">任务</div></div>
-    <div class="stat-chip"><div class="num" style="color:#da3633">7</div><div class="lbl">进行中</div></div>
-    <div class="stat-chip"><div class="num" style="color:#8b949e">5</div><div class="lbl">未开始</div></div>
+    <div class="stat-chip"><div class="num">17</div><div class="lbl">任务</div></div>
+    <div class="stat-chip"><div class="num" style="color:#da3633">8</div><div class="lbl">进行中</div></div>
+    <div class="stat-chip"><div class="num" style="color:#8b949e">6</div><div class="lbl">未开始</div></div>
   </div>
   <div class="task-list">
+
     <div class="project-block t1 expanded" id="proj-T1">
       <div class="project-header" onclick="toggleProject('T1')">
         <div class="project-title"><span class="project-id t1">T1</span>易视云接DMP</div>
@@ -445,7 +446,7 @@
     <div class="project-block t2 expanded" id="proj-T2">
       <div class="project-header" onclick="toggleProject('T2')">
         <div class="project-title"><span class="project-id t2">T2</span>DMP平台迭代</div>
-        <div class="project-count">3个任务</div>
+        <div class="project-count">4个任务</div>
       </div>
       <div class="project-tasks">
         <div class="task-item" id="task-T2-1" onclick="showDetail('T2-1')">
@@ -469,6 +470,15 @@
         <div class="task-item" id="task-T2-3" onclick="showDetail('T2-3')">
           <div class="task-item-id">T2-3</div>
           <div class="task-item-name">WWA-App改造</div>
+          <div class="task-item-badges">
+            <span class="badge badge-todo">未开始</span>
+            <span class="badge badge-high">高</span>
+            <span class="badge badge-high">高</span>
+          </div>
+        </div>
+        <div class="task-item" id="task-T2-4" onclick="showDetail('T2-4')">
+          <div class="task-item-id">T2-4</div>
+          <div class="task-item-name">引入新品类（插座/开关/智能家居）</div>
           <div class="task-item-badges">
             <span class="badge badge-todo">未开始</span>
             <span class="badge badge-high">高</span>
@@ -593,12 +603,14 @@
     </div>
   </div>
 </div>
+
 <!-- RIGHT PANEL -->
 <div class="right-panel">
   <div class="detail-empty" id="detail-empty">
     <div class="detail-empty-icon">👆</div>
     <p>点击左侧任务查看详情</p>
   </div>
+
   <div id="detail-T1-1" class="detail-card t1">
     <div class="detail-header">
       <div class="detail-title-wrap">
@@ -612,32 +624,33 @@
         <span>紧急: <span class="badge badge-high">高</span></span>
       </div>
     </div>
-    
-  <div class="detail-section">
-    <h4>关键进展</h4>
-    <ul>
-      <li>需求评审已完成，进入开发阶段，彦晖负责推进</li>
-      <li>飞书文档提取完成：GPID产品配置、五元组分发、SDK配网改造、Push打通4项必要工作已明确</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>关注要点</h4>
-    <ul>
-      <li>开发进度是否按计划推进，有无阻塞</li>
-      <li>与App升级(T1-2)的接口对齐和联调节奏</li>
-      <li>项目约束：生产端影响最小化、用户体验连贯、ODM客户无感知</li>
-      <li>项目分两期：本期设备功能全流程，下期增值服务对接</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>下一步</h4>
-    <ul>
-      <li>确认彦晖当前的开发排期和里程碑</li>
-      <li>了解是否有需要Adan协调的资源或决策</li>
-    </ul>
+
+    <div class="detail-section">
+      <h4>关键进展</h4>
+      <ul>
+        <li>需求评审已完成，<strong>开发阶段已结束，已进入测试阶段</strong>（彦晖5/11反馈）</li>
+        <li>彦晖负责推进</li>
+        <li>飞书文档提取完成：GPID产品配置、五元组分发、SDK配网改造、Push打通4项必要工作已明确</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>关注要点</h4>
+      <ul>
+        <li>开发进度是否按计划推进，有无阻塞</li>
+        <li>与App升级(T1-2)的接口对齐和联调节奏</li>
+        <li>项目约束：生产端影响最小化、用户体验连贯、ODM客户无感知</li>
+        <li>项目分两期：本期设备功能全流程，下期增值服务对接</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>下一步</h4>
+      <ul>
+        <li>跟进测试阶段进展，确认测试覆盖范围</li>
+        <li>了解是否有需要Adan协调的资源或决策</li>
+      </ul>
+    </div>
   </div>
 
-  </div>
   <div id="detail-T1-2" class="detail-card t1">
     <div class="detail-header">
       <div class="detail-title-wrap">
@@ -651,36 +664,36 @@
         <span>紧急: <span class="badge badge-high">高</span></span>
       </div>
     </div>
-    
-  <div class="warning-box">
-    <strong>⚠️ 关键阻塞</strong>：前置依赖——易视云App重构版仍在第三轮验证中
-  </div>
-  <div class="detail-section">
-    <h4>关键进展</h4>
-    <ul>
-      <li>需求评审已完成</li>
-      <li>开发尚未启动，被前置依赖阻塞</li>
-      <li>飞书文档提取：App改造工作项已明确（WiFi/NVR设备添加、预览、回放、消息、设置等）</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>关注要点</h4>
-    <ul>
-      <li>易视云App重构版第三轮验证是当前最大阻塞点</li>
-      <li>平台(T1-1)已在开发中，App未启动，节奏不一致风险</li>
-      <li>徐俑同时负责T1-2和T2-3，人力资源分配需确认</li>
-      <li>本期只涉及设备功能，增值服务在二期</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>下一步</h4>
-    <ul>
-      <li><strong>紧急</strong>：找徐俑确认重构版第三轮验证预计完成时间</li>
-      <li>评估前置依赖延迟对整个项目时间线的影响</li>
-    </ul>
+
+    <div class="warning-box">
+      <strong>⚠️ 关键阻塞</strong>：前置依赖——易视云App重构版仍在第三轮验证中
+    </div>
+    <div class="detail-section">
+      <h4>关键进展</h4>
+      <ul>
+        <li>需求评审已完成</li>
+        <li>开发尚未启动，被前置依赖阻塞</li>
+        <li>飞书文档提取：App改造工作项已明确（WiFi/NVR设备添加、预览、回放、消息、设置等）</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>关注要点</h4>
+      <ul>
+        <li>易视云App重构版第三轮验证是当前最大阻塞点</li>
+        <li>平台(T1-1)已在测试中，App未启动，节奏不一致风险</li>
+        <li>徐俑同时负责T1-2和T2-3，人力资源分配需确认</li>
+        <li>本期只涉及设备功能，增值服务在二期</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>下一步</h4>
+      <ul>
+        <li><strong>紧急</strong>：找徐俑确认重构版第三轮验证预计完成时间</li>
+        <li>评估前置依赖延迟对整个项目时间线的影响</li>
+      </ul>
+    </div>
   </div>
 
-  </div>
   <div id="detail-T1-3" class="detail-card t1">
     <div class="detail-header">
       <div class="detail-title-wrap">
@@ -694,38 +707,38 @@
         <span>紧急: <span class="badge badge-low">低</span></span>
       </div>
     </div>
-    
-  <div class="highlight-box">
-    <strong>🎯 目标</strong>：6月份安防沙龙对外宣贯，驱动下游合作生态使用DMP设备出货
-  </div>
-  <div class="detail-section">
-    <h4>已挖掘价值点</h4>
-    <ul>
-      <li><strong>a.</strong> 政策风险大幅降低 — 设备数据全面合规</li>
-      <li><strong>b.</strong> 更强大的平台支持能力 — 售后能力全方面升级（需毅东信息）</li>
-      <li><strong>c.</strong> 能支持WWA（Work With Alexa）</li>
-      <li><strong>d.</strong> 毅东贴标问题 — 彦晖想到解决办法，需确认是否为真需求</li>
-      <li><strong>e.</strong> 可针对每款产品配置定制面板</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>关注要点</h4>
-    <ul>
-      <li>时间紧迫：6月沙龙距今不到一个月</li>
-      <li>价值点d不确定——需彦晖确认需求真实性</li>
-      <li>WWA价值点的技术可行性需确认T2-2、T2-3进度</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>下一步</h4>
-    <ul>
-      <li><strong>紧急</strong>：找彦晖确认贴标问题是否为真需求</li>
-      <li><strong>紧急</strong>：确认毅东售后能力升级信息是否已收到</li>
-      <li>开始准备价值点的包装材料和宣贯文案</li>
-    </ul>
+
+    <div class="highlight-box">
+      <strong>🎯 目标</strong>：6月份安防沙龙对外宣贯，驱动下游合作生态使用DMP设备出货
+    </div>
+    <div class="detail-section">
+      <h4>已挖掘价值点</h4>
+      <ul>
+        <li><strong>a.</strong> 政策风险大幅降低 — 设备数据全面合规</li>
+        <li><strong>b.</strong> 更强大的平台支持能力 — 售后能力全方面升级（需毅东信息）</li>
+        <li><strong>c.</strong> 能支持WWA（Work With Alexa）</li>
+        <li><strong>d.</strong> 毅东贴标问题 — 彦晖想到解决办法，需确认是否为真需求</li>
+        <li><strong>e.</strong> 可针对每款产品配置定制面板</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>关注要点</h4>
+      <ul>
+        <li>时间紧迫：6月沙龙距今不到一个月</li>
+        <li>价值点d不确定——需彦晖确认需求真实性</li>
+        <li>WWA价值点的技术可行性需确认T2-2、T2-3进度</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>下一步</h4>
+      <ul>
+        <li><strong>紧急</strong>：找彦晖确认贴标问题是否为真需求</li>
+        <li><strong>紧急</strong>：确认毅东售后能力升级信息是否已收到</li>
+        <li>开始准备价值点的包装材料和宣贯文案</li>
+      </ul>
+    </div>
   </div>
 
-  </div>
   <div id="detail-T2-1" class="detail-card t2">
     <div class="detail-header">
       <div class="detail-title-wrap">
@@ -739,24 +752,24 @@
         <span>紧急: <span class="badge badge-mid">中</span></span>
       </div>
     </div>
-    
-  <div class="detail-section">
-    <h4>关键进展</h4>
-    <ul>
-      <li>需求设计中，彦晖负责</li>
-      <li>要求整个平台有一套通用的产品设计来支持各个模块的多语言</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>关注要点</h4>
-    <ul>
-      <li>多语言不是简单文本替换，各模块技术栈可能不同</li>
-      <li>T1-1是否已预留多语言扩展能力——避免后续返工</li>
-      <li>翻译资源和流程需提前规划</li>
-    </ul>
+
+    <div class="detail-section">
+      <h4>关键进展</h4>
+      <ul>
+        <li>需求设计中，彦晖负责</li>
+        <li>要求整个平台有一套通用的产品设计来支持各个模块的多语言</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>关注要点</h4>
+      <ul>
+        <li>多语言不是简单文本替换，各模块技术栈可能不同</li>
+        <li>T1-1是否已预留多语言扩展能力——避免后续返工</li>
+        <li>翻译资源和流程需提前规划</li>
+      </ul>
+    </div>
   </div>
 
-  </div>
   <div id="detail-T2-2" class="detail-card t2">
     <div class="detail-header">
       <div class="detail-title-wrap">
@@ -770,35 +783,35 @@
         <span>紧急: <span class="badge badge-high">高</span></span>
       </div>
     </div>
-    
-  <div class="detail-section">
-    <h4>关键进展</h4>
-    <ul>
-      <li>任务已启动，彦晖在推进服务端改造</li>
-      <li>已访问企微文档-WWA认证对接进度表</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>WWA认证对接进度（来自企微进度表）</h4>
-    <ul>
-      <li><strong>已对接</strong>：AppToApp、Alexa Discovery、CameraStream等基础接口</li>
-      <li><strong>⚠️ 未对接</strong>：门铃事件源（Alexa.DoorbellEventSource）</li>
-      <li><strong>⚠️ 未对接</strong>：门锁控制（Alexa.LockController）</li>
-      <li><strong>⚠️ 未对接</strong>：RTC半双工/全双工</li>
-      <li>备注：协议组仅联调，理论上RTCSessionController对接完就支持</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>关注要点</h4>
-    <ul>
-      <li>核心卡点：<strong>WebRTC协议支持</strong>——门铃/门锁的对讲功能依赖RTC</li>
-      <li>WWA认证标准周期8-10个工作日，前提是全部接口对接完成</li>
-      <li>与T1-3联动：WWA是6月沙龙价值点之一</li>
-      <li><strong>彦晖多任务负载</strong>：同时负责T1-1、T2-1、T2-2</li>
-    </ul>
+
+    <div class="detail-section">
+      <h4>关键进展</h4>
+      <ul>
+        <li>任务已启动，彦晖在推进服务端改造</li>
+        <li>已访问企微文档-WWA认证对接进度表</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>WWA认证对接进度（来自企微进度表）</h4>
+      <ul>
+        <li><strong>已对接</strong>：AppToApp、Alexa Discovery、CameraStream等基础接口</li>
+        <li><strong>⚠️ 未对接</strong>：门铃事件源（Alexa.DoorbellEventSource）</li>
+        <li><strong>⚠️ 未对接</strong>：门锁控制（Alexa.LockController）</li>
+        <li><strong>⚠️ 未对接</strong>：RTC半双工/全双工</li>
+        <li>备注：协议组仅联调，理论上RTCSessionController对接完就支持</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>关注要点</h4>
+      <ul>
+        <li>核心卡点：<strong>WebRTC协议支持</strong>——门铃/门锁的对讲功能依赖RTC</li>
+        <li>WWA认证标准周期8-10个工作日，前提是全部接口对接完成</li>
+        <li>与T1-3联动：WWA是6月沙龙价值点之一</li>
+        <li><strong>彦晖多任务负载</strong>：同时负责T1-1、T2-1、T2-2、T2-4</li>
+      </ul>
+    </div>
   </div>
 
-  </div>
   <div id="detail-T2-3" class="detail-card t2">
     <div class="detail-header">
       <div class="detail-title-wrap">
@@ -812,36 +825,79 @@
         <span>紧急: <span class="badge badge-high">高</span></span>
       </div>
     </div>
-    
-  <div class="warning-box">
-    <strong>⚠️ 技术复杂度极高</strong>：需merge P2P私有协议和WebRTC协议到同一个SDK，涉及大量架构重构
-  </div>
-  <div class="detail-section">
-    <h4>关键进展</h4>
-    <ul>
-      <li>任务已识别，尚未启动</li>
-      <li>WWA认证进度表中RTC半双工/全双工均为未对接</li>
-      <li>备注提到"协议组仅联调"——服务端和App端仍处于联调阶段</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>关注要点</h4>
-    <ul>
-      <li>merge两种协议的架构重构工作量巨大</li>
-      <li>徐俑同时负责T1-2和T2-3，人力资源冲突</li>
-      <li>需评估替代方案（非merge方案）的ROI</li>
-      <li>RTC未对接直接影响WWA认证——对讲功能无法完成</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>下一步</h4>
-    <ul>
-      <li><strong>紧急</strong>：与徐俑确认T1-2和T2-3的人力分配计划</li>
-      <li>要求先输出技术方案评估（merge vs 替代方案）</li>
-    </ul>
+
+    <div class="warning-box">
+      <strong>⚠️ 技术复杂度极高</strong>：需merge P2P私有协议和WebRTC协议到同一个SDK，涉及大量架构重构
+    </div>
+    <div class="detail-section">
+      <h4>关键进展</h4>
+      <ul>
+        <li>任务已识别，尚未启动</li>
+        <li>WWA认证进度表中RTC半双工/全双工均为未对接</li>
+        <li>备注提到"协议组仅联调"——服务端和App端仍处于联调阶段</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>关注要点</h4>
+      <ul>
+        <li>merge两种协议的架构重构工作量巨大</li>
+        <li>徐俑同时负责T1-2和T2-3，人力资源冲突</li>
+        <li>需评估替代方案（非merge方案）的ROI</li>
+        <li>RTC未对接直接影响WWA认证——对讲功能无法完成</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>下一步</h4>
+      <ul>
+        <li><strong>紧急</strong>：与徐俑确认T1-2和T2-3的人力分配计划</li>
+        <li>要求先输出技术方案评估（merge vs 替代方案）</li>
+      </ul>
+    </div>
   </div>
 
+  <div id="detail-T2-4" class="detail-card t2">
+    <div class="detail-header">
+      <div class="detail-title-wrap">
+        <span class="detail-project-label">T2 DMP平台迭代专项</span>
+        <span class="detail-title">T2-4 引入新品类（插座/开关/智能家居）</span>
+      </div>
+      <div class="detail-meta">
+        <span class="badge badge-todo">未开始</span>
+        <span>负责人: 彦晖/Adan</span>
+        <span>重要: <span class="badge badge-high">高</span></span>
+        <span>紧急: <span class="badge badge-high">高</span></span>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <strong>⚠️ 核心阻塞</strong>：找不到愿意对接的上游供应商，Adan和彦晖已找了半个月
+    </div>
+    <div class="detail-section">
+      <h4>关键进展</h4>
+      <ul>
+        <li>需求已明确：引入插座/开关/智能家居新品类</li>
+        <li>潜在解决路径：小批试产作为谈判筹码</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>关注要点</h4>
+      <ul>
+        <li>供应商对接难度：找了半个月没找到，可能DMP平台吸引力不足或对方已有稳定渠道</li>
+        <li>小批试产策略需要吴总确认：公司是否愿意承担风险？规模多大？</li>
+        <li><strong>彦晖多任务负载</strong>：同时负责T1-1(测试中)/T2-1/T2-2/T2-4</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>下一步</h4>
+      <ul>
+        <li><strong>明天</strong>：跟吴总确认小批试产策略的可行性</li>
+        <li>明确小批试产的具体规模（数量、金额、时间）</li>
+        <li>准备供应商谈判材料</li>
+        <li>考虑备选方案（行业展会、合作伙伴引荐等）</li>
+      </ul>
+    </div>
   </div>
+
   <div id="detail-T3-1" class="detail-card t3">
     <div class="detail-header">
       <div class="detail-title-wrap">
@@ -855,29 +911,29 @@
         <span>紧急: <span class="badge badge-mid">中</span></span>
       </div>
     </div>
-    
-  <div class="detail-section">
-    <h4>Warner立项关键信息（来自企微文档）</h4>
-    <ul>
-      <li><strong>首批200台预售订单已确认</strong>，用于WARNER渠道试点</li>
-      <li><strong>产品方向</strong>：人脸识别视频锁</li>
-      <li><strong>方案商</strong>：七芯（电控）+ 豪力士（整机）</li>
-      <li><strong>核心价值</strong>：对DMP体系能力的关键补强与验证</li>
-      <li>App/模组/电控/MCU联调完成</li>
-    </ul>
-  </div>
-  <div class="warning-box">
-    <strong>⚠️ 当前阻塞</strong>：等通信模组与七芯电控板/猫眼MCU的联调完成
-  </div>
-  <div class="detail-section">
-    <h4>下一步</h4>
-    <ul>
-      <li><strong>紧急</strong>：确认硬件联调的当前进度、计划和预计完成时间</li>
-      <li>评估硬件联调延迟对项目交付的影响</li>
-    </ul>
+
+    <div class="detail-section">
+      <h4>Warner立项关键信息（来自企微文档）</h4>
+      <ul>
+        <li><strong>首批200台预售订单已确认</strong>，用于WARNER渠道试点</li>
+        <li><strong>产品方向</strong>：人脸识别视频锁</li>
+        <li><strong>方案商</strong>：七芯（电控）+ 豪力士（整机）</li>
+        <li><strong>核心价值</strong>：对DMP体系能力的关键补强与验证</li>
+        <li>App/模组/电控/MCU联调完成</li>
+      </ul>
+    </div>
+    <div class="warning-box">
+      <strong>⚠️ 当前阻塞</strong>：等通信模组与七芯电控板/猫眼MCU的联调完成
+    </div>
+    <div class="detail-section">
+      <h4>下一步</h4>
+      <ul>
+        <li><strong>紧急</strong>：确认硬件联调的当前进度、计划和预计完成时间</li>
+        <li>评估硬件联调延迟对项目交付的影响</li>
+      </ul>
+    </div>
   </div>
 
-  </div>
   <div id="detail-T3-2" class="detail-card t3">
     <div class="detail-header">
       <div class="detail-title-wrap">
@@ -891,27 +947,27 @@
         <span>紧急: <span class="badge badge-low">低</span></span>
       </div>
     </div>
-    
-  <div class="warning-box">
-    <strong>⚠️ 沉默风险极高</strong>：已有一段时间未收到liuwei129的后续回复，客户可能处于流失边缘
-  </div>
-  <div class="detail-section">
-    <h4>关键进展</h4>
-    <ul>
-      <li>此前已有邮件交流</li>
-      <li>目前处于等待对方回复状态</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>下一步</h4>
-    <ul>
-      <li><strong>紧急</strong>：Adan主动发一封跟进邮件给liuwei129</li>
-      <li>如邮件仍无回复，建议电话沟通或寻找其他对接窗口</li>
-      <li>准备备选方案（产品定制、更灵活的合作模式）</li>
-    </ul>
+
+    <div class="warning-box">
+      <strong>⚠️ 沉默风险极高</strong>：已有一段时间未收到liuwei129的后续回复，客户可能处于流失边缘
+    </div>
+    <div class="detail-section">
+      <h4>关键进展</h4>
+      <ul>
+        <li>此前已有邮件交流</li>
+        <li>目前处于等待对方回复状态</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>下一步</h4>
+      <ul>
+        <li><strong>紧急</strong>：Adan主动发一封跟进邮件给liuwei129</li>
+        <li>如邮件仍无回复，建议电话沟通或寻找其他对接窗口</li>
+        <li>准备备选方案（产品定制、更灵活的合作模式）</li>
+      </ul>
+    </div>
   </div>
 
-  </div>
   <div id="detail-T3-3" class="detail-card t3">
     <div class="detail-header">
       <div class="detail-title-wrap">
@@ -925,28 +981,28 @@
         <span>紧急: <span class="badge badge-high">高</span></span>
       </div>
     </div>
-    
-  <div class="warning-box">
-    <strong>⚠️ 时间紧迫</strong>：安凯催了很久，需求文档需尽快完成并推进评审
-  </div>
-  <div class="detail-section">
-    <h4>关键进展</h4>
-    <ul>
-      <li>企微PRD提取：安凯门锁要求App支持<strong>4种→6种</strong>锁体状态展示</li>
-      <li><strong>新增</strong>：门锁事件系统消息推送</li>
-      <li><strong>修复</strong>：云存领取bug（本地删除连接后绑定用户无法正常领取云存）</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>下一步</h4>
-    <ul>
-      <li><strong>紧急</strong>：加快需求文档撰写，建议本周内完成</li>
-      <li>文档完成后尽快安排评审</li>
-      <li>向安凯同步进度和预计时间，管理对方预期</li>
-    </ul>
+
+    <div class="warning-box">
+      <strong>⚠️ 时间紧迫</strong>：安凯催了很久，需求文档需尽快完成并推进评审
+    </div>
+    <div class="detail-section">
+      <h4>关键进展</h4>
+      <ul>
+        <li>企微PRD提取：安凯门锁要求App支持<strong>4种→6种</strong>锁体状态展示</li>
+        <li><strong>新增</strong>：门锁事件系统消息推送</li>
+        <li><strong>修复</strong>：云存领取bug（本地删除连接后绑定用户无法正常领取云存）</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>下一步</h4>
+      <ul>
+        <li><strong>紧急</strong>：加快需求文档撰写，建议本周内完成</li>
+        <li>文档完成后尽快安排评审</li>
+        <li>向安凯同步进度和预计时间，管理对方预期</li>
+      </ul>
+    </div>
   </div>
 
-  </div>
   <div id="detail-T3-4" class="detail-card t3">
     <div class="detail-header">
       <div class="detail-title-wrap">
@@ -960,23 +1016,23 @@
         <span>紧急: <span class="badge badge-low">低</span></span>
       </div>
     </div>
-    
-  <div class="detail-section">
-    <h4>关键进展</h4>
-    <ul>
-      <li>已打通一款基础款（B1-基础款）</li>
-      <li>更多选型对接因缺乏订单量驱动而搁置</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>下一步</h4>
-    <ul>
-      <li>保持与粤丰的定期沟通，维护关系</li>
-      <li>关注T3-1、T3-2等客户任务进展，有订单立即启动对接</li>
-    </ul>
+
+    <div class="detail-section">
+      <h4>关键进展</h4>
+      <ul>
+        <li>已打通一款基础款（B1-基础款）</li>
+        <li>更多选型对接因缺乏订单量驱动而搁置</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>下一步</h4>
+      <ul>
+        <li>保持与粤丰的定期沟通，维护关系</li>
+        <li>关注T3-1、T3-2等客户任务进展，有订单立即启动对接</li>
+      </ul>
+    </div>
   </div>
 
-  </div>
   <div id="detail-T4-1" class="detail-card t4">
     <div class="detail-header">
       <div class="detail-title-wrap">
@@ -990,33 +1046,33 @@
         <span>紧急: <span class="badge badge-high">高</span></span>
       </div>
     </div>
-    
-  <div class="highlight-box">
-    <strong>🎯 目标完成时间</strong>：2025-05-31（运营预期5月完成交付）
-  </div>
-  <div class="detail-section">
-    <h4>关键进展</h4>
-    <ul>
-      <li><strong>运营已提供设备ID列表</strong>，计划次日配置OTA升级</li>
-      <li>问题根因已确认：中云信安4G模块DNS缺陷</li>
-      <li>两个MRD文档已输出（强提醒升级 + 强制升级）</li>
-      <li><strong>MRD弹窗逻辑</strong>：首次绑定只留【确认】、失败后每天一次保留【取消】</li>
-    </ul>
-  </div>
-  <div class="highlight-box">
-    <strong>🎯 Todo</strong>：明天跟吴总确认两个产品功能的优先级——强提醒升级 vs 强制升级
-  </div>
-  <div class="detail-section">
-    <h4>下一步</h4>
-    <ul>
-      <li><strong>明天</strong>：跟吴总确认强提醒升级和强制升级的优先级</li>
-      <li>徐俑确认强制弹窗开发排期</li>
-      <li>曾柔提供目标固件和设备范围</li>
-      <li>陈湘配置"美国桶"</li>
-    </ul>
+
+    <div class="highlight-box">
+      <strong>🎯 目标完成时间</strong>：2025-05-31（运营预期5月完成交付）
+    </div>
+    <div class="detail-section">
+      <h4>关键进展</h4>
+      <ul>
+        <li><strong>运营已提供设备ID列表</strong>，计划次日配置OTA升级</li>
+        <li>问题根因已确认：中云信安4G模块DNS缺陷</li>
+        <li>两个MRD文档已输出（强提醒升级 + 强制升级）</li>
+        <li><strong>MRD弹窗逻辑</strong>：首次绑定只留【确认】、失败后每天一次保留【取消】</li>
+      </ul>
+    </div>
+    <div class="highlight-box">
+      <strong>🎯 Todo</strong>：明天跟吴总确认两个产品功能的优先级——强提醒升级 vs 强制升级
+    </div>
+    <div class="detail-section">
+      <h4>下一步</h4>
+      <ul>
+        <li><strong>明天</strong>：跟吴总确认强提醒升级和强制升级的优先级</li>
+        <li>徐俑确认强制弹窗开发排期</li>
+        <li>曾柔提供目标固件和设备范围</li>
+        <li>陈湘配置"美国桶"</li>
+      </ul>
+    </div>
   </div>
 
-  </div>
   <div id="detail-T4-2" class="detail-card t4">
     <div class="detail-header">
       <div class="detail-title-wrap">
@@ -1030,28 +1086,28 @@
         <span>紧急: <span class="badge badge-mid">中</span></span>
       </div>
     </div>
-    
-  <div class="highlight-box">
-    <strong>🎯 目标完成时间</strong>：2025-05-20
-  </div>
-  <div class="detail-section">
-    <h4>关键进展</h4>
-    <ul>
-      <li>团队已建立轮流参与客服入线的机制</li>
-      <li><strong>32条进线记录已登记</strong>（来自企微文档）</li>
-      <li>主要问题类型：安装/低功耗WiFi/密码WiFi/视频门铃/电池门铃</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>下一步</h4>
-    <ul>
-      <li>确认是否有统一的配网问题记录模板</li>
-      <li>跟踪数据收集进度</li>
-      <li>提前规划分析报告的框架和评审流程</li>
-    </ul>
+
+    <div class="highlight-box">
+      <strong>🎯 目标完成时间</strong>：2025-05-20
+    </div>
+    <div class="detail-section">
+      <h4>关键进展</h4>
+      <ul>
+        <li>团队已建立轮流参与客服入线的机制</li>
+        <li><strong>32条进线记录已登记</strong>（来自企微文档）</li>
+        <li>主要问题类型：安装/低功耗WiFi/密码WiFi/视频门铃/电池门铃</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>下一步</h4>
+      <ul>
+        <li>确认是否有统一的配网问题记录模板</li>
+        <li>跟踪数据收集进度</li>
+        <li>提前规划分析报告的框架和评审流程</li>
+      </ul>
+    </div>
   </div>
 
-  </div>
   <div id="detail-T4-3" class="detail-card t4">
     <div class="detail-header">
       <div class="detail-title-wrap">
@@ -1065,34 +1121,34 @@
         <span>紧急: <span class="badge badge-mid">中</span></span>
       </div>
     </div>
-    
-  <div class="detail-section">
-    <h4>关键时间线</h4>
-    <ul>
-      <li>4/17: 钟杰群输出测试设备清单，选定B4-Q-W6和B4-M-A6</li>
-      <li><strong>4/17重大发现</strong>：16万台设备中只有2台有灵敏度历史数据</li>
-      <li>5/6: 钟杰群初步结论——灵敏度调节后P50以上档位唤醒次数下降</li>
-      <li><strong>5/7 Adan质疑</strong>：样本太少、噪音多、实验组不降反升</li>
-      <li>企微专项提取：全量非AOV设备、PIR周触发次数看板待建</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>关注要点</h4>
-    <ul>
-      <li>样本量和数据质量问题——Adan的质疑需要重视</li>
-      <li>灵敏度历史数据缺失是深层隐患</li>
-      <li>距离"减少客诉"目标还有距离</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>下一步</h4>
-    <ul>
-      <li><strong>本周跟踪</strong>：等钟杰群第二周数据对比结果</li>
-      <li>向张荟瑶/硬件团队获取实验室灵敏度-唤醒率关系数据</li>
-    </ul>
+
+    <div class="detail-section">
+      <h4>关键时间线</h4>
+      <ul>
+        <li>4/17: 钟杰群输出测试设备清单，选定B4-Q-W6和B4-M-A6</li>
+        <li><strong>4/17重大发现</strong>：16万台设备中只有2台有灵敏度历史数据</li>
+        <li>5/6: 钟杰群初步结论——灵敏度调节后P50以上档位唤醒次数下降</li>
+        <li><strong>5/7 Adan质疑</strong>：样本太少、噪音多、实验组不降反升</li>
+        <li>企微专项提取：全量非AOV设备、PIR周触发次数看板待建</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>关注要点</h4>
+      <ul>
+        <li>样本量和数据质量问题——Adan的质疑需要重视</li>
+        <li>灵敏度历史数据缺失是深层隐患</li>
+        <li>距离"减少客诉"目标还有距离</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>下一步</h4>
+      <ul>
+        <li><strong>本周跟踪</strong>：等钟杰群第二周数据对比结果</li>
+        <li>向张荟瑶/硬件团队获取实验室灵敏度-唤醒率关系数据</li>
+      </ul>
+    </div>
   </div>
 
-  </div>
   <div id="detail-T4-4" class="detail-card t4">
     <div class="detail-header">
       <div class="detail-title-wrap">
@@ -1106,39 +1162,39 @@
         <span>紧急: <span class="badge badge-low">低</span></span>
       </div>
     </div>
-    
-  <div class="detail-section">
-    <h4>需求描述</h4>
-    <ul>
-      <li>低功耗app做低电量提示——电量低时App提示用户设备需充电</li>
-      <li>设备离线原因提示为"低电离线"</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>关键进展</h4>
-    <ul>
-      <li>新任务刚登记（5/11）</li>
-      <li>负责人徐俑，尚未进入开发</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>关注要点</h4>
-    <ul>
-      <li><strong>徐俑多任务负载</strong>：同时有T1-2/T2-3/T4-1/T4-4四个任务</li>
-      <li>与T1-2 App升级的关系：是否可在重构版中一并实现？</li>
-      <li>低电量触发阈值需明确</li>
-      <li>"低电离线"分类是否需要服务端配合修改</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>下一步</h4>
-    <ul>
-      <li>与徐俑确认当前人力分配和排期可行性</li>
-      <li>明确低电量提示的触发阈值</li>
-    </ul>
+
+    <div class="detail-section">
+      <h4>需求描述</h4>
+      <ul>
+        <li>低功耗app做低电量提示——电量低时App提示用户设备需充电</li>
+        <li>设备离线原因提示为"低电离线"</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>关键进展</h4>
+      <ul>
+        <li>新任务刚登记（5/11）</li>
+        <li>负责人徐俑，尚未进入开发</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>关注要点</h4>
+      <ul>
+        <li><strong>徐俑多任务负载</strong>：同时有T1-2/T2-3/T4-1/T4-4四个任务</li>
+        <li>与T1-2 App升级的关系：是否可在重构版中一并实现？</li>
+        <li>低电量触发阈值需明确</li>
+        <li>"低电离线"分类是否需要服务端配合修改</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>下一步</h4>
+      <ul>
+        <li>与徐俑确认当前人力分配和排期可行性</li>
+        <li>明确低电量提示的触发阈值</li>
+      </ul>
+    </div>
   </div>
 
-  </div>
   <div id="detail-T5-1" class="detail-card t5">
     <div class="detail-header">
       <div class="detail-title-wrap">
@@ -1152,29 +1208,29 @@
         <span>紧急: <span class="badge badge-mid">中</span></span>
       </div>
     </div>
-    
-  <div class="detail-section">
-    <h4>背景</h4>
-    <p>随着项目增多和任务复杂度提升，团队成员对自己和他人工作重心的全貌了解可能不够清晰。需要通过一次会议，把当前所有核心项目和任务同步给团队。</p>
-  </div>
-  <div class="detail-section">
-    <h4>关注要点</h4>
-    <ul>
-      <li>会议内容准备：当前台账已整理5个项目16个任务，可直接作为会议材料</li>
-      <li>会议重点不应只是"念清单"——要让每个成员理解自己的工作在大图中的位置</li>
-      <li>明确关键路径上的阻塞点，需要资源倾斜</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>下一步</h4>
-    <ul>
-      <li>安排会议时间（建议本周内）</li>
-      <li>准备会议材料：台账总览+关键任务详情</li>
-      <li>会议议程：总览10min→重点项目20min→各负责人简述15min→对齐事项10min</li>
-    </ul>
+
+    <div class="detail-section">
+      <h4>背景</h4>
+      <p>随着项目增多和任务复杂度提升，团队成员对自己和他人工作重心的全貌了解可能不够清晰。需要通过一次会议，把当前所有核心项目和任务同步给团队。</p>
+    </div>
+    <div class="detail-section">
+      <h4>关注要点</h4>
+      <ul>
+        <li>会议内容准备：当前台账已整理5个项目17个任务，可直接作为会议材料</li>
+        <li>会议重点不应只是"念清单"——要让每个成员理解自己的工作在大图中的位置</li>
+        <li>明确关键路径上的阻塞点，需要资源倾斜</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>下一步</h4>
+      <ul>
+        <li>安排会议时间（建议本周内）</li>
+        <li>准备会议材料：台账总览+关键任务详情</li>
+        <li>会议议程：总览10min→重点项目20min→各负责人简述15min→对齐事项10min</li>
+      </ul>
+    </div>
   </div>
 
-  </div>
   <div id="detail-T5-2" class="detail-card t5">
     <div class="detail-header">
       <div class="detail-title-wrap">
@@ -1188,34 +1244,35 @@
         <span>紧急: <span class="badge badge-mid">中</span></span>
       </div>
     </div>
-    
-  <div class="detail-section">
-    <h4>背景</h4>
-    <p>沐香是校招毕业生，目前在参与"设备添加配网绑定环节专项"（T4-2）的工作。她在参与过程中似乎碰到了一些问题，Adan需要对她进行单独的辅导和情况了解。</p>
-  </div>
-  <div class="detail-section">
-    <h4>关注要点</h4>
-    <ul>
-      <li>沐香遇到的问题类型可能是：技术理解、数据收集、客服沟通、根因分析、工作优先级</li>
-      <li>辅导策略建议：先了解具体情况（1on1沟通），不要假设问题类型</li>
-      <li>与T4-2的关系：沐香的辅导直接服务于T4-2的推进</li>
-    </ul>
-  </div>
-  <div class="detail-section">
-    <h4>下一步</h4>
-    <ul>
-      <li><strong>本周安排1on1</strong>：Adan与沐香单独沟通，了解具体问题</li>
-      <li>根据问题类型制定辅导计划（技术mentor/模板框架/旁听学习）</li>
-      <li>辅导后跟踪沐香在后续配网专项中的表现改善</li>
-    </ul>
+
+    <div class="detail-section">
+      <h4>背景</h4>
+      <p>沐香是校招毕业生，目前在参与"设备添加配网绑定环节专项"（T4-2）的工作。她在参与过程中似乎碰到了一些问题，Adan需要对她进行单独的辅导和情况了解。</p>
+    </div>
+    <div class="detail-section">
+      <h4>关注要点</h4>
+      <ul>
+        <li>沐香遇到的问题类型可能是：技术理解、数据收集、客服沟通、根因分析、工作优先级</li>
+        <li>辅导策略建议：先了解具体情况（1on1沟通），不要假设问题类型</li>
+        <li>与T4-2的关系：沐香的辅导直接服务于T4-2的推进</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>下一步</h4>
+      <ul>
+        <li><strong>本周安排1on1</strong>：Adan与沐香单独沟通，了解具体问题</li>
+        <li>根据问题类型制定辅导计划（技术mentor/模板框架/旁听学习）</li>
+        <li>辅导后跟踪沐香在后续配网专项中的表现改善</li>
+      </ul>
+    </div>
   </div>
 
-  </div>
   <p class="footer">
-    台账持续更新中 | 每次信息更新后，指挥会同步更新此文档 | 最后更新：2026-05-11 21:13
+    台账持续更新中 | 每次信息更新后，指挥会同步更新此文档 | 最后更新：2026-05-11 21:18
   </p>
 </div>
 </div>
+
 <script>
   // ===== PASSWORD PROTECTION =====
   const CORRECT_PASSWORD = "andan2025";
@@ -1268,7 +1325,6 @@
     document.getElementById('main-app').style.display = 'flex';
   }
 
-  // Check auth on load
   if (isAuthenticated()) {
     showApp();
   }
@@ -1282,19 +1338,13 @@
   }
 
   function showDetail(taskId) {
-    // Remove active from all task items
     document.querySelectorAll('.task-item').forEach(el => el.classList.remove('active'));
-    // Add active to current
     const taskEl = document.getElementById('task-' + taskId);
     if (taskEl) taskEl.classList.add('active');
 
-    // Hide empty state
     document.getElementById('detail-empty').style.display = 'none';
-
-    // Hide all detail cards
     document.querySelectorAll('.detail-card').forEach(el => el.classList.remove('active'));
 
-    // Show current detail card
     const detailEl = document.getElementById('detail-' + taskId);
     if (detailEl) {
       detailEl.classList.add('active');
@@ -1302,7 +1352,6 @@
     }
   }
 
-  // Show T1-1 by default
   document.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById('main-app').style.display !== 'none') {
       showDetail('T1-1');
