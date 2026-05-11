@@ -7,170 +7,43 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background: #0d1117;
-    color: #c9d1d9;
-    line-height: 1.6;
-    height: 100vh;
-    overflow: hidden;
-  }
-  .app-container {
-    display: flex;
-    height: 100vh;
-    max-width: 1600px;
-    margin: 0 auto;
-  }
-  .left-panel {
-    width: 480px;
-    min-width: 480px;
-    background: #0d1117;
-    border-right: 1px solid #30363d;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-  .left-header {
-    padding: 20px 20px 12px;
-    border-bottom: 1px solid #21262d;
-  }
-  .left-header h1 {
-    color: #58a6ff;
-    font-size: 22px;
-    margin-bottom: 6px;
-  }
-  .left-header .meta {
-    color: #8b949e;
-    font-size: 12px;
-  }
-  .stats-bar {
-    display: flex;
-    gap: 12px;
-    padding: 12px 20px;
-    border-bottom: 1px solid #21262d;
-  }
-  .stat-chip {
-    background: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 6px;
-    padding: 6px 12px;
-    text-align: center;
-    flex: 1;
-  }
-  .stat-chip .num {
-    font-size: 20px;
-    font-weight: bold;
-    color: #58a6ff;
-  }
-  .stat-chip .lbl {
-    font-size: 11px;
-    color: #8b949e;
-  }
-  .task-list {
-    flex: 1;
-    overflow-y: auto;
-    padding: 12px 16px;
-  }
-  .project-block {
-    margin-bottom: 12px;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid #30363d;
-  }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; height: 100vh; overflow: hidden; }
+  .app-container { display: flex; height: 100vh; max-width: 1600px; margin: 0 auto; }
+  .left-panel { width: 480px; min-width: 480px; background: #0d1117; border-right: 1px solid #30363d; display: flex; flex-direction: column; overflow: hidden; }
+  .left-header { padding: 20px 20px 12px; border-bottom: 1px solid #21262d; }
+  .left-header h1 { color: #58a6ff; font-size: 22px; margin-bottom: 6px; }
+  .left-header .meta { color: #8b949e; font-size: 12px; }
+  .stats-bar { display: flex; gap: 12px; padding: 12px 20px; border-bottom: 1px solid #21262d; }
+  .stat-chip { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 6px 12px; text-align: center; flex: 1; }
+  .stat-chip .num { font-size: 20px; font-weight: bold; color: #58a6ff; }
+  .stat-chip .lbl { font-size: 11px; color: #8b949e; }
+  .task-list { flex: 1; overflow-y: auto; padding: 12px 16px; }
+  .project-block { margin-bottom: 12px; border-radius: 8px; overflow: hidden; border: 1px solid #30363d; }
   .project-block.t1 { border-left: 3px solid #f0883e; }
   .project-block.t2 { border-left: 3px solid #58a6ff; }
   .project-block.t3 { border-left: 3px solid #3fb950; }
   .project-block.t4 { border-left: 3px solid #8957e5; }
   .project-block.t5 { border-left: 3px solid #f778ba; }
-  .project-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 14px;
-    background: #161b22;
-    cursor: pointer;
-    user-select: none;
-  }
-  .project-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: #e6edf3;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .project-id {
-    font-size: 11px;
-    font-weight: 700;
-    padding: 2px 7px;
-    border-radius: 4px;
-    color: #000;
-  }
+  .project-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: #161b22; cursor: pointer; user-select: none; }
+  .project-title { font-size: 14px; font-weight: 600; color: #e6edf3; display: flex; align-items: center; gap: 8px; }
+  .project-id { font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 4px; color: #000; }
   .project-id.t1 { background: #f0883e; }
   .project-id.t2 { background: #58a6ff; }
   .project-id.t3 { background: #3fb950; }
   .project-id.t4 { background: #8957e5; }
   .project-id.t5 { background: #f778ba; }
-  .project-count {
-    font-size: 12px;
-    color: #8b949e;
-  }
-  .project-tasks {
-    display: none;
-  }
-  .project-block.expanded .project-tasks {
-    display: block;
-  }
-  .project-block.expanded .project-header {
-    background: #1c2128;
-  }
-  .task-item {
-    display: flex;
-    align-items: center;
-    padding: 8px 14px;
-    border-bottom: 1px solid #21262d;
-    cursor: pointer;
-    gap: 8px;
-    transition: background 0.15s;
-  }
-  .task-item:last-child {
-    border-bottom: none;
-  }
-  .task-item:hover {
-    background: #1c2128;
-  }
-  .task-item.active {
-    background: rgba(47, 129, 247, 0.15);
-    border-right: 2px solid #58a6ff;
-  }
-  .task-item-id {
-    font-family: "SF Mono", monospace;
-    font-size: 12px;
-    font-weight: 600;
-    color: #58a6ff;
-    min-width: 32px;
-  }
-  .task-item-name {
-    flex: 1;
-    font-size: 13px;
-    color: #c9d1d9;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .task-item-badges {
-    display: flex;
-    gap: 4px;
-    align-items: center;
-  }
-  .badge {
-    display: inline-block;
-    padding: 1px 7px;
-    border-radius: 10px;
-    font-size: 10px;
-    font-weight: 600;
-    white-space: nowrap;
-  }
+  .project-count { font-size: 12px; color: #8b949e; }
+  .project-tasks { display: none; }
+  .project-block.expanded .project-tasks { display: block; }
+  .project-block.expanded .project-header { background: #1c2128; }
+  .task-item { display: flex; align-items: center; padding: 8px 14px; border-bottom: 1px solid #21262d; cursor: pointer; gap: 8px; transition: background 0.15s; }
+  .task-item:last-child { border-bottom: none; }
+  .task-item:hover { background: #1c2128; }
+  .task-item.active { background: rgba(47, 129, 247, 0.15); border-right: 2px solid #58a6ff; }
+  .task-item-id { font-family: "SF Mono", monospace; font-size: 12px; font-weight: 600; color: #58a6ff; min-width: 32px; }
+  .task-item-name { flex: 1; font-size: 13px; color: #c9d1d9; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .task-item-badges { display: flex; gap: 4px; align-items: center; }
+  .badge { display: inline-block; padding: 1px 7px; border-radius: 10px; font-size: 10px; font-weight: 600; white-space: nowrap; }
   .badge-high { background: #da3633; color: #fff; }
   .badge-mid { background: #d29922; color: #000; }
   .badge-low { background: #3fb950; color: #000; }
@@ -178,195 +51,45 @@
   .badge-todo { background: #8b949e; color: #000; }
   .badge-wait { background: #8957e5; color: #fff; }
   .badge-check { background: #a371f7; color: #fff; }
-  .right-panel {
-    flex: 1;
-    background: #0d1117;
-    overflow-y: auto;
-    padding: 24px 32px;
-  }
-  .detail-empty {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    color: #8b949e;
-  }
-  .detail-empty-icon {
-    font-size: 48px;
-    margin-bottom: 16px;
-  }
-  .detail-empty p {
-    font-size: 14px;
-  }
-  .detail-card {
-    background: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 16px;
-    display: none;
-  }
+  .right-panel { flex: 1; background: #0d1117; overflow-y: auto; padding: 24px 32px; }
+  .detail-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: #8b949e; }
+  .detail-empty-icon { font-size: 48px; margin-bottom: 16px; }
+  .detail-empty p { font-size: 14px; }
+  .detail-card { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 20px; margin-bottom: 16px; display: none; }
   .detail-card.t1 { border-left: 3px solid #f0883e; }
   .detail-card.t2 { border-left: 3px solid #58a6ff; }
   .detail-card.t3 { border-left: 3px solid #3fb950; }
   .detail-card.t4 { border-left: 3px solid #8957e5; }
   .detail-card.t5 { border-left: 3px solid #f778ba; }
-  .detail-card.active {
-    display: block;
-  }
-  .detail-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 14px;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .detail-title-wrap {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  .detail-project-label {
-    font-size: 11px;
-    color: #8b949e;
-    background: #21262d;
-    padding: 2px 8px;
-    border-radius: 4px;
-  }
-  .detail-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: #e6edf3;
-  }
-  .detail-meta {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .detail-meta span {
-    font-size: 13px;
-    color: #8b949e;
-  }
-  .detail-section {
-    margin-top: 14px;
-  }
-  .detail-section h4 {
-    color: #f0883e;
-    font-size: 14px;
-    margin-bottom: 6px;
-  }
-  .detail-section p, .detail-section li {
-    font-size: 14px;
-    color: #b4bcc6;
-    margin-bottom: 4px;
-    line-height: 1.7;
-  }
-  .detail-section ul {
-    padding-left: 20px;
-  }
-  .warning-box {
-    background: rgba(218, 54, 51, 0.12);
-    border-left: 3px solid #da3633;
-    padding: 10px 14px;
-    border-radius: 0 6px 6px 0;
-    margin: 10px 0;
-    font-size: 13px;
-    color: #f0a0a0;
-  }
-  .highlight-box {
-    background: rgba(47, 129, 247, 0.12);
-    border-left: 3px solid #1f6feb;
-    padding: 10px 14px;
-    border-radius: 0 6px 6px 0;
-    margin: 10px 0;
-    font-size: 13px;
-    color: #a0c0f0;
-  }
-  #password-overlay {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: #0d1117;
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .pwd-box {
-    background: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 12px;
-    padding: 40px 48px;
-    text-align: center;
-    max-width: 360px;
-    width: 90%;
-  }
-  .pwd-box .lock-icon {
-    font-size: 40px;
-    margin-bottom: 16px;
-  }
-  .pwd-box h2 {
-    color: #e6edf3;
-    font-size: 18px;
-    margin-bottom: 8px;
-  }
-  .pwd-box p {
-    color: #8b949e;
-    font-size: 13px;
-    margin-bottom: 24px;
-  }
-  .pwd-box input {
-    width: 100%;
-    padding: 12px 16px;
-    border: 1px solid #30363d;
-    border-radius: 8px;
-    background: #0d1117;
-    color: #c9d1d9;
-    font-size: 15px;
-    outline: none;
-    margin-bottom: 16px;
-  }
-  .pwd-box input:focus {
-    border-color: #58a6ff;
-  }
-  .pwd-box button {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    background: #238636;
-    color: #fff;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  .pwd-box button:hover {
-    background: #2ea043;
-  }
-  .pwd-error {
-    color: #da3633;
-    font-size: 13px;
-    margin-top: 12px;
-    display: none;
-  }
-  .footer {
-    text-align: center;
-    color: #8b949e;
-    margin-top: 40px;
-    font-size: 12px;
-    padding-bottom: 20px;
-  }
-  @media (max-width: 900px) {
-    .left-panel { width: 100%; min-width: auto; border-right: none; }
-    .app-container { flex-direction: column; }
-    .right-panel { display: none; }
-    .right-panel.visible { display: block; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 100; }
-  }
+  .detail-card.active { display: block; }
+  .detail-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; }
+  .detail-title-wrap { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .detail-project-label { font-size: 11px; color: #8b949e; background: #21262d; padding: 2px 8px; border-radius: 4px; }
+  .detail-title { font-size: 18px; font-weight: 600; color: #e6edf3; }
+  .detail-meta { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .detail-meta span { font-size: 13px; color: #8b949e; }
+  .detail-section { margin-top: 14px; }
+  .detail-section h4 { color: #f0883e; font-size: 14px; margin-bottom: 6px; }
+  .detail-section h4.deliverable { color: #3fb950; }
+  .detail-section p, .detail-section li { font-size: 14px; color: #b4bcc6; margin-bottom: 4px; line-height: 1.7; }
+  .detail-section ul { padding-left: 20px; }
+  .warning-box { background: rgba(218, 54, 51, 0.12); border-left: 3px solid #da3633; padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 10px 0; font-size: 13px; color: #f0a0a0; }
+  .highlight-box { background: rgba(47, 129, 247, 0.12); border-left: 3px solid #1f6feb; padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 10px 0; font-size: 13px; color: #a0c0f0; }
+  .deliverable-box { background: rgba(63, 185, 80, 0.08); border-left: 3px solid #3fb950; padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .deliverable-box h4 { color: #3fb950; font-size: 14px; margin-bottom: 6px; }
+  .deliverable-box li { font-size: 13px; color: #b4bcc6; margin-bottom: 3px; }
+  #password-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #0d1117; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .pwd-box { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 40px 48px; text-align: center; max-width: 360px; width: 90%; }
+  .pwd-box .lock-icon { font-size: 40px; margin-bottom: 16px; }
+  .pwd-box h2 { color: #e6edf3; font-size: 18px; margin-bottom: 8px; }
+  .pwd-box p { color: #8b949e; font-size: 13px; margin-bottom: 24px; }
+  .pwd-box input { width: 100%; padding: 12px 16px; border: 1px solid #30363d; border-radius: 8px; background: #0d1117; color: #c9d1d9; font-size: 15px; outline: none; margin-bottom: 16px; }
+  .pwd-box input:focus { border-color: #58a6ff; }
+  .pwd-box button { width: 100%; padding: 12px; border: none; border-radius: 8px; background: #238636; color: #fff; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+  .pwd-box button:hover { background: #2ea043; }
+  .pwd-error { color: #da3633; font-size: 13px; margin-top: 12px; display: none; }
+  .footer { text-align: center; color: #8b949e; margin-top: 40px; font-size: 12px; padding-bottom: 20px; }
+  @media (max-width: 900px) { .left-panel { width: 100%; min-width: auto; border-right: none; } .app-container { flex-direction: column; } .right-panel { display: none; } .right-panel.visible { display: block; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 100; } }
 </style>
 </head>
 <body>
@@ -387,7 +110,7 @@
 <div class="left-panel">
   <div class="left-header">
     <h1>📋 项目任务台账</h1>
-    <p class="meta">最后更新：2026-05-11 21:31 | 共5项目，19个任务</p>
+    <p class="meta">最后更新：2026-05-11 21:41 | 共5项目，19个任务</p>
   </div>
   <div class="stats-bar">
     <div class="stat-chip"><div class="num">5</div><div class="lbl">项目</div></div>
@@ -631,7 +354,7 @@
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
-        <li>需求评审已完成，<strong>开发阶段已结束，已进入测试阶段</strong>（彦晖5/11反馈）</li>
+        <li>需求评审已完成，开发阶段已结束，已进入测试阶段（彦晖5/11反馈）</li>
         <li>彦晖负责推进</li>
         <li>飞书文档提取完成：GPID产品配置、五元组分发、SDK配网改造、Push打通4项必要工作已明确</li>
       </ul>
@@ -652,6 +375,15 @@
         <li>了解是否有需要Adan协调的资源或决策</li>
       </ul>
     </div>
+    <div class="deliverable-box">
+      <h4>🎯 交付物</h4>
+      <ul>
+        <li>DMP平台改造后的可测试版本（含GPID、五元组分发、SDK配网改造、Push打通）</li>
+        <li>测试报告</li>
+        <li>GPID配置与同步操作手册</li>
+        <li>产测流程更新文档</li>
+      </ul>
+    </div>
   </div>
   <div id="detail-T1-2" class="detail-card t1">
     <div class="detail-header">
@@ -666,9 +398,7 @@
         <span>紧急: <span class="badge badge-high">高</span></span>
       </div>
     </div>
-    <div class="warning-box">
-      <strong>⚠️ 关键阻塞</strong>：前置依赖——易视云App重构版仍在第三轮验证中
-    </div>
+    <div class="warning-box">⚠️ 关键阻塞：前置依赖——易视云App重构版仍在第三轮验证中</div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
@@ -689,8 +419,16 @@
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li><strong>紧急</strong>：找徐俑确认重构版第三轮验证预计完成时间</li>
+        <li>紧急：找徐俑确认重构版第三轮验证预计完成时间</li>
         <li>评估前置依赖延迟对整个项目时间线的影响</li>
+      </ul>
+    </div>
+    <div class="deliverable-box">
+      <h4>🎯 交付物</h4>
+      <ul>
+        <li>易视云App重构版（支持DMP设备）</li>
+        <li>App测试报告</li>
+        <li>App与DMP平台接口对接文档</li>
       </ul>
     </div>
   </div>
@@ -707,19 +445,7 @@
         <span>紧急: <span class="badge badge-low">低</span></span>
       </div>
     </div>
-    <div class="highlight-box">
-      <strong>🎯 目标</strong>：6月份安防沙龙对外宣贯，驱动下游合作生态使用DMP设备出货
-    </div>
-    <div class="detail-section">
-      <h4>已挖掘价值点</h4>
-      <ul>
-        <li><strong>a.</strong> 政策风险大幅降低 — 设备数据全面合规</li>
-        <li><strong>b.</strong> 更强大的平台支持能力 — 售后能力全方面升级（需毅东信息）</li>
-        <li><strong>c.</strong> 能支持WWA（Work With Alexa）</li>
-        <li><strong>d.</strong> 毅东贴标问题 — 彦晖想到解决办法，需确认是否为真需求</li>
-        <li><strong>e.</strong> 可针对每款产品配置定制面板</li>
-      </ul>
-    </div>
+    <div class="highlight-box">🎯 目标：6月份安防沙龙对外宣贯，驱动下游合作生态使用DMP设备出货</div>
     <div class="detail-section">
       <h4>关注要点</h4>
       <ul>
@@ -731,9 +457,18 @@
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li><strong>紧急</strong>：找彦晖确认贴标问题是否为真需求</li>
-        <li><strong>紧急</strong>：确认毅东售后能力升级信息是否已收到</li>
+        <li>紧急：找彦晖确认贴标问题是否为真需求</li>
+        <li>紧急：确认毅东售后能力升级信息是否已收到</li>
         <li>开始准备价值点的包装材料和宣贯文案</li>
+      </ul>
+    </div>
+    <div class="deliverable-box">
+      <h4>🎯 交付物</h4>
+      <ul>
+        <li>面向经销商/整机商的价值点清单文档</li>
+        <li>6月安防沙龙宣贯PPT/材料</li>
+        <li>经销商合作话术/FAQ</li>
+        <li>价值点验证数据支撑</li>
       </ul>
     </div>
   </div>
@@ -765,6 +500,15 @@
         <li>翻译资源和流程需提前规划</li>
       </ul>
     </div>
+    <div class="deliverable-box">
+      <h4>🎯 交付物</h4>
+      <ul>
+        <li>DMP平台多语言配置机制设计文档</li>
+        <li>多语言管理流程</li>
+        <li>首批支持语言清单及翻译资源计划</li>
+        <li>各模块多语言适配验证报告</li>
+      </ul>
+    </div>
   </div>
   <div id="detail-T2-2" class="detail-card t2">
     <div class="detail-header">
@@ -787,22 +531,21 @@
       </ul>
     </div>
     <div class="detail-section">
-      <h4>WWA认证对接进度（来自企微进度表）</h4>
-      <ul>
-        <li><strong>已对接</strong>：AppToApp、Alexa Discovery、CameraStream等基础接口</li>
-        <li><strong>⚠️ 未对接</strong>：门铃事件源（Alexa.DoorbellEventSource）</li>
-        <li><strong>⚠️ 未对接</strong>：门锁控制（Alexa.LockController）</li>
-        <li><strong>⚠️ 未对接</strong>：RTC半双工/全双工</li>
-        <li>备注：协议组仅联调，理论上RTCSessionController对接完就支持</li>
-      </ul>
-    </div>
-    <div class="detail-section">
       <h4>关注要点</h4>
       <ul>
-        <li>核心卡点：<strong>WebRTC协议支持</strong>——门铃/门锁的对讲功能依赖RTC</li>
+        <li>核心卡点：WebRTC协议支持——门铃/门锁的对讲功能依赖RTC</li>
         <li>WWA认证标准周期8-10个工作日，前提是全部接口对接完成</li>
         <li>与T1-3联动：WWA是6月沙龙价值点之一</li>
-        <li><strong>彦晖多任务负载</strong>：同时负责T1-1、T2-1、T2-2、T2-4</li>
+        <li>彦晖多任务负载：同时负责T1-1、T2-1、T2-2、T2-4</li>
+      </ul>
+    </div>
+    <div class="deliverable-box">
+      <h4>🎯 交付物</h4>
+      <ul>
+        <li>WWA认证通过（Amazon审核）</li>
+        <li>服务端Alexa接口改造完成</li>
+        <li>WWA认证测试报告</li>
+        <li>认证文档及维护指南</li>
       </ul>
     </div>
   </div>
@@ -819,9 +562,7 @@
         <span>紧急: <span class="badge badge-high">高</span></span>
       </div>
     </div>
-    <div class="warning-box">
-      <strong>⚠️ 技术复杂度极高</strong>：需merge P2P私有协议和WebRTC协议到同一个SDK，涉及大量架构重构
-    </div>
+    <div class="warning-box">⚠️ 技术复杂度极高：需merge P2P私有协议和WebRTC协议到同一个SDK，涉及大量架构重构</div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
@@ -842,8 +583,17 @@
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li><strong>紧急</strong>：与徐俑确认T1-2和T2-3的人力分配计划</li>
+        <li>紧急：与徐俑确认T1-2和T2-3的人力分配计划</li>
         <li>要求先输出技术方案评估（merge vs 替代方案）</li>
+      </ul>
+    </div>
+    <div class="deliverable-box">
+      <h4>🎯 交付物</h4>
+      <ul>
+        <li>App支持WWA认证的版本（含RTC对讲）</li>
+        <li>P2P与WebRTC协议merge技术方案评估报告</li>
+        <li>App与WWA服务端联调通过报告</li>
+        <li>WWA用户操作手册</li>
       </ul>
     </div>
   </div>
@@ -860,9 +610,7 @@
         <span>紧急: <span class="badge badge-high">高</span></span>
       </div>
     </div>
-    <div class="warning-box">
-      <strong>⚠️ 核心阻塞</strong>：找不到愿意对接的上游供应商，Adan和彦晖已找了半个月
-    </div>
+    <div class="warning-box">⚠️ 核心阻塞：找不到愿意对接的上游供应商，Adan和彦晖已找了半个月</div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
@@ -875,16 +623,25 @@
       <ul>
         <li>供应商对接难度：找了半个月没找到，可能DMP平台吸引力不足或对方已有稳定渠道</li>
         <li>小批试产策略需要吴总确认：公司是否愿意承担风险？规模多大？</li>
-        <li><strong>彦晖多任务负载</strong>：同时负责T1-1(测试中)/T2-1/T2-2/T2-4</li>
+        <li>彦晖多任务负载：同时负责T1-1(测试中)/T2-1/T2-2/T2-4</li>
       </ul>
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li><strong>明天</strong>：跟吴总确认小批试产策略的可行性</li>
+        <li>明天：跟吴总确认小批试产策略的可行性</li>
         <li>明确小批试产的具体规模（数量、金额、时间）</li>
         <li>准备供应商谈判材料</li>
         <li>考虑备选方案（行业展会、合作伙伴引荐等）</li>
+      </ul>
+    </div>
+    <div class="deliverable-box">
+      <h4>🎯 交付物</h4>
+      <ul>
+        <li>供应商合作协议/合同</li>
+        <li>新品类接入DMP的技术方案</li>
+        <li>小批试产计划及验收标准</li>
+        <li>新品类产品定义文档</li>
       </ul>
     </div>
   </div>
@@ -902,23 +659,29 @@
       </div>
     </div>
     <div class="detail-section">
-      <h4>Warner立项关键信息（来自企微文档）</h4>
+      <h4>关键进展</h4>
       <ul>
-        <li><strong>首批200台预售订单已确认</strong>，用于WARNER渠道试点</li>
-        <li><strong>产品方向</strong>：人脸识别视频锁</li>
-        <li><strong>方案商</strong>：七芯（电控）+ 豪力士（整机）</li>
-        <li><strong>核心价值</strong>：对DMP体系能力的关键补强与验证</li>
+        <li>首批200台预售订单已确认，用于WARNER渠道试点</li>
+        <li>产品方向：人脸识别视频锁</li>
+        <li>方案商：七芯（电控）+ 豪力士（整机）</li>
+        <li>核心价值：对DMP体系能力的关键补强与验证</li>
         <li>App/模组/电控/MCU联调完成</li>
       </ul>
-    </div>
-    <div class="warning-box">
-      <strong>⚠️ 当前阻塞</strong>：等通信模组与七芯电控板/猫眼MCU的联调完成
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li><strong>紧急</strong>：确认硬件联调的当前进度、计划和预计完成时间</li>
+        <li>紧急：确认硬件联调的当前进度、计划和预计完成时间</li>
         <li>评估硬件联调延迟对项目交付的影响</li>
+      </ul>
+    </div>
+    <div class="deliverable-box">
+      <h4>🎯 交付物</h4>
+      <ul>
+        <li>Warner首批200台量产订单交付</li>
+        <li>Warner客户验收通过确认</li>
+        <li>人脸识别视频锁产品定义文档</li>
+        <li>方案集成测试报告</li>
       </ul>
     </div>
   </div>
@@ -935,9 +698,7 @@
         <span>紧急: <span class="badge badge-low">低</span></span>
       </div>
     </div>
-    <div class="warning-box">
-      <strong>⚠️ 沉默风险极高</strong>：已有一段时间未收到liuwei129的后续回复，客户可能处于流失边缘
-    </div>
+    <div class="warning-box">⚠️ 沉默风险极高：已有一段时间未收到liuwei129的后续回复，客户可能处于流失边缘</div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
@@ -948,9 +709,17 @@
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li><strong>紧急</strong>：Adan主动发一封跟进邮件给liuwei129</li>
+        <li>紧急：Adan主动发一封跟进邮件给liuwei129</li>
         <li>如邮件仍无回复，建议电话沟通或寻找其他对接窗口</li>
         <li>准备备选方案（产品定制、更灵活的合作模式）</li>
+      </ul>
+    </div>
+    <div class="deliverable-box">
+      <h4>🎯 交付物</h4>
+      <ul>
+        <li>萤石门锁选型确认</li>
+        <li>萤石合作意向书/合同</li>
+        <li>萤石客户需求分析报告</li>
       </ul>
     </div>
   </div>
@@ -967,23 +736,31 @@
         <span>紧急: <span class="badge badge-high">高</span></span>
       </div>
     </div>
-    <div class="warning-box">
-      <strong>⚠️ 时间紧迫</strong>：安凯催了很久，需求文档需尽快完成并推进评审
-    </div>
+    <div class="warning-box">⚠️ 时间紧迫：安凯催了很久，需求文档需尽快完成并推进评审</div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
-        <li>企微PRD提取：安凯门锁要求App支持<strong>4种→6种</strong>锁体状态展示</li>
-        <li><strong>新增</strong>：门锁事件系统消息推送</li>
-        <li><strong>修复</strong>：云存领取bug（本地删除连接后绑定用户无法正常领取云存）</li>
+        <li>企微PRD提取：安凯门锁要求App支持4种→6种锁体状态展示</li>
+        <li>新增：门锁事件系统消息推送</li>
+        <li>修复：云存领取bug（本地删除连接后绑定用户无法正常领取云存）</li>
       </ul>
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li><strong>紧急</strong>：加快需求文档撰写，建议本周内完成</li>
+        <li>紧急：加快需求文档撰写，建议本周内完成</li>
         <li>文档完成后尽快安排评审</li>
         <li>向安凯同步进度和预计时间，管理对方预期</li>
+      </ul>
+    </div>
+    <div class="deliverable-box">
+      <h4>🎯 交付物</h4>
+      <ul>
+        <li>安凯门锁面板PRD评审通过</li>
+        <li>开发排期确认及里程碑计划</li>
+        <li>6种锁体状态App展示方案</li>
+        <li>系统消息推送逻辑文档</li>
+        <li>云存领取bug修复验证报告</li>
       </ul>
     </div>
   </div>
@@ -1014,6 +791,14 @@
         <li>关注T3-1、T3-2等客户任务进展，有订单立即启动对接</li>
       </ul>
     </div>
+    <div class="deliverable-box">
+      <h4>🎯 交付物</h4>
+      <ul>
+        <li>粤丰更多选型对接完成确认</li>
+        <li>订单驱动的选型激活计划</li>
+        <li>粤丰合作备忘/框架协议</li>
+      </ul>
+    </div>
   </div>
   <div id="detail-T4-1" class="detail-card t4">
     <div class="detail-header">
@@ -1028,13 +813,11 @@
         <span>紧急: <span class="badge badge-high">高</span></span>
       </div>
     </div>
-    <div class="highlight-box">
-      <strong>🎯 关联任务</strong>：强提醒升级(T4-5)和强制升级(T4-6)已从本任务拆分，独立管理
-    </div>
+    <div class="highlight-box">🎯 关联任务：强提醒升级(T4-5)和强制升级(T4-6)已从本任务拆分，独立管理</div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
-        <li><strong>运营已提供设备ID列表</strong>，计划次日配置OTA升级</li>
+        <li>运营已提供设备ID列表，计划次日配置OTA升级</li>
         <li>问题根因已确认：中云信安4G模块DNS缺陷</li>
         <li>强提醒升级和强制升级已拆分为独立任务（T4-5、T4-6）管理</li>
         <li>MRD文档已输出</li>
@@ -1047,6 +830,15 @@
         <li>曾柔提供目标固件和设备范围</li>
         <li>陈湘配置"美国桶"</li>
         <li>跟进T4-5/T4-6的优先级确认进展</li>
+      </ul>
+    </div>
+    <div class="deliverable-box">
+      <h4>🎯 交付物</h4>
+      <ul>
+        <li>OTA升级配置完成（美国桶）</li>
+        <li>设备升级率数据报表</li>
+        <li>设备ID与固件版本对应清单</li>
+        <li>升级异常处理及回滚方案</li>
       </ul>
     </div>
   </div>
@@ -1063,14 +855,12 @@
         <span>紧急: <span class="badge badge-mid">中</span></span>
       </div>
     </div>
-    <div class="highlight-box">
-      <strong>🎯 目标完成时间</strong>：2025-05-20
-    </div>
+    <div class="highlight-box">🎯 目标完成时间：2025-05-20</div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
         <li>团队已建立轮流参与客服入线的机制</li>
-        <li><strong>32条进线记录已登记</strong>（来自企微文档）</li>
+        <li>32条进线记录已登记（来自企微文档）</li>
         <li>主要问题类型：安装/低功耗WiFi/密码WiFi/视频门铃/电池门铃</li>
       </ul>
     </div>
@@ -1080,6 +870,15 @@
         <li>确认是否有统一的配网问题记录模板</li>
         <li>跟踪数据收集进度</li>
         <li>提前规划分析报告的框架和评审流程</li>
+      </ul>
+    </div>
+    <div class="deliverable-box">
+      <h4>🎯 交付物</h4>
+      <ul>
+        <li>配网问题分析报告</li>
+        <li>配网侧优化项清单</li>
+        <li>优化方案评审通过</li>
+        <li>客服入线问题分类模板</li>
       </ul>
     </div>
   </div>
@@ -1097,12 +896,12 @@
       </div>
     </div>
     <div class="detail-section">
-      <h4>关键时间线</h4>
+      <h4>关键进展</h4>
       <ul>
         <li>4/17: 钟杰群输出测试设备清单，选定B4-Q-W6和B4-M-A6</li>
-        <li><strong>4/17重大发现</strong>：16万台设备中只有2台有灵敏度历史数据</li>
+        <li>4/17重大发现：16万台设备中只有2台有灵敏度历史数据</li>
         <li>5/6: 钟杰群初步结论——灵敏度调节后P50以上档位唤醒次数下降</li>
-        <li><strong>5/7 Adan质疑</strong>：样本太少、噪音多、实验组不降反升</li>
+        <li>5/7 Adan质疑：样本太少、噪音多、实验组不降反升</li>
         <li>企微专项提取：全量非AOV设备、PIR周触发次数看板待建</li>
       </ul>
     </div>
@@ -1111,14 +910,24 @@
       <ul>
         <li>样本量和数据质量问题——Adan的质疑需要重视</li>
         <li>灵敏度历史数据缺失是深层隐患</li>
-        <li>距离"减少客诉"目标还有距离</li>
+        <li>距离减少客诉目标还有距离</li>
       </ul>
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li><strong>本周跟踪</strong>：等钟杰群第二周数据对比结果</li>
+        <li>本周跟踪：等钟杰群第二周数据对比结果</li>
         <li>向张荟瑶/硬件团队获取实验室灵敏度-唤醒率关系数据</li>
+      </ul>
+    </div>
+    <div class="deliverable-box">
+      <h4>🎯 交付物</h4>
+      <ul>
+        <li>低功耗设备灵敏度调整策略确定</li>
+        <li>自动化定时脚本上线</li>
+        <li>PIR周触发次数看板</li>
+        <li>误唤醒率降低验证报告</li>
+        <li>App低电量/低灵敏度提示策略</li>
       </ul>
     </div>
   </div>
@@ -1136,15 +945,10 @@
       </div>
     </div>
     <div class="detail-section">
-      <h4>需求描述</h4>
+      <h4>关键进展</h4>
       <ul>
         <li>低功耗app做低电量提示——电量低时App提示用户设备需充电</li>
         <li>设备离线原因提示为"低电离线"</li>
-      </ul>
-    </div>
-    <div class="detail-section">
-      <h4>关键进展</h4>
-      <ul>
         <li>新任务刚登记（5/11）</li>
         <li>负责人徐俑，尚未进入开发</li>
       </ul>
@@ -1152,10 +956,10 @@
     <div class="detail-section">
       <h4>关注要点</h4>
       <ul>
-        <li><strong>徐俑多任务负载</strong>：同时有T1-2/T2-3/T4-1/T4-4/T4-5/T4-6共6个任务</li>
+        <li>徐俑多任务负载：同时有T1-2/T2-3/T4-1/T4-4/T4-5/T4-6共6个任务</li>
         <li>与T1-2 App升级的关系：是否可在重构版中一并实现？</li>
         <li>低电量触发阈值需明确</li>
-        <li>"低电离线"分类是否需要服务端配合修改</li>
+        <li>低电离线分类是否需要服务端配合修改</li>
       </ul>
     </div>
     <div class="detail-section">
@@ -1163,6 +967,15 @@
       <ul>
         <li>与徐俑确认当前人力分配和排期可行性</li>
         <li>明确低电量提示的触发阈值</li>
+      </ul>
+    </div>
+    <div class="deliverable-box">
+      <h4>🎯 交付物</h4>
+      <ul>
+        <li>低电量提示功能上线</li>
+        <li>低电量触发阈值配置文档</li>
+        <li>"低电离线"离线原因分类上线</li>
+        <li>用户提示文案及多语言版本</li>
       </ul>
     </div>
   </div>
@@ -1179,9 +992,7 @@
         <span>紧急: <span class="badge badge-high">高</span></span>
       </div>
     </div>
-    <div class="highlight-box">
-      <strong>🎯 拆分来源</strong>：从T4-1拆分出来的独立任务
-    </div>
+    <div class="highlight-box">🎯 拆分来源：从T4-1拆分出来的独立任务</div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
@@ -1190,27 +1001,29 @@
       </ul>
     </div>
     <div class="detail-section">
-      <h4>MRD弹窗逻辑</h4>
-      <ul>
-        <li>首次绑定弹窗只留【确认】按钮</li>
-        <li>失败后每天一次弹窗保留【取消】按钮</li>
-      </ul>
-    </div>
-    <div class="detail-section">
       <h4>关注要点</h4>
       <ul>
         <li>强提醒升级和强制升级是互补方案，不是替代关系</li>
         <li>强提醒升级：弹窗提醒但用户可取消（更温和，升级率可能不如强制）</li>
         <li>吴总倾向用强提醒升级解决当前4G模块DNS缺陷问题，可能基于用户体验考虑</li>
-        <li><strong>徐俑多任务负载</strong>：目前有6个任务（T1-2/T2-3/T4-1/T4-4/T4-5/T4-6）</li>
+        <li>徐俑多任务负载：目前有6个任务</li>
       </ul>
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li><strong>明天</strong>：跟吴总确认强提醒升级和强制升级的优先级排序</li>
+        <li>明天：跟吴总确认强提醒升级和强制升级的优先级排序</li>
         <li>明确两个功能是否需要同时开发，还是分阶段</li>
         <li>徐俑评估强提醒升级的开发工作量</li>
+      </ul>
+    </div>
+    <div class="deliverable-box">
+      <h4>🎯 交付物</h4>
+      <ul>
+        <li>强提醒升级功能上线</li>
+        <li>强提醒升级MRD文档</li>
+        <li>弹窗UI设计稿</li>
+        <li>升级率数据跟踪报表</li>
       </ul>
     </div>
   </div>
@@ -1227,9 +1040,7 @@
         <span>紧急: <span class="badge badge-high">高</span></span>
       </div>
     </div>
-    <div class="highlight-box">
-      <strong>🎯 拆分来源</strong>：从T4-1拆分出来的独立任务
-    </div>
+    <div class="highlight-box">🎯 拆分来源：从T4-1拆分出来的独立任务</div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
@@ -1238,27 +1049,30 @@
       </ul>
     </div>
     <div class="detail-section">
-      <h4>强制升级定义</h4>
-      <ul>
-        <li>用户绑定设备进入预览页后，强制弹窗引导升级，不留关闭选项</li>
-        <li>用户必须升级才能继续使用</li>
-      </ul>
-    </div>
-    <div class="detail-section">
       <h4>关注要点</h4>
       <ul>
         <li>强制升级 vs 强提醒升级：前者更强硬（必须升级），后者更温和（可取消）</li>
         <li>当前4G模块DNS缺陷的严重性：如果缺陷导致设备频繁离线，强制升级可能是必要的</li>
         <li>吴总可能担心强制升级影响用户体验，特别是升级过程较长或失败率高</li>
-        <li><strong>徐俑多任务负载</strong>：6个任务并行，人力资源压力极大</li>
+        <li>徐俑多任务负载：6个任务并行，人力资源压力极大</li>
       </ul>
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li><strong>明天</strong>：跟吴总确认强制升级的优先级，争取认可强制升级的必要性</li>
+        <li>明天：跟吴总确认强制升级的优先级，争取认可强制升级的必要性</li>
         <li>评估强制升级的开发工作量（可能比强提醒升级更复杂）</li>
         <li>考虑分阶段实施：先上强提醒，再上强制</li>
+      </ul>
+    </div>
+    <div class="deliverable-box">
+      <h4>🎯 交付物</h4>
+      <ul>
+        <li>强制升级功能上线</li>
+        <li>强制升级MRD文档</li>
+        <li>强制升级弹窗UI设计稿</li>
+        <li>升级成功率及用户体验反馈数据</li>
+        <li>强制升级白名单/灰度策略</li>
       </ul>
     </div>
   </div>
@@ -1276,14 +1090,16 @@
       </div>
     </div>
     <div class="detail-section">
-      <h4>背景</h4>
-      <p>随着项目增多和任务复杂度提升，团队成员对自己和他人工作重心的全貌了解可能不够清晰。需要通过一次会议，把当前所有核心项目和任务同步给团队。</p>
+      <h4>关键进展</h4>
+      <ul>
+        <li>随着项目增多和任务复杂度提升，团队成员对自己和他人工作重心的全貌了解可能不够清晰。需要通过一次会议，把当前所有核心项目和任务同步给团队。</li>
+      </ul>
     </div>
     <div class="detail-section">
       <h4>关注要点</h4>
       <ul>
         <li>会议内容准备：当前台账已整理5个项目19个任务，可直接作为会议材料</li>
-        <li>会议重点不应只是"念清单"——要让每个成员理解自己的工作在大图中的位置</li>
+        <li>会议重点不应只是念清单——要让每个成员理解自己的工作在大图中的位置</li>
         <li>明确关键路径上的阻塞点，需要资源倾斜</li>
       </ul>
     </div>
@@ -1293,6 +1109,15 @@
         <li>安排会议时间（建议本周内）</li>
         <li>准备会议材料：台账总览+关键任务详情</li>
         <li>会议议程：总览10min→重点项目20min→各负责人简述15min→对齐事项10min</li>
+      </ul>
+    </div>
+    <div class="deliverable-box">
+      <h4>🎯 交付物</h4>
+      <ul>
+        <li>团队核心工作同步会议记录</li>
+        <li>团队成员工作分工及优先级确认表</li>
+        <li>关键依赖对齐清单</li>
+        <li>下次同步会议时间约定</li>
       </ul>
     </div>
   </div>
@@ -1310,8 +1135,10 @@
       </div>
     </div>
     <div class="detail-section">
-      <h4>背景</h4>
-      <p>沐香是校招毕业生，目前在参与"设备添加配网绑定环节专项"（T4-2）的工作。她在参与过程中似乎碰到了一些问题，Adan需要对她进行单独的辅导和情况了解。</p>
+      <h4>关键进展</h4>
+      <ul>
+        <li>沐香是校招毕业生，目前在参与设备添加配网绑定环节专项（T4-2）的工作。她在参与过程中似乎碰到了一些问题，Adan需要对她进行单独的辅导和情况了解。</li>
+      </ul>
     </div>
     <div class="detail-section">
       <h4>关注要点</h4>
@@ -1324,18 +1151,26 @@
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li><strong>本周安排1on1</strong>：Adan与沐香单独沟通，了解具体问题</li>
+        <li>本周安排1on1：Adan与沐香单独沟通，了解具体问题</li>
         <li>根据问题类型制定辅导计划（技术mentor/模板框架/旁听学习）</li>
         <li>辅导后跟踪沐香在后续配网专项中的表现改善</li>
       </ul>
     </div>
+    <div class="deliverable-box">
+      <h4>🎯 交付物</h4>
+      <ul>
+        <li>沐香辅导计划</li>
+        <li>沐香能力提升跟踪记录</li>
+        <li>T4-2配网专项工作质量改善评估</li>
+        <li>校招毕业生成长路径建议</li>
+      </ul>
+    </div>
   </div>
   <p class="footer">
-    台账持续更新中 | 每次信息更新后，指挥会同步更新此文档 | 最后更新：2026-05-11 21:31
+    台账持续更新中 | 每次信息更新后，指挥会同步更新此文档 | 最后更新：2026-05-11 21:47
   </p>
 </div>
 </div>
-
 <script>
   const CORRECT_PASSWORD = "andan2025";
   const TOKEN_KEY = "task_ledger_auth_v1";
