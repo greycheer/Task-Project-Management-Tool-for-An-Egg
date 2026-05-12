@@ -302,6 +302,15 @@
             <span class="badge badge-high">高</span>
           </div>
         </div>
+        <div class="task-item" id="task-T4-7" onclick="showDetail('T4-7')">
+          <div class="task-item-id">T4-7</div>
+          <div class="task-item-name">设备首页信息提醒类UI规范</div>
+          <div class="task-item-badges">
+            <span class="badge badge-doing">已沟通启动</span>
+            <span class="badge badge-high">高</span>
+            <span class="badge badge-low">低</span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="project-block t5 expanded" id="proj-T5">
@@ -1073,6 +1082,69 @@
         <li>强制升级弹窗UI设计稿</li>
         <li>升级成功率及用户体验反馈数据</li>
         <li>强制升级白名单/灰度策略</li>
+      </ul>
+    </div>
+  </div>
+  <div id="detail-T4-7" class="detail-card t4">
+    <div class="detail-header">
+      <div class="detail-title-wrap">
+        <span class="detail-project-label">T4 用户体验治理专项</span>
+        <span class="detail-id">T4-7</span>
+      </div>
+      <h2 class="detail-title">设备首页信息提醒类UI规范</h2>
+      <div class="detail-meta">
+        <span class="meta-item">👤 负责人: 徐俑 & UI团队</span>
+        <span class="meta-item">📊 状态: 已沟通启动</span>
+        <span class="meta-item">🎯 优先级: 高 / 低</span>
+        <span class="meta-item">📅 创建: 2026-05-12</span>
+      </div>
+    </div>
+    <div class="detail-section">
+      <h4>📌 目标</h4>
+      <p>制定设备首页信息提醒类UI交互规范，建立一套完整的提醒/阻断武器库（toast、标签、可关闭蒙版横幅、常驻蒙版横幅、强提醒弹窗、强制弹窗等），明确优先级排序规则和互斥规则，避免各业务线弹窗/提醒互相冲突，并为未来新场景预留扩展性。</p>
+    </div>
+    <div class="detail-section">
+      <h4>🔄 最新进展</h4>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">2026-05-12 11:35</div>
+          <div class="timeline-content">Adan在企微@徐俑，提出制定设备页用户提醒UI交互规范的需求，明确武器库类型和框架目标</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">2026-05-12 11:36</div>
+          <div class="timeline-content">徐俑回复"1"确认收到，任务已派达</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">2026-05-12 11:43</div>
+          <div class="timeline-content">Adan补充：额外考虑跟运营位的兼容，等UI规范出来后跟乐乐一起商量</div>
+        </div>
+      </div>
+    </div>
+    <div class="detail-section">
+      <h4>⚠️ 关注要点</h4>
+      <ul>
+        <li>本任务源于「强制升级」和「强提醒升级」两份MRD的框架性思考，是跨业务线的基础设施建设</li>
+        <li>需覆盖的已知场景：强制升级（阻断型）、强提醒升级、低电量提示、离线原因提示、网络异常、耗电过快、灵敏度建议等</li>
+        <li>关键难点：优先级矩阵（阻断型vs提醒型vs常驻提醒）、互斥规则、与运营位banner的兼容</li>
+        <li>徐俑是UI负责人，规范应由UI侧主导输出，Adan侧提供业务输入，App产品经理确认适用范围</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>📋 下一步</h4>
+      <ul>
+        <li>徐俑启动UI规范初稿（武器库定义、优先级矩阵、互斥规则）</li>
+        <li>初稿完成后，Adan组织与App产品经理、乐乐的三方对齐会</li>
+        <li>对齐运营位兼容方案</li>
+      </ul>
+    </div>
+    <div class="detail-section deliverable-box">
+      <h4>🎯 交付物</h4>
+      <ul>
+        <li>设备首页信息提醒类UI交互规范文档</li>
+        <li>提醒武器库组件标准（toast/标签/横幅/弹窗等各形态精确定义）</li>
+        <li>优先级矩阵与互斥规则文档</li>
+        <li>各端（iOS/Android）组件实现标准</li>
+        <li>运营位兼容方案</li>
       </ul>
     </div>
   </div>
