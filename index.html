@@ -78,6 +78,12 @@
   .deliverable-box { background: rgba(63, 185, 80, 0.08); border-left: 3px solid #3fb950; padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 10px 0; }
   .deliverable-box h4 { color: #3fb950; font-size: 14px; margin-bottom: 6px; }
   .deliverable-box li { font-size: 13px; color: #b4bcc6; margin-bottom: 3px; }
+  .deliverable-box ul { list-style: none; padding-left: 0; }
+  .deliverable-box li { display: flex; align-items: baseline; gap: 8px; margin-bottom: 5px; font-size: 13px; }
+  .deliverable-box .d-status { font-size: 14px; min-width: 18px; text-align: center; }
+  .deliverable-box .d-done { color: #3fb950; }
+  .deliverable-box .d-todo { color: #6e7681; }
+  .deliverable-box .d-partial { color: #d29922; }
   #password-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #0d1117; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; }
   .pwd-box { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 40px 48px; text-align: center; max-width: 360px; width: 90%; }
   .pwd-box .lock-icon { font-size: 40px; margin-bottom: 16px; }
@@ -110,7 +116,7 @@
 <div class="left-panel">
   <div class="left-header">
     <h1>📋 项目任务台账</h1>
-    <p class="meta">最后更新：2026-05-12 11:49 | 共5项目，20个任务</p>
+    <p class="meta">最后更新：2026-05-12 12:07 | 共5项目，20个任务</p>
   </div>
   <div class="stats-bar">
     <div class="stat-chip"><div class="num">5</div><div class="lbl">项目</div></div>
@@ -387,10 +393,9 @@
     <div class="deliverable-box">
       <h4>🎯 交付物</h4>
       <ul>
-        <li>DMP平台改造后的可测试版本（含GPID、五元组分发、SDK配网改造、Push打通）</li>
-        <li>测试报告</li>
-        <li>GPID配置与同步操作手册</li>
-        <li>产测流程更新文档</li>
+        <li><span class="d-status d-done">✓</span> 需求文档</li>
+        <li><span class="d-status d-todo">○</span> 一期功能上线，完成验收</li>
+        <li><span class="d-status d-todo">○</span> GPID配置与同步操作手册</li>
       </ul>
     </div>
   </div>
@@ -435,9 +440,9 @@
     <div class="deliverable-box">
       <h4>🎯 交付物</h4>
       <ul>
-        <li>易视云App重构版（支持DMP设备）</li>
-        <li>App测试报告</li>
-        <li>App与DMP平台接口对接文档</li>
+        <li><span class="d-status d-done">✓</span> 需求文档</li>
+        <li><span class="d-status d-todo">○</span> 功能上线，完成验收</li>
+        <li><span class="d-status d-todo">○</span> App可同时支持易视云设备和DMP设备的添加</li>
       </ul>
     </div>
   </div>
@@ -474,10 +479,7 @@
     <div class="deliverable-box">
       <h4>🎯 交付物</h4>
       <ul>
-        <li>面向经销商/整机商的价值点清单文档</li>
-        <li>6月安防沙龙宣贯PPT/材料</li>
-        <li>经销商合作话术/FAQ</li>
-        <li>价值点验证数据支撑</li>
+        <li><span class="d-status d-todo">○</span> 面向经销商/整机商的价值点清单文档（含每个价值点的易视云现状分析、DMP可做到的程度分析、距离目标的gap分析）</li>
       </ul>
     </div>
   </div>
@@ -512,10 +514,8 @@
     <div class="deliverable-box">
       <h4>🎯 交付物</h4>
       <ul>
-        <li>DMP平台多语言配置机制设计文档</li>
-        <li>多语言管理流程</li>
-        <li>首批支持语言清单及翻译资源计划</li>
-        <li>各模块多语言适配验证报告</li>
+        <li><span class="d-status d-todo">○</span> 需求文档</li>
+        <li><span class="d-status d-todo">○</span> 功能上线，完成验收</li>
       </ul>
     </div>
   </div>
@@ -551,10 +551,8 @@
     <div class="deliverable-box">
       <h4>🎯 交付物</h4>
       <ul>
-        <li>WWA认证通过（Amazon审核）</li>
-        <li>服务端Alexa接口改造完成</li>
-        <li>WWA认证测试报告</li>
-        <li>认证文档及维护指南</li>
+        <li><span class="d-status d-todo">○</span> 需求文档</li>
+        <li><span class="d-status d-todo">○</span> 功能上线，完成验收</li>
       </ul>
     </div>
   </div>
@@ -599,10 +597,9 @@
     <div class="deliverable-box">
       <h4>🎯 交付物</h4>
       <ul>
-        <li>App支持WWA认证的版本（含RTC对讲）</li>
-        <li>P2P与WebRTC协议merge技术方案评估报告</li>
-        <li>App与WWA服务端联调通过报告</li>
-        <li>WWA用户操作手册</li>
+        <li><span class="d-status d-todo">○</span> 需求文档</li>
+        <li><span class="d-status d-todo">○</span> 功能上线，完成验收</li>
+        <li><span class="d-status d-todo">○</span> 至少一款产品，拿到WWA认证</li>
       </ul>
     </div>
   </div>
@@ -647,10 +644,9 @@
     <div class="deliverable-box">
       <h4>🎯 交付物</h4>
       <ul>
-        <li>供应商合作协议/合同</li>
-        <li>新品类接入DMP的技术方案</li>
-        <li>小批试产计划及验收标准</li>
-        <li>新品类产品定义文档</li>
+        <li><span class="d-status d-todo">○</span> 正式与至少一家厂商确定合作关系，启动联调与开发</li>
+        <li><span class="d-status d-todo">○</span> 涉及品类接入的需求文档</li>
+        <li><span class="d-status d-todo">○</span> 功能上线，完成验收</li>
       </ul>
     </div>
   </div>
@@ -687,10 +683,9 @@
     <div class="deliverable-box">
       <h4>🎯 交付物</h4>
       <ul>
-        <li>Warner首批200台量产订单交付</li>
-        <li>Warner客户验收通过确认</li>
-        <li>人脸识别视频锁产品定义文档</li>
-        <li>方案集成测试报告</li>
+        <li><span class="d-status d-todo">○</span> 需求文档</li>
+        <li><span class="d-status d-todo">○</span> 功能上线，完成验收</li>
+        <li><span class="d-status d-todo">○</span> 门锁正式出货</li>
       </ul>
     </div>
   </div>
@@ -726,9 +721,7 @@
     <div class="deliverable-box">
       <h4>🎯 交付物</h4>
       <ul>
-        <li>萤石门锁选型确认</li>
-        <li>萤石合作意向书/合同</li>
-        <li>萤石客户需求分析报告</li>
+        <li><span class="d-status d-partial">◐</span> 门锁选型清单（已交付，但可能还需要跟着客户的想法继续更新）</li>
       </ul>
     </div>
   </div>
@@ -765,11 +758,7 @@
     <div class="deliverable-box">
       <h4>🎯 交付物</h4>
       <ul>
-        <li>安凯门锁面板PRD评审通过</li>
-        <li>开发排期确认及里程碑计划</li>
-        <li>6种锁体状态App展示方案</li>
-        <li>系统消息推送逻辑文档</li>
-        <li>云存领取bug修复验证报告</li>
+        <li><span class="d-status d-todo">○</span> 需求文档</li>
       </ul>
     </div>
   </div>
@@ -803,9 +792,9 @@
     <div class="deliverable-box">
       <h4>🎯 交付物</h4>
       <ul>
-        <li>粤丰更多选型对接完成确认</li>
-        <li>订单驱动的选型激活计划</li>
-        <li>粤丰合作备忘/框架协议</li>
+        <li><span class="d-status d-todo">○</span> 粤丰更多选型对接完成确认</li>
+        <li><span class="d-status d-todo">○</span> 订单驱动的选型激活计划</li>
+        <li><span class="d-status d-todo">○</span> 粤丰合作备忘/框架协议</li>
       </ul>
     </div>
   </div>
@@ -844,10 +833,10 @@
     <div class="deliverable-box">
       <h4>🎯 交付物</h4>
       <ul>
-        <li>OTA升级配置完成（美国桶）</li>
-        <li>设备升级率数据报表</li>
-        <li>设备ID与固件版本对应清单</li>
-        <li>升级异常处理及回滚方案</li>
+        <li><span class="d-status d-todo">○</span> OTA升级配置完成（美国桶）</li>
+        <li><span class="d-status d-todo">○</span> 设备升级率数据报表</li>
+        <li><span class="d-status d-todo">○</span> 设备ID与固件版本对应清单</li>
+        <li><span class="d-status d-todo">○</span> 升级异常处理及回滚方案</li>
       </ul>
     </div>
   </div>
@@ -884,10 +873,10 @@
     <div class="deliverable-box">
       <h4>🎯 交付物</h4>
       <ul>
-        <li>配网问题分析报告</li>
-        <li>配网侧优化项清单</li>
-        <li>优化方案评审通过</li>
-        <li>客服入线问题分类模板</li>
+        <li><span class="d-status d-todo">○</span> 配网问题分析报告</li>
+        <li><span class="d-status d-todo">○</span> 配网侧优化项清单</li>
+        <li><span class="d-status d-todo">○</span> 优化方案评审通过</li>
+        <li><span class="d-status d-todo">○</span> 客服入线问题分类模板</li>
       </ul>
     </div>
   </div>
@@ -932,11 +921,11 @@
     <div class="deliverable-box">
       <h4>🎯 交付物</h4>
       <ul>
-        <li>低功耗设备灵敏度调整策略确定</li>
-        <li>自动化定时脚本上线</li>
-        <li>PIR周触发次数看板</li>
-        <li>误唤醒率降低验证报告</li>
-        <li>App低电量/低灵敏度提示策略</li>
+        <li><span class="d-status d-todo">○</span> 低功耗设备灵敏度调整策略确定</li>
+        <li><span class="d-status d-todo">○</span> 自动化定时脚本上线</li>
+        <li><span class="d-status d-todo">○</span> PIR周触发次数看板</li>
+        <li><span class="d-status d-todo">○</span> 误唤醒率降低验证报告</li>
+        <li><span class="d-status d-todo">○</span> App低电量/低灵敏度提示策略</li>
       </ul>
     </div>
   </div>
@@ -981,10 +970,10 @@
     <div class="deliverable-box">
       <h4>🎯 交付物</h4>
       <ul>
-        <li>低电量提示功能上线</li>
-        <li>低电量触发阈值配置文档</li>
-        <li>"低电离线"离线原因分类上线</li>
-        <li>用户提示文案及多语言版本</li>
+        <li><span class="d-status d-todo">○</span> 低电量提示功能上线</li>
+        <li><span class="d-status d-todo">○</span> 低电量触发阈值配置文档</li>
+        <li><span class="d-status d-todo">○</span> "低电离线"离线原因分类上线</li>
+        <li><span class="d-status d-todo">○</span> 用户提示文案及多语言版本</li>
       </ul>
     </div>
   </div>
@@ -1029,10 +1018,10 @@
     <div class="deliverable-box">
       <h4>🎯 交付物</h4>
       <ul>
-        <li>强提醒升级功能上线</li>
-        <li>强提醒升级MRD文档</li>
-        <li>弹窗UI设计稿</li>
-        <li>升级率数据跟踪报表</li>
+        <li><span class="d-status d-todo">○</span> 强提醒升级功能上线</li>
+        <li><span class="d-status d-todo">○</span> 强提醒升级MRD文档</li>
+        <li><span class="d-status d-todo">○</span> 弹窗UI设计稿</li>
+        <li><span class="d-status d-todo">○</span> 升级率数据跟踪报表</li>
       </ul>
     </div>
   </div>
@@ -1077,11 +1066,11 @@
     <div class="deliverable-box">
       <h4>🎯 交付物</h4>
       <ul>
-        <li>强制升级功能上线</li>
-        <li>强制升级MRD文档</li>
-        <li>强制升级弹窗UI设计稿</li>
-        <li>升级成功率及用户体验反馈数据</li>
-        <li>强制升级白名单/灰度策略</li>
+        <li><span class="d-status d-todo">○</span> 强制升级功能上线</li>
+        <li><span class="d-status d-todo">○</span> 强制升级MRD文档</li>
+        <li><span class="d-status d-todo">○</span> 强制升级弹窗UI设计稿</li>
+        <li><span class="d-status d-todo">○</span> 升级成功率及用户体验反馈数据</li>
+        <li><span class="d-status d-todo">○</span> 强制升级白名单/灰度策略</li>
       </ul>
     </div>
   </div>
@@ -1140,11 +1129,11 @@
     <div class="detail-section deliverable-box">
       <h4>🎯 交付物</h4>
       <ul>
-        <li>设备首页信息提醒类UI交互规范文档</li>
-        <li>提醒武器库组件标准（toast/标签/横幅/弹窗等各形态精确定义）</li>
-        <li>优先级矩阵与互斥规则文档</li>
-        <li>各端（iOS/Android）组件实现标准</li>
-        <li>运营位兼容方案</li>
+        <li><span class="d-status d-todo">○</span> 设备首页信息提醒类UI交互规范文档</li>
+        <li><span class="d-status d-todo">○</span> 提醒武器库组件标准（toast/标签/横幅/弹窗等各形态精确定义）</li>
+        <li><span class="d-status d-todo">○</span> 优先级矩阵与互斥规则文档</li>
+        <li><span class="d-status d-todo">○</span> 各端（iOS/Android）组件实现标准</li>
+        <li><span class="d-status d-todo">○</span> 运营位兼容方案</li>
       </ul>
     </div>
   </div>
@@ -1186,10 +1175,10 @@
     <div class="deliverable-box">
       <h4>🎯 交付物</h4>
       <ul>
-        <li>团队核心工作同步会议记录</li>
-        <li>团队成员工作分工及优先级确认表</li>
-        <li>关键依赖对齐清单</li>
-        <li>下次同步会议时间约定</li>
+        <li><span class="d-status d-todo">○</span> 团队核心工作同步会议记录</li>
+        <li><span class="d-status d-todo">○</span> 团队成员工作分工及优先级确认表</li>
+        <li><span class="d-status d-todo">○</span> 关键依赖对齐清单</li>
+        <li><span class="d-status d-todo">○</span> 下次同步会议时间约定</li>
       </ul>
     </div>
   </div>
@@ -1231,15 +1220,15 @@
     <div class="deliverable-box">
       <h4>🎯 交付物</h4>
       <ul>
-        <li>沐香辅导计划</li>
-        <li>沐香能力提升跟踪记录</li>
-        <li>T4-2配网专项工作质量改善评估</li>
-        <li>校招毕业生成长路径建议</li>
+        <li><span class="d-status d-todo">○</span> 沐香辅导计划</li>
+        <li><span class="d-status d-todo">○</span> 沐香能力提升跟踪记录</li>
+        <li><span class="d-status d-todo">○</span> T4-2配网专项工作质量改善评估</li>
+        <li><span class="d-status d-todo">○</span> 校招毕业生成长路径建议</li>
       </ul>
     </div>
   </div>
   <p class="footer">
-    台账持续更新中 | 每次信息更新后，指挥会同步更新此文档 | 最后更新：2026-05-12 11:49
+    台账持续更新中 | 每次信息更新后，指挥会同步更新此文档 | 最后更新：2026-05-12 12:07
   </p>
 </div>
 </div>
