@@ -116,7 +116,7 @@
 <div class="left-panel">
   <div class="left-header">
     <h1>📋 项目任务台账</h1>
-    <p class="meta">最后更新：2026-05-13 15:46 | 共5项目，20个任务</p>
+    <p class="meta">最后更新：2026-05-15 15:11 | 共5项目，20个任务</p>
   </div>
   <div class="stats-bar">
     <div class="stat-chip"><div class="num">5</div><div class="lbl">项目</div></div>
@@ -163,7 +163,7 @@
     <div class="project-block t2 expanded" id="proj-T2">
       <div class="project-header" onclick="toggleProject('T2')">
         <div class="project-title"><span class="project-id t2">T2</span>DMP平台迭代</div>
-        <div class="project-count">4个任务</div>
+        <div class="project-count">5个任务</div>
       </div>
       <div class="project-tasks">
         <div class="task-item" id="task-T2-1" onclick="showDetail('T2-1')">
@@ -198,6 +198,15 @@
           <div class="task-item-name">引入新品类（插座/开关/智能家居）</div>
           <div class="task-item-badges">
             <span class="badge badge-doing">进行中</span>
+            <span class="badge badge-high">高</span>
+            <span class="badge badge-high">高</span>
+          </div>
+        </div>
+        <div class="task-item" id="task-T2-5" onclick="showDetail('T2-5')">
+          <div class="task-item-id">T2-5</div>
+          <div class="task-item-name">事件/告警规则引擎后台配置</div>
+          <div class="task-item-badges">
+            <span class="badge badge-todo">未开始</span>
             <span class="badge badge-high">高</span>
             <span class="badge badge-high">高</span>
           </div>
@@ -656,6 +665,67 @@
       <ul>
         <li><span class="d-status d-todo">○</span> 正式与至少一家厂商确定合作关系，启动联调与开发</li>
         <li><span class="d-status d-todo">○</span> 涉及品类接入的需求文档</li>
+        <li><span class="d-status d-todo">○</span> 功能上线，完成验收</li>
+      </ul>
+    </div>
+  </div>
+  <div id="detail-T2-5" class="detail-card t2">
+    <div class="detail-header">
+      <div class="detail-title-wrap">
+        <span class="detail-project-label">T2 DMP平台产品迭代</span>
+        <span class="detail-id">T2-5</span>
+      </div>
+      <h2 class="detail-title">事件/告警规则引擎后台配置</h2>
+      <div class="detail-meta">
+        <span class="meta-item">👤 负责人: Adan</span>
+        <span class="meta-item">📊 状态: 未开始</span>
+        <span class="meta-item">🎯 优先级: 高 / 高</span>
+        <span class="meta-item">📅 创建: 2026-05-15</span>
+      </div>
+    </div>
+    <div class="detail-section">
+      <h4>📌 目标</h4>
+      <p>解决告警消息类型碎片化问题，建立规则引擎后台配置功能，使设备端自主对接、服务端只做配置、APP只做展示。</p>
+    </div>
+    <div class="detail-section">
+      <h4>🔄 最新进展</h4>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">2026-05-15 08:59</div>
+          <div class="timeline-content">吴朋书(Penn)在企微@Adan/陈彦晖/徐俑，提出告警消息类型方案问题</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">2026-05-15 09:09</div>
+          <div class="timeline-content">黄雪芬(Snow Wong)确认需求通过，客户同步摄像头预计1个月后上市</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">2026-05-15 15:03</div>
+          <div class="timeline-content">Adan提出拆分策略：短期应急（直接需求）+ 长期规则引擎；Adan认领DMP规则引擎需求</div>
+        </div>
+      </div>
+    </div>
+    <div class="detail-section">
+      <h4>⚠️ 关注要点</h4>
+      <ul>
+        <li>核心问题：每新增一个告警/事件类型，服务端、APP、设备端都要重新开发</li>
+        <li>时间压力：客户同步摄像头1个月后上市，短期应急方案需同步推进</li>
+        <li>短期方案：只提直接需求，开发按现有方式做，不求通用性</li>
+        <li>长期方案：规则引擎后台配置功能，支撑碎片化/并发小的事件/告警上报</li>
+        <li>Adan自己认领DMP侧规则引擎需求，需与张工拉锯排期</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>📋 下一步</h4>
+      <ul>
+        <li>在DMP里提交规则引擎需求</li>
+        <li>与张工拉锯排期和方案</li>
+        <li>同步推进短期应急方案（客户同步摄像头直接需求）</li>
+      </ul>
+    </div>
+    <div class="detail-section deliverable-box">
+      <h4>🎯 交付物</h4>
+      <ul>
+        <li><span class="d-status d-todo">○</span> 需求文档（规则引擎后台配置功能）</li>
         <li><span class="d-status d-todo">○</span> 功能上线，完成验收</li>
       </ul>
     </div>
@@ -1277,7 +1347,7 @@
     </div>
   </div>
   <p class="footer">
-    台账持续更新中 | 每次信息更新后，指挥会同步更新此文档 | 最后更新：2026-05-13 15:46
+    台账持续更新中 | 每次信息更新后，指挥会同步更新此文档 | 最后更新：2026-05-15 15:11
   </p>
 </div>
 </div>
