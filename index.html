@@ -122,7 +122,7 @@
 <div class="left-panel">
   <div class="left-header">
     <h1>📋 项目任务台账</h1>
-    <p class="meta">最后更新：2026-05-22 14:31:12 | 共5项目，23个任务</p>
+    <p class="meta">最后更新：2026-05-22 15:06:38 | 共5项目，23个任务</p>
   </div>
   <div class="stats-bar">
     <div class="stat-chip"><div class="num">5</div><div class="lbl">项目</div></div>
@@ -430,52 +430,46 @@
       </ul>
     </div>
   </div>
-  <div id="detail-T1-2" class="detail-card t1">
+    <div id="detail-T1-2" class="detail-card t1">
     <div class="detail-header">
       <div class="detail-title-wrap">
         <span class="detail-project-label">T1 易视云接DMP专项</span>
         <span class="detail-title">T1-2 App升级</span>
       </div>
       <div class="detail-meta">
-        <span class="badge badge-todo">未开始</span>
+        <span class="badge badge-doing">进行中</span>
         <span>负责人: 徐俑</span>
         <span>重要: <span class="badge badge-high">高</span></span>
         <span>紧急: <span class="badge badge-high">高</span></span>
       </div>
     </div>
-    <div class="warning-box">⚠️ 关键阻塞：前置依赖——易视云App重构版仍在第三轮验证中</div>
+    <div class="highlight-box">⚠️ 徐俑同时负责T1-2（App升级）和T2-3（WWA App改造），人力分配计划需尽快确认</div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
         <li>需求评审已完成</li>
-        <li>开发尚未启动，被前置依赖阻塞</li>
-        <li>飞书文档提取：App改造工作项已明确（WiFi/NVR设备添加、预览、回放、消息、设置等）</li>
+        <li>前置依赖（易视云App重构版第三轮验证）已结束，阻塞解除</li>
+        <li>本任务已正式启动开发</li>
       </ul>
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li>紧急：找徐俑确认重构版第三轮验证预计完成时间</li>
-        <li>评估前置依赖延迟对整个项目时间线的影响</li>
+        <li>跟踪开发进度，确认里程碑节点</li>
+        <li>评估开发工作量和对整体项目时间线的影响</li>
+        <li>确认徐俑在T1-2和T2-3之间的人力分配计划</li>
       </ul>
     </div>
     <div class="deliverable-box">
       <h4>🎯 交付物</h4>
       <ul>
-        <li><span class="d-status d-done">✓</span> 需求文档</li>
+        <li><span class="d-status d-todo">○</span> 需求文档</li>
         <li><span class="d-status d-todo">○</span> 功能上线，完成验收</li>
         <li><span class="d-status d-todo">○</span> App可同时支持易视云设备和DMP设备的添加</li>
       </ul>
     </div>
-  
-    <div class="doc-box">
-      <h4>📎 相关文档</h4>
-      <ul>
-        <li><a href="https://lcnxzs51c506.feishu.cn/wiki/WttQwYb02iwCOmkVYLhcozEdngh" target="_blank">飞书Wiki：易视云设备接入DMP</a></li>
-      </ul>
-    </div>
   </div>
-  <div id="detail-T1-3" class="detail-card t1">
+<div id="detail-T1-3" class="detail-card t1">
     <div class="detail-header">
       <div class="detail-title-wrap">
         <span class="detail-project-label">T1 易视云接DMP专项</span>
@@ -532,24 +526,35 @@
       </ul>
     </div>
   </div>
-  <div id="detail-T2-2" class="detail-card t2">
+    <div id="detail-T2-2" class="detail-card t2">
     <div class="detail-header">
       <div class="detail-title-wrap">
         <span class="detail-project-label">T2 DMP平台迭代专项</span>
         <span class="detail-title">T2-2 WWA-服务端改造</span>
       </div>
       <div class="detail-meta">
-        <span class="badge badge-todo">未开始</span>
+        <span class="badge badge-doing">进行中</span>
         <span>负责人: 彦晖</span>
         <span>重要: <span class="badge badge-high">高</span></span>
         <span>紧急: <span class="badge badge-high">高</span></span>
       </div>
     </div>
+    <div class="highlight-box">⚠️ WebRTC协议支持（门铃/门锁对讲）是核心卡点，需确认排期</div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
-        <li>任务尚未启动</li>
-        <li>已访问企微文档-WWA认证对接进度表</li>
+        <li>需求已评审通过，进入开发阶段</li>
+        <li>服务端开发排期中，等待完成</li>
+        <li>部分基础接口（AppToApp、Alexa Discovery、CameraStream）已对接</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>下一步</h4>
+      <ul>
+        <li>跟踪彦晖服务端开发进度，确认里程碑节点</li>
+        <li>确认未对接关键接口（DoorbellEventSource、LockController、RTC）的排期</li>
+        <li>与T2-3（WWA App改造）确认技术方案对齐时间</li>
+        <li>评估WWA进度对6月沙龙价值点承诺的影响</li>
       </ul>
     </div>
     <div class="deliverable-box">
@@ -559,8 +564,14 @@
         <li><span class="d-status d-todo">○</span> 功能上线，完成验收</li>
       </ul>
     </div>
+    <div class="doc-box">
+      <h4>📎 相关文档</h4>
+      <ul>
+        <li><a href="https://doc.weixin.qq.com/doc/w3_ATwAKQbWAKgCNntSzvA5eRzS7UE11" target="_blank">企微文档：WWA认证对接进度表</a></li>
+      </ul>
+    </div>
   </div>
-  <div id="detail-T2-3" class="detail-card t2">
+<div id="detail-T2-3" class="detail-card t2">
     <div class="detail-header">
       <div class="detail-title-wrap">
         <span class="detail-project-label">T2 DMP平台迭代专项</span>
