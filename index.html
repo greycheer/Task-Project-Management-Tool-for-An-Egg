@@ -105,463 +105,454 @@
 </style>
 </head>
 <body>
-
 <div id="password-overlay">
   <div class="pwd-box">
     <div class="lock-icon">🔒</div>
-    <h2>访问受限</h2>
-    <p>请输入访问密码查看项目任务台账</p>
-    <input type="password" id="pwd-input" placeholder="输入密码..." onkeydown="if(event.key==='Enter')checkPassword()">
-    <button onclick="checkPassword()">进入</button>
-    <div class="pwd-error" id="pwd-error">密码错误，请重试</div>
+    <h2>任务台账</h2>
+    <p>请输入访问密码</p>
+    <input type="password" id="pwd-input" placeholder="密码" onkeypress="if(event.key==='Enter')checkPwd()">
+    <button onclick="checkPwd()">进入</button>
+    <div class="pwd-error" id="pwd-error">密码错误</div>
   </div>
 </div>
+<script>
+function checkPwd() {
+  var input = document.getElementById('pwd-input').value;
+  if (input === 'adan2026') {
+    document.getElementById('password-overlay').style.display = 'none';
+  } else {
+    document.getElementById('pwd-error').style.display = 'block';
+  }
+}
+</script>
 
-<div class="app-container" id="main-app" style="display:none;">
-
-<div class="left-panel">
-  <div class="left-header">
-    <h1>📋 项目任务台账</h1>
-    <p class="meta">最后更新：2026-05-21 17:32 | 共5项目，20个任务</p>
+<div class="app-container">
+  <div class="left-panel">
+    <div class="left-header">
+      <h1>📋 项目任务台账</h1>
+      <div class="meta">2026年5月21日更新 | 共 23 项任务</div>
+    </div>
+    <div class="stats-bar">
+      <div class="stat-chip"><div class="num">3</div><div class="lbl">紧急高优</div></div>
+      <div class="stat-chip"><div class="num">5</div><div class="lbl">进行中</div></div>
+      <div class="stat-chip"><div class="num">2</div><div class="lbl">严重阻塞</div></div>
+      <div class="stat-chip"><div class="num">5</div><div class="lbl">本周截止</div></div>
+    </div>
+    <div class="task-list">
+      <div class="project-block t1 expanded" id="project-T1">
+        <div class="project-header" onclick="toggleProject('project-T1')">
+          <div class="project-title"><span class="project-id t1">T1</span> 核心能力建设</div>
+          <div class="project-count">3 任务</div>
+        </div>
+        <div class="project-tasks">
+          <div class="task-item" id="task-T1-1" onclick="showDetail('T1-1')">
+            <div class="task-item-id">T1-1</div>
+            <div class="task-item-name">DMP平台升级</div>
+            <div class="task-item-badges">
+              <span class="badge badge-doing">进行中</span>
+              <span class="badge badge-high">高</span>
+              <span class="badge badge-mid">中</span>
+            </div>
+          </div>
+          <div class="task-item" id="task-T1-2" onclick="showDetail('T1-2')">
+            <div class="task-item-id">T1-2</div>
+            <div class="task-item-name">App升级</div>
+            <div class="task-item-badges">
+              <span class="badge badge-doing">进行中</span>
+              <span class="badge badge-high">高</span>
+              <span class="badge badge-mid">中</span>
+            </div>
+          </div>
+          <div class="task-item" id="task-T1-3" onclick="showDetail('T1-3')">
+            <div class="task-item-id">T1-3</div>
+            <div class="task-item-name">价值点挖掘与包装</div>
+            <div class="task-item-badges">
+              <span class="badge badge-doing">进行中</span>
+              <span class="badge badge-mid">中</span>
+              <span class="badge badge-mid">中</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="project-block t2 expanded" id="project-T2">
+        <div class="project-header" onclick="toggleProject('project-T2')">
+          <div class="project-title"><span class="project-id t2">T2</span> 平台用户体验治理专项</div>
+          <div class="project-count">6 任务</div>
+        </div>
+        <div class="project-tasks">
+          <div class="task-item" id="task-T2-1" onclick="showDetail('T2-1')">
+            <div class="task-item-id">T2-1</div>
+            <div class="task-item-name">DMP平台多语言</div>
+            <div class="task-item-badges">
+              <span class="badge badge-doing">进行中</span>
+              <span class="badge badge-mid">中</span>
+              <span class="badge badge-low">低</span>
+            </div>
+          </div>
+          <div class="task-item" id="task-T2-2" onclick="showDetail('T2-2')">
+            <div class="task-item-id">T2-2</div>
+            <div class="task-item-name">WWA服务端改造</div>
+            <div class="task-item-badges">
+              <span class="badge badge-doing">进行中</span>
+              <span class="badge badge-high">高</span>
+              <span class="badge badge-mid">中</span>
+            </div>
+          </div>
+          <div class="task-item" id="task-T2-3" onclick="showDetail('T2-3')">
+            <div class="task-item-id">T2-3</div>
+            <div class="task-item-name">WWA App改造</div>
+            <div class="task-item-badges">
+              <span class="badge badge-doing">进行中</span>
+              <span class="badge badge-high">高</span>
+              <span class="badge badge-mid">中</span>
+            </div>
+          </div>
+          <div class="task-item" id="task-T2-4" onclick="showDetail('T2-4')">
+            <div class="task-item-id">T2-4</div>
+            <div class="task-item-name">DMP引入新品类</div>
+            <div class="task-item-badges">
+              <span class="badge badge-todo">未开始</span>
+              <span class="badge badge-mid">中</span>
+              <span class="badge badge-low">低</span>
+            </div>
+          </div>
+          <div class="task-item" id="task-T2-5" onclick="showDetail('T2-5')">
+            <div class="task-item-id">T2-5</div>
+            <div class="task-item-name">事件告警规则引擎后台配置</div>
+            <div class="task-item-badges">
+              <span class="badge badge-todo">未开始</span>
+              <span class="badge badge-mid">中</span>
+              <span class="badge badge-mid">中</span>
+            </div>
+          </div>
+          <div class="task-item" id="task-T2-6" onclick="showDetail('T2-6')">
+            <div class="task-item-id">T2-6</div>
+            <div class="task-item-name">平台权限管理体系升级</div>
+            <div class="task-item-badges">
+              <span class="badge badge-doing">进行中</span>
+              <span class="badge badge-mid">中</span>
+              <span class="badge badge-low">低</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="project-block t3 expanded" id="project-T3">
+        <div class="project-header" onclick="toggleProject('project-T3')">
+          <div class="project-title"><span class="project-id t3">T3</span> 门锁业务</div>
+          <div class="project-count">4 任务</div>
+        </div>
+        <div class="project-tasks">
+          <div class="task-item" id="task-T3-1" onclick="showDetail('T3-1')">
+            <div class="task-item-id">T3-1</div>
+            <div class="task-item-name">Warner客户视频门锁</div>
+            <div class="task-item-badges">
+              <span class="badge badge-doing">进行中</span>
+              <span class="badge badge-high">高</span>
+              <span class="badge badge-high">高</span>
+            </div>
+          </div>
+          <div class="task-item" id="task-T3-2" onclick="showDetail('T3-2')">
+            <div class="task-item-id">T3-2</div>
+            <div class="task-item-name">美A客户萤石门锁选型</div>
+            <div class="task-item-badges">
+              <span class="badge badge-doing">进行中</span>
+              <span class="badge badge-mid">中</span>
+              <span class="badge badge-mid">中</span>
+            </div>
+          </div>
+          <div class="task-item" id="task-T3-3" onclick="showDetail('T3-3')">
+            <div class="task-item-id">T3-3</div>
+            <div class="task-item-name">安凯门锁面板需求</div>
+            <div class="task-item-badges">
+              <span class="badge badge-doing">进行中</span>
+              <span class="badge badge-mid">中</span>
+              <span class="badge badge-mid">中</span>
+            </div>
+          </div>
+          <div class="task-item" id="task-T3-4" onclick="showDetail('T3-4')">
+            <div class="task-item-id">T3-4</div>
+            <div class="task-item-name">粤丰门锁选型拓展</div>
+            <div class="task-item-badges">
+              <span class="badge badge-todo">未开始</span>
+              <span class="badge badge-mid">中</span>
+              <span class="badge badge-low">低</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="project-block t4 expanded" id="project-T4">
+        <div class="project-header" onclick="toggleProject('project-T4')">
+          <div class="project-title"><span class="project-id t4">T4</span> 用户体验治理专项</div>
+          <div class="project-count">8 任务</div>
+        </div>
+        <div class="project-tasks">
+          <div class="task-item" id="task-T4-1" onclick="showDetail('T4-1')">
+            <div class="task-item-id">T4-1</div>
+            <div class="task-item-name">美版4G强制升级引导</div>
+            <div class="task-item-badges">
+              <span class="badge badge-doing">进行中</span>
+              <span class="badge badge-high">高</span>
+              <span class="badge badge-mid">中</span>
+            </div>
+          </div>
+          <div class="task-item" id="task-T4-2" onclick="showDetail('T4-2')">
+            <div class="task-item-id">T4-2</div>
+            <div class="task-item-name">设备配网绑定专项</div>
+            <div class="task-item-badges">
+              <span class="badge badge-doing">进行中</span>
+              <span class="badge badge-mid">中</span>
+              <span class="badge badge-mid">中</span>
+            </div>
+          </div>
+          <div class="task-item" id="task-T4-3" onclick="showDetail('T4-3')">
+            <div class="task-item-id">T4-3</div>
+            <div class="task-item-name">低功耗灵敏度优化</div>
+            <div class="task-item-badges">
+              <span class="badge badge-check">跟进滞后</span>
+              <span class="badge badge-mid">中</span>
+              <span class="badge badge-mid">中</span>
+            </div>
+          </div>
+          <div class="task-item" id="task-T4-4" onclick="showDetail('T4-4')">
+            <div class="task-item-id">T4-4</div>
+            <div class="task-item-name">app低电量提示</div>
+            <div class="task-item-badges">
+              <span class="badge badge-todo">未开始</span>
+              <span class="badge badge-mid">中</span>
+              <span class="badge badge-low">低</span>
+            </div>
+          </div>
+          <div class="task-item" id="task-T4-5" onclick="showDetail('T4-5')">
+            <div class="task-item-id">T4-5</div>
+            <div class="task-item-name">强提醒升级</div>
+            <div class="task-item-badges">
+              <span class="badge badge-doing">进行中</span>
+              <span class="badge badge-high">高</span>
+              <span class="badge badge-high">高</span>
+            </div>
+          </div>
+          <div class="task-item" id="task-T4-6" onclick="showDetail('T4-6')">
+            <div class="task-item-id">T4-6</div>
+            <div class="task-item-name">强制升级</div>
+            <div class="task-item-badges">
+              <span class="badge badge-doing">进行中</span>
+              <span class="badge badge-high">高</span>
+              <span class="badge badge-high">高</span>
+            </div>
+          </div>
+          <div class="task-item" id="task-T4-7" onclick="showDetail('T4-7')">
+            <div class="task-item-id">T4-7</div>
+            <div class="task-item-name">设备首页信息提醒类UI规范</div>
+            <div class="task-item-badges">
+              <span class="badge badge-doing">进行中</span>
+              <span class="badge badge-high">高</span>
+              <span class="badge badge-low">低</span>
+            </div>
+          </div>
+          <div class="task-item" id="task-T4-8" onclick="showDetail('T4-8')">
+            <div class="task-item-id">T4-8</div>
+            <div class="task-item-name">蓝牙设备深度自检能力</div>
+            <div class="task-item-badges">
+              <span class="badge badge-todo">未开始</span>
+              <span class="badge badge-mid">中</span>
+              <span class="badge badge-low">低</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="project-block t5 expanded" id="project-T5">
+        <div class="project-header" onclick="toggleProject('project-T5')">
+          <div class="project-title"><span class="project-id t5">T5</span> 团队管理</div>
+          <div class="project-count">2 任务</div>
+        </div>
+        <div class="project-tasks">
+          <div class="task-item" id="task-T5-1" onclick="showDetail('T5-1')">
+            <div class="task-item-id">T5-1</div>
+            <div class="task-item-name">开会同步团队核心工作范围</div>
+            <div class="task-item-badges">
+              <span class="badge badge-todo">未开始</span>
+              <span class="badge badge-mid">中</span>
+              <span class="badge badge-mid">中</span>
+            </div>
+          </div>
+          <div class="task-item" id="task-T5-2" onclick="showDetail('T5-2')">
+            <div class="task-item-id">T5-2</div>
+            <div class="task-item-name">沐香配网治理专项辅导</div>
+            <div class="task-item-badges">
+              <span class="badge badge-check">跟进滞后</span>
+              <span class="badge badge-mid">中</span>
+              <span class="badge badge-mid">中</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="stats-bar">
-    <div class="stat-chip"><div class="num">5</div><div class="lbl">项目</div></div>
-    <div class="stat-chip"><div class="num">19</div><div class="lbl">任务</div></div>
-    <div class="stat-chip"><div class="num" style="color:#da3633">10</div><div class="lbl">进行中</div></div>
-    <div class="stat-chip"><div class="num" style="color:#8b949e">6</div><div class="lbl">未开始</div></div>
-  </div>
-  <div class="task-list">
-    <div class="project-block t1 expanded" id="proj-T1">
-      <div class="project-header" onclick="toggleProject('T1')">
-        <div class="project-title"><span class="project-id t1">T1</span>易视云接DMP</div>
-        <div class="project-count">3个任务</div>
-      </div>
-      <div class="project-tasks">
-        <div class="task-item" id="task-T1-1" onclick="showDetail('T1-1')">
-          <div class="task-item-id">T1-1</div>
-          <div class="task-item-name">DMP平台升级</div>
-          <div class="task-item-badges">
-            <span class="badge badge-doing">进行中</span>
-            <span class="badge badge-high">高</span>
-            <span class="badge badge-high">高</span>
-          </div>
-        </div>
-        <div class="task-item" id="task-T1-2" onclick="showDetail('T1-2')">
-          <div class="task-item-id">T1-2</div>
-          <div class="task-item-name">App升级</div>
-          <div class="task-item-badges">
-            <span class="badge badge-todo">未开始</span>
-            <span class="badge badge-high">高</span>
-            <span class="badge badge-high">高</span>
-          </div>
-        </div>
-        <div class="task-item" id="task-T1-3" onclick="showDetail('T1-3')">
-          <div class="task-item-id">T1-3</div>
-          <div class="task-item-name">面向经销商/整机商的价值点挖掘与包装</div>
-          <div class="task-item-badges">
-            <span class="badge badge-doing">进行中</span>
-            <span class="badge badge-high">高</span>
-            <span class="badge badge-low">低</span>
-          </div>
-        </div>
-      </div>
+  <div class="right-panel">
+    <div class="detail-empty" id="detail-empty">
+      <div class="detail-empty-icon">📋</div>
+      <p>点击左侧任务查看详情</p>
     </div>
-    <div class="project-block t2 expanded" id="proj-T2">
-      <div class="project-header" onclick="toggleProject('T2')">
-        <div class="project-title"><span class="project-id t2">T2</span>DMP平台迭代</div>
-        <div class="project-count">6个任务</div>
-      </div>
-      <div class="project-tasks">
-        <div class="task-item" id="task-T2-1" onclick="showDetail('T2-1')">
-          <div class="task-item-id">T2-1</div>
-          <div class="task-item-name">平台多语言</div>
-          <div class="task-item-badges">
-            <span class="badge badge-wait">进行中</span>
-            <span class="badge badge-high">高</span>
-            <span class="badge badge-mid">中</span>
-          </div>
-        </div>
-        <div class="task-item" id="task-T2-2" onclick="showDetail('T2-2')">
-          <div class="task-item-id">T2-2</div>
-          <div class="task-item-name">WWA-服务端改造</div>
-          <div class="task-item-badges">
-            <span class="badge badge-todo">未开始</span>
-            <span class="badge badge-high">高</span>
-            <span class="badge badge-high">高</span>
-          </div>
-        </div>
-        <div class="task-item" id="task-T2-3" onclick="showDetail('T2-3')">
-          <div class="task-item-id">T2-3</div>
-          <div class="task-item-name">WWA-App改造</div>
-          <div class="task-item-badges">
-            <span class="badge badge-todo">未开始</span>
-            <span class="badge badge-high">高</span>
-            <span class="badge badge-high">高</span>
-          </div>
-        </div>
-        <div class="task-item" id="task-T2-4" onclick="showDetail('T2-4')">
-          <div class="task-item-id">T2-4</div>
-          <div class="task-item-name">引入新品类（插座/开关/智能家居）</div>
-          <div class="task-item-badges">
-            <span class="badge badge-doing">进行中</span>
-            <span class="badge badge-high">高</span>
-            <span class="badge badge-high">高</span>
-          </div>
-        </div>
-        <div class="task-item" id="task-T2-5" onclick="showDetail('T2-5')">
-          <div class="task-item-id">T2-5</div>
-          <div class="task-item-name">事件/告警规则引擎后台配置</div>
-          <div class="task-item-badges">
-            <span class="badge badge-todo">未开始</span>
-            <span class="badge badge-high">高</span>
-            <span class="badge badge-high">高</span>
-          </div>
-        </div>
-        <div class="task-item" id="task-T2-6" onclick="showDetail('T2-6')">
-          <div class="task-item-id">T2-6</div>
-          <div class="task-item-name">平台权限管理体系升级</div>
-          <div class="task-item-badges">
-            <span class="badge badge-wait">进行中</span>
-            <span class="badge badge-high">高</span>
-            <span class="badge badge-high">高</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="project-block t3 expanded" id="proj-T3">
-      <div class="project-header" onclick="toggleProject('T3')">
-        <div class="project-title"><span class="project-id t3">T3</span>智能门锁</div>
-        <div class="project-count">4个任务</div>
-      </div>
-      <div class="project-tasks">
-        <div class="task-item" id="task-T3-1" onclick="showDetail('T3-1')">
-          <div class="task-item-id">T3-1</div>
-          <div class="task-item-name">Warner视频门锁</div>
-          <div class="task-item-badges">
-            <span class="badge badge-doing">进行中</span>
-            <span class="badge badge-mid">中</span>
-            <span class="badge badge-mid">中</span>
-          </div>
-        </div>
-        <div class="task-item" id="task-T3-2" onclick="showDetail('T3-2')">
-          <div class="task-item-id">T3-2</div>
-          <div class="task-item-name">美A(萤石)门锁选型</div>
-          <div class="task-item-badges">
-            <span class="badge badge-doing">进行中</span>
-            <span class="badge badge-mid">中</span>
-            <span class="badge badge-low">低</span>
-          </div>
-        </div>
-        <div class="task-item" id="task-T3-3" onclick="showDetail('T3-3')">
-          <div class="task-item-id">T3-3</div>
-          <div class="task-item-name">安凯门锁面板需求</div>
-          <div class="task-item-badges">
-            <span class="badge badge-wait">进行中</span>
-            <span class="badge badge-mid">中</span>
-            <span class="badge badge-high">高</span>
-          </div>
-        </div>
-        <div class="task-item" id="task-T3-4" onclick="showDetail('T3-4')">
-          <div class="task-item-id">T3-4</div>
-          <div class="task-item-name">粤丰门锁选型拓展</div>
-          <div class="task-item-badges">
-            <span class="badge badge-todo">未开始</span>
-            <span class="badge badge-mid">中</span>
-            <span class="badge badge-low">低</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="project-block t4 expanded" id="proj-T4">
-      <div class="project-header" onclick="toggleProject('T4')">
-        <div class="project-title"><span class="project-id t4">T4</span>用户体验治理</div>
-        <div class="project-count">8个任务</div>
-      </div>
-      <div class="project-tasks">
-        <div class="task-item" id="task-T4-1" onclick="showDetail('T4-1')">
-          <div class="task-item-id">T4-1</div>
-          <div class="task-item-name">美版4G OTA升级配置</div>
-          <div class="task-item-badges">
-            <span class="badge badge-doing">进行中</span>
-            <span class="badge badge-high">高</span>
-            <span class="badge badge-high">高</span>
-          </div>
-        </div>
-        <div class="task-item" id="task-T4-2" onclick="showDetail('T4-2')">
-          <div class="task-item-id">T4-2</div>
-          <div class="task-item-name">设备配网绑定专项</div>
-          <div class="task-item-badges">
-            <span class="badge badge-doing">进行中</span>
-            <span class="badge badge-mid">中</span>
-            <span class="badge badge-mid">中</span>
-          </div>
-        </div>
-        <div class="task-item" id="task-T4-3" onclick="showDetail('T4-3')">
-          <div class="task-item-id">T4-3</div>
-          <div class="task-item-name">低功耗灵敏度优化</div>
-          <div class="task-item-badges">
-            <span class="badge badge-check">进行中</span>
-            <span class="badge badge-mid">中</span>
-            <span class="badge badge-mid">中</span>
-          </div>
-        </div>
-        <div class="task-item" id="task-T4-4" onclick="showDetail('T4-4')">
-          <div class="task-item-id">T4-4</div>
-          <div class="task-item-name">app低电量提示</div>
-          <div class="task-item-badges">
-            <span class="badge badge-todo">未开始</span>
-            <span class="badge badge-mid">中</span>
-            <span class="badge badge-low">低</span>
-          </div>
-        </div>
-        <div class="task-item" id="task-T4-5" onclick="showDetail('T4-5')">
-          <div class="task-item-id">T4-5</div>
-          <div class="task-item-name">易视云App“强提醒升级”</div>
-          <div class="task-item-badges">
-            <span class="badge badge-doing">进行中</span>
-            <span class="badge badge-high">高</span>
-            <span class="badge badge-high">高</span>
-          </div>
-        </div>
-        <div class="task-item" id="task-T4-6" onclick="showDetail('T4-6')">
-          <div class="task-item-id">T4-6</div>
-          <div class="task-item-name">易视云App“强制升级”</div>
-          <div class="task-item-badges">
-            <span class="badge badge-doing">进行中</span>
-            <span class="badge badge-high">高</span>
-            <span class="badge badge-high">高</span>
-          </div>
-        </div>
-        <div class="task-item" id="task-T4-7" onclick="showDetail('T4-7')">
-          <div class="task-item-id">T4-7</div>
-          <div class="task-item-name">设备首页信息提醒类UI规范</div>
-          <div class="task-item-badges">
-            <span class="badge badge-doing">进行中</span>
-            <span class="badge badge-high">高</span>
-            <span class="badge badge-low">低</span>
-          </div>
-        </div>
-        <div class="task-item" id="task-T4-8" onclick="showDetail('T4-8')">
-          <div class="task-item-id">T4-8</div>
-          <div class="task-item-name">蓝牙设备深度自检能力</div>
-          <div class="task-item-badges">
-            <span class="badge badge-todo">未开始</span>
-            <span class="badge badge-mid">中</span>
-            <span class="badge badge-mid">中</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="project-block t5 expanded" id="proj-T5">
-      <div class="project-header" onclick="toggleProject('T5')">
-        <div class="project-title"><span class="project-id t5">T5</span>团队管理</div>
-        <div class="project-count">2个任务</div>
-      </div>
-      <div class="project-tasks">
-        <div class="task-item" id="task-T5-1" onclick="showDetail('T5-1')">
-          <div class="task-item-id">T5-1</div>
-          <div class="task-item-name">开会同步团队核心工作范围</div>
-          <div class="task-item-badges">
-            <span class="badge badge-todo">未开始</span>
-            <span class="badge badge-mid">中</span>
-            <span class="badge badge-mid">中</span>
-          </div>
-        </div>
-        <div class="task-item" id="task-T5-2" onclick="showDetail('T5-2')">
-          <div class="task-item-id">T5-2</div>
-          <div class="task-item-name">沐香配网治理专项辅导</div>
-          <div class="task-item-badges">
-            <span class="badge badge-doing">进行中</span>
-            <span class="badge badge-mid">中</span>
-            <span class="badge badge-mid">中</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="right-panel">
-  <div class="detail-empty" id="detail-empty">
-    <div class="detail-empty-icon">👆</div>
-    <p>点击左侧任务查看详情</p>
-  </div>
-  <div id="detail-T1-1" class="detail-card t1">
+    <div id="detail-T1-1" class="detail-card t1">
     <div class="detail-header">
       <div class="detail-title-wrap">
-        <span class="detail-project-label">T1 易视云接DMP专项</span>
+        <span class="detail-project-label">T1 核心能力建设</span>
         <span class="detail-title">T1-1 DMP平台升级</span>
       </div>
       <div class="detail-meta">
         <span class="badge badge-doing">进行中</span>
-        <span>负责人: 彦晖</span>
+        <span>负责人: Adan汪/云开发团队</span>
         <span>重要: <span class="badge badge-high">高</span></span>
-        <span>紧急: <span class="badge badge-high">高</span></span>
+        <span>紧急: <span class="badge badge-mid">中</span></span>
       </div>
+    </div>
+    <div class="detail-section">
+      <h4>目标</h4>
+      <p>升级DMP管理平台，打通数据链路，实现更高效的数据管理和业务支撑能力。</p>
     </div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
-        <li>需求评审已完成，开发阶段已结束，已进入测试阶段（彦晖5/11反馈）</li>
-        <li>彦晖负责推进</li>
-        <li>飞书文档提取完成：GPID产品配置、五元组分发、SDK配网改造、Push打通4项必要工作已明确</li>
-      </ul>
-    </div>
-    <div class="detail-section">
-      <h4>关注要点</h4>
-      <ul>
-        <li>开发进度是否按计划推进，有无阻塞</li>
-        <li>与App升级(T1-2)的接口对齐和联调节奏</li>
-        <li>项目约束：生产端影响最小化、用户体验连贯、ODM客户无感知</li>
-        <li>项目分两期：本期设备功能全流程，下期增值服务对接</li>
+        <li>DMP管理平台已搭建完成</li>
+        <li>海外/国内数据链路逐步打通</li>
+        <li>数据面看板已搭建（可查看设备/用户/平台健康数据）</li>
+        <li>开发团队资源紧缺，项目交付周期拉长</li>
       </ul>
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li>跟进测试阶段进展，确认测试覆盖范围</li>
-        <li>了解是否有需要Adan协调的资源或决策</li>
+        <li>确认数据面看板是否满足业务需求</li>
+        <li>梳理剩余未打通的链路节点</li>
+        <li>评估后续功能开发优先级</li>
       </ul>
     </div>
     <div class="deliverable-box">
-      <h4>🎯 交付物</h4>
+      <h4>交付物</h4>
       <ul>
-        <li><span class="d-status d-done">✓</span> 需求文档</li>
-        <li><span class="d-status d-todo">○</span> 一期功能上线，完成验收</li>
-        <li><span class="d-status d-todo">○</span> GPID配置与同步操作手册</li>
-      </ul>
-    </div>
-  
-    <div class="doc-box">
-      <h4>📎 相关文档</h4>
-      <ul>
-        <li><a href="https://lcnxzs51c506.feishu.cn/wiki/WttQwYb02iwCOmkVYLhcozEdngh" target="_blank">飞书Wiki：易视云设备接入DMP</a></li>
+        <li><span class="d-status d-todo">○</span> DMP平台功能上线，完成验收</li>
       </ul>
     </div>
   </div>
   <div id="detail-T1-2" class="detail-card t1">
     <div class="detail-header">
       <div class="detail-title-wrap">
-        <span class="detail-project-label">T1 易视云接DMP专项</span>
+        <span class="detail-project-label">T1 核心能力建设</span>
         <span class="detail-title">T1-2 App升级</span>
       </div>
       <div class="detail-meta">
-        <span class="badge badge-todo">未开始</span>
+        <span class="badge badge-doing">进行中</span>
         <span>负责人: 徐俑</span>
         <span>重要: <span class="badge badge-high">高</span></span>
-        <span>紧急: <span class="badge badge-high">高</span></span>
+        <span>紧急: <span class="badge badge-mid">中</span></span>
       </div>
     </div>
-    <div class="warning-box">⚠️ 关键阻塞：前置依赖——易视云App重构版仍在第三轮验证中</div>
+    <div class="detail-section">
+      <h4>目标</h4>
+      <p>对现有App进行升级迭代，提升产品竞争力和用户体验。</p>
+    </div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
-        <li>需求评审已完成</li>
-        <li>开发尚未启动，被前置依赖阻塞</li>
-        <li>飞书文档提取：App改造工作项已明确（WiFi/NVR设备添加、预览、回放、消息、设置等）</li>
-      </ul>
-    </div>
-    <div class="detail-section">
-      <h4>关注要点</h4>
-      <ul>
-        <li>易视云App重构版第三轮验证是当前最大阻塞点</li>
-        <li>平台(T1-1)已在测试中，App未启动，节奏不一致风险</li>
-        <li>徐俑同时负责T1-2和T2-3，人力资源分配需确认</li>
-        <li>本期只涉及设备功能，增值服务在二期</li>
+        <li>升级方案已出，徐俑负责统筹开发</li>
+        <li>开发与测试并行推进中</li>
+        <li>需明确具体功能范围和验收标准</li>
       </ul>
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li>紧急：找徐俑确认重构版第三轮验证预计完成时间</li>
-        <li>评估前置依赖延迟对整个项目时间线的影响</li>
+        <li>明确App升级的具体功能清单</li>
+        <li>确认验收标准和上线时间节点</li>
+        <li>协调资源，推进开发进度</li>
       </ul>
     </div>
     <div class="deliverable-box">
-      <h4>🎯 交付物</h4>
+      <h4>交付物</h4>
       <ul>
-        <li><span class="d-status d-done">✓</span> 需求文档</li>
+        <li><span class="d-status d-todo">○</span> App升级方案文档</li>
         <li><span class="d-status d-todo">○</span> 功能上线，完成验收</li>
-        <li><span class="d-status d-todo">○</span> App可同时支持易视云设备和DMP设备的添加</li>
-      </ul>
-    </div>
-  
-    <div class="doc-box">
-      <h4>📎 相关文档</h4>
-      <ul>
-        <li><a href="https://lcnxzs51c506.feishu.cn/wiki/WttQwYb02iwCOmkVYLhcozEdngh" target="_blank">飞书Wiki：易视云设备接入DMP</a></li>
       </ul>
     </div>
   </div>
   <div id="detail-T1-3" class="detail-card t1">
     <div class="detail-header">
       <div class="detail-title-wrap">
-        <span class="detail-project-label">T1 易视云接DMP专项</span>
-        <span class="detail-title">T1-3 面向经销商/整机商的价值点挖掘与包装</span>
+        <span class="detail-project-label">T1 核心能力建设</span>
+        <span class="detail-title">T1-3 价值点挖掘与包装</span>
       </div>
       <div class="detail-meta">
         <span class="badge badge-doing">进行中</span>
-        <span>负责人: Adan</span>
-        <span>重要: <span class="badge badge-high">高</span></span>
-        <span>紧急: <span class="badge badge-low">低</span></span>
+        <span>负责人: Adan汪</span>
+        <span>重要: <span class="badge badge-mid">中</span></span>
+        <span>紧急: <span class="badge badge-mid">中</span></span>
       </div>
     </div>
-    <div class="highlight-box">🎯 目标：6月份安防沙龙对外宣贯，驱动下游合作生态使用DMP设备出货</div>
     <div class="detail-section">
-      <h4>关注要点</h4>
+      <h4>目标</h4>
+      <p>面向经销商/整机商，挖掘和包装产品价值点，支撑市场销售。</p>
+    </div>
+    <div class="detail-section">
+      <h4>关键进展</h4>
       <ul>
-        <li>时间紧迫：6月沙龙距今不到一个月</li>
-        <li>价值点d不确定——需彦晖确认需求真实性</li>
-        <li>WWA价值点的技术可行性需确认T2-2、T2-3进度</li>
+        <li>价值点梳理进行中，面向B端客户</li>
+        <li>需结合产品能力输出价值清单</li>
+        <li>目前进度偏慢，需加速推进</li>
       </ul>
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li>紧急：找彦晖确认贴标问题是否为真需求</li>
-        <li>紧急：确认毅东售后能力升级信息是否已收到</li>
-        <li>开始准备价值点的包装材料和宣贯文案</li>
+        <li>输出价值点清单文档</li>
+        <li>与销售团队对齐，确认价值包装策略</li>
+        <li>制作面向客户的价值展示材料</li>
       </ul>
     </div>
     <div class="deliverable-box">
-      <h4>🎯 交付物</h4>
+      <h4>交付物</h4>
       <ul>
-        <li><span class="d-status d-todo">○</span> 面向经销商/整机商的价值点清单文档（含每个价值点的易视云现状分析、DMP可做到的程度分析、距离目标的gap分析）</li>
+        <li><span class="d-status d-todo">○</span> 价值点清单文档</li>
+        <li><span class="d-status d-todo">○</span> 客户价值展示材料</li>
       </ul>
     </div>
   </div>
   <div id="detail-T2-1" class="detail-card t2">
     <div class="detail-header">
       <div class="detail-title-wrap">
-        <span class="detail-project-label">T2 DMP平台迭代专项</span>
-        <span class="detail-title">T2-1 平台多语言</span>
+        <span class="detail-project-label">T2 平台用户体验治理专项</span>
+        <span class="detail-title">T2-1 DMP平台多语言</span>
       </div>
       <div class="detail-meta">
-        <span class="badge badge-wait">进行中</span>
-        <span>负责人: 彦晖</span>
-        <span>重要: <span class="badge badge-high">高</span></span>
-        <span>紧急: <span class="badge badge-mid">中</span></span>
+        <span class="badge badge-doing">进行中</span>
+        <span>负责人: Adan汪/开发团队</span>
+        <span>重要: <span class="badge badge-mid">中</span></span>
+        <span>紧急: <span class="badge badge-low">低</span></span>
       </div>
+    </div>
+    <div class="detail-section">
+      <h4>目标</h4>
+      <p>实现DMP平台多语言支持，满足海外市场需求。</p>
     </div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
-        <li>需求设计中，彦晖负责</li>
-        <li>要求整个平台有一套通用的产品设计来支持各个模块的多语言</li>
+        <li>多语言需求已梳理</li>
+        <li>技术方案待评估</li>
+        <li>开发资源需协调</li>
       </ul>
     </div>
     <div class="detail-section">
-      <h4>关注要点</h4>
+      <h4>下一步</h4>
       <ul>
-        <li>多语言不是简单文本替换，各模块技术栈可能不同</li>
-        <li>T1-1是否已预留多语言扩展能力——避免后续返工</li>
-        <li>翻译资源和流程需提前规划</li>
+        <li>输出多语言技术方案</li>
+        <li>评估开发工作量</li>
+        <li>协调资源启动开发</li>
       </ul>
     </div>
     <div class="deliverable-box">
-      <h4>🎯 交付物</h4>
+      <h4>交付物</h4>
       <ul>
-        <li><span class="d-status d-todo">○</span> 需求文档</li>
+        <li><span class="d-status d-todo">○</span> 多语言技术方案</li>
         <li><span class="d-status d-todo">○</span> 功能上线，完成验收</li>
       </ul>
     </div>
@@ -569,131 +560,122 @@
   <div id="detail-T2-2" class="detail-card t2">
     <div class="detail-header">
       <div class="detail-title-wrap">
-        <span class="detail-project-label">T2 DMP平台迭代专项</span>
-        <span class="detail-title">T2-2 WWA-服务端改造</span>
+        <span class="detail-project-label">T2 平台用户体验治理专项</span>
+        <span class="detail-title">T2-2 WWA服务端改造</span>
       </div>
       <div class="detail-meta">
-        <span class="badge badge-todo">未开始</span>
-        <span>负责人: 彦晖</span>
+        <span class="badge badge-doing">进行中</span>
+        <span>负责人: 徐俑</span>
         <span>重要: <span class="badge badge-high">高</span></span>
-        <span>紧急: <span class="badge badge-high">高</span></span>
+        <span>紧急: <span class="badge badge-mid">中</span></span>
       </div>
+    </div>
+    <div class="detail-section">
+      <h4>目标</h4>
+      <p>改造WWA服务端架构，提升系统稳定性和扩展性。</p>
     </div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
-        <li>任务尚未启动</li>
-        <li>已访问企微文档-WWA认证对接进度表</li>
+        <li>改造方案已输出</li>
+        <li>服务端改造进行中</li>
+        <li>需关注与App端的接口兼容</li>
       </ul>
     </div>
     <div class="detail-section">
-      <h4>关注要点</h4>
+      <h4>下一步</h4>
       <ul>
-        <li>核心卡点：WebRTC协议支持——门铃/门锁的对讲功能依赖RTC</li>
-        <li>WWA认证标准周期8-10个工作日，前提是全部接口对接完成</li>
-        <li>与T1-3联动：WWA是6月沙龙价值点之一</li>
-        <li>彦晖多任务负载：同时负责T1-1、T2-1、T2-2、T2-4</li>
+        <li>完成服务端核心模块改造</li>
+        <li>输出接口兼容性测试报告</li>
+        <li>与App端联调</li>
       </ul>
     </div>
     <div class="deliverable-box">
-      <h4>🎯 交付物</h4>
+      <h4>交付物</h4>
       <ul>
-        <li><span class="d-status d-todo">○</span> 需求文档</li>
-        <li><span class="d-status d-todo">○</span> 功能上线，完成验收</li>
+        <li><span class="d-status d-todo">○</span> 服务端改造完成，通过测试</li>
+        <li><span class="d-status d-todo">○</span> 接口兼容性验证报告</li>
       </ul>
     </div>
   </div>
   <div id="detail-T2-3" class="detail-card t2">
     <div class="detail-header">
       <div class="detail-title-wrap">
-        <span class="detail-project-label">T2 DMP平台迭代专项</span>
-        <span class="detail-title">T2-3 WWA-App改造</span>
+        <span class="detail-project-label">T2 平台用户体验治理专项</span>
+        <span class="detail-title">T2-3 WWA App改造</span>
       </div>
       <div class="detail-meta">
-        <span class="badge badge-todo">未开始</span>
+        <span class="badge badge-doing">进行中</span>
         <span>负责人: 徐俑</span>
         <span>重要: <span class="badge badge-high">高</span></span>
-        <span>紧急: <span class="badge badge-high">高</span></span>
+        <span>紧急: <span class="badge badge-mid">中</span></span>
       </div>
     </div>
-    <div class="warning-box">⚠️ 技术复杂度极高：需merge P2P私有协议和WebRTC协议到同一个SDK，涉及大量架构重构</div>
+    <div class="detail-section">
+      <h4>目标</h4>
+      <p>配合服务端改造，完成WWA App端适配升级。</p>
+    </div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
-        <li>任务已识别，尚未启动</li>
-        <li>WWA认证进度表中RTC半双工/全双工均为未对接</li>
-        <li>备注提到"协议组仅联调"——服务端和App端仍处于联调阶段</li>
-      </ul>
-    </div>
-    <div class="detail-section">
-      <h4>关注要点</h4>
-      <ul>
-        <li>merge两种协议的架构重构工作量巨大</li>
-        <li>徐俑同时负责T1-2和T2-3，人力资源冲突</li>
-        <li>需评估替代方案（非merge方案）的ROI</li>
-        <li>RTC未对接直接影响WWA认证——对讲功能无法完成</li>
+        <li>App改造需求已明确</li>
+        <li>与服务端联调方案已出</li>
+        <li>开发排期中</li>
       </ul>
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li>紧急：与徐俑确认T1-2和T2-3的人力分配计划</li>
-        <li>要求先输出技术方案评估（merge vs 替代方案）</li>
+        <li>启动App改造开发</li>
+        <li>与服务端进行接口联调</li>
+        <li>完成功能验收</li>
       </ul>
     </div>
     <div class="deliverable-box">
-      <h4>🎯 交付物</h4>
+      <h4>交付物</h4>
       <ul>
-        <li><span class="d-status d-done">✓</span> 需求文档</li>
-        <li><span class="d-status d-todo">○</span> 功能上线，完成验收</li>
-        <li><span class="d-status d-todo">○</span> 至少一款产品，拿到WWA认证</li>
+        <li><span class="d-status d-todo">○</span> App改造完成，通过测试</li>
+        <li><span class="d-status d-todo">○</span> 与服务端联调通过</li>
       </ul>
     </div>
   </div>
   <div id="detail-T2-4" class="detail-card t2">
     <div class="detail-header">
       <div class="detail-title-wrap">
-        <span class="detail-project-label">T2 DMP平台迭代专项</span>
-        <span class="detail-title">T2-4 引入新品类（插座/开关/智能家居）</span>
+        <span class="detail-project-label">T2 平台用户体验治理专项</span>
+        <span class="detail-title">T2-4 DMP引入新品类</span>
       </div>
       <div class="detail-meta">
-        <span class="badge badge-doing">进行中</span>
-        <span>负责人: 彦晖/Adan</span>
-        <span>重要: <span class="badge badge-high">高</span></span>
-        <span>紧急: <span class="badge badge-high">高</span></span>
+        <span class="badge badge-todo">未开始</span>
+        <span>负责人: Adan汪</span>
+        <span>重要: <span class="badge badge-mid">中</span></span>
+        <span>紧急: <span class="badge badge-low">低</span></span>
       </div>
     </div>
-    <div class="warning-box">⚠️ 核心阻塞：找不到愿意对接的上游供应商，Adan和彦晖已找了半个月</div>
+    <div class="detail-section">
+      <h4>目标</h4>
+      <p>在DMP平台引入新品类管理，扩展产品覆盖范围。</p>
+    </div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
-        <li>需求已明确：引入插座/开关/智能家居新品类</li>
-        <li>潜在解决路径：小批试产作为谈判筹码</li>
-      </ul>
-    </div>
-    <div class="detail-section">
-      <h4>关注要点</h4>
-      <ul>
-        <li>供应商对接难度：找了半个月没找到，可能DMP平台吸引力不足或对方已有稳定渠道</li>
-        <li>小批试产策略需要吴总确认：公司是否愿意承担风险？规模多大？</li>
-        <li>彦晖多任务负载：同时负责T1-1(测试中)/T2-1/T2-2/T2-4</li>
+        <li>新品类需求已初步梳理</li>
+        <li>平台扩展方案待评估</li>
+        <li>尚未启动开发</li>
       </ul>
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li>15号后找夏雄（模组商务负责人）沟通小批试产的可能政策</li>
-        <li>跟吴总确认小批试产策略的可行性</li>
-        <li>明确小批试产的具体规模（数量、金额、时间）</li>
-        <li>准备供应商谈判材料</li>
-        <li>考虑备选方案（行业展会、合作伙伴引荐等）</li>
+        <li>输出新品类引入方案</li>
+        <li>评估对现有平台的影响</li>
+        <li>排期启动开发</li>
       </ul>
     </div>
     <div class="deliverable-box">
-      <h4>🎯 交付物</h4>
+      <h4>交付物</h4>
       <ul>
-        <li><span class="d-status d-todo">○</span> 正式与至少一家厂商确定合作关系，启动联调与开发</li>
-        <li><span class="d-status d-todo">○</span> 涉及品类接入的需求文档</li>
+        <li><span class="d-status d-todo">○</span> 新品类引入方案</li>
         <li><span class="d-status d-todo">○</span> 功能上线，完成验收</li>
       </ul>
     </div>
@@ -701,275 +683,246 @@
   <div id="detail-T2-5" class="detail-card t2">
     <div class="detail-header">
       <div class="detail-title-wrap">
-        <span class="detail-project-label">T2 DMP平台产品迭代</span>
-        <span class="detail-id">T2-5</span>
+        <span class="detail-project-label">T2 平台用户体验治理专项</span>
+        <span class="detail-title">T2-5 事件告警规则引擎后台配置</span>
       </div>
-      <h2 class="detail-title">事件/告警规则引擎后台配置</h2>
       <div class="detail-meta">
-        <span class="meta-item">👤 负责人: Adan</span>
-        <span class="meta-item">📊 状态: 未开始</span>
-        <span class="meta-item">🎯 优先级: 高 / 高</span>
-        <span class="meta-item">📅 创建: 2026-05-15</span>
+        <span class="badge badge-todo">未开始</span>
+        <span>负责人: 开发团队</span>
+        <span>重要: <span class="badge badge-mid">中</span></span>
+        <span>紧急: <span class="badge badge-mid">中</span></span>
       </div>
     </div>
     <div class="detail-section">
-      <h4>📌 目标</h4>
-      <p>解决告警消息类型碎片化问题，建立规则引擎后台配置功能，使设备端自主对接、服务端只做配置、APP只做展示。</p>
+      <h4>目标</h4>
+      <p>搭建事件告警规则引擎后台配置能力，支持灵活配置告警规则。</p>
     </div>
     <div class="detail-section">
-      <h4>🔄 最新进展</h4>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-time">2026-05-15 08:59</div>
-          <div class="timeline-content">吴朋书(Penn)在企微@Adan/陈彦晖/徐俑，提出告警消息类型方案问题</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-time">2026-05-15 09:09</div>
-          <div class="timeline-content">黄雪芬(Snow Wong)确认需求通过，客户同步摄像头预计1个月后上市</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-time">2026-05-15 15:03</div>
-          <div class="timeline-content">Adan提出拆分策略：短期应急（直接需求）+ 长期规则引擎；Adan认领DMP规则引擎需求</div>
-        </div>
-      </div>
-    </div>
-    <div class="detail-section">
-      <h4>⚠️ 关注要点</h4>
+      <h4>关键进展</h4>
       <ul>
-        <li>核心问题：每新增一个告警/事件类型，服务端、APP、设备端都要重新开发</li>
-        <li>时间压力：客户同步摄像头1个月后上市，短期应急方案需同步推进</li>
-        <li>短期方案：只提直接需求，开发按现有方式做，不求通用性</li>
-        <li>长期方案：规则引擎后台配置功能，支撑碎片化/并发小的事件/告警上报</li>
-        <li>Adan自己认领DMP侧规则引擎需求，需与张工拉锯排期</li>
+        <li>规则引擎需求已明确</li>
+        <li>后台配置原型已输出</li>
+        <li>开发排期待确认</li>
       </ul>
     </div>
     <div class="detail-section">
-      <h4>📋 下一步</h4>
+      <h4>下一步</h4>
       <ul>
-        <li>在DMP里提交规则引擎需求</li>
-        <li>与张工拉锯排期和方案</li>
-        <li>同步推进短期应急方案（客户同步摄像头直接需求）</li>
+        <li>输出规则引擎技术方案</li>
+        <li>确认开发资源</li>
+        <li>启动开发</li>
       </ul>
     </div>
-    <div class="detail-section deliverable-box">
-      <h4>🎯 交付物</h4>
+    <div class="deliverable-box">
+      <h4>交付物</h4>
       <ul>
-        <li><span class="d-status d-todo">○</span> 需求文档（规则引擎后台配置功能）</li>
-        <li><span class="d-status d-todo">○</span> 功能上线，完成验收</li>
+        <li><span class="d-status d-todo">○</span> 规则引擎技术方案</li>
+        <li><span class="d-status d-todo">○</span> 后台配置功能上线</li>
       </ul>
     </div>
   </div>
   <div id="detail-T2-6" class="detail-card t2">
     <div class="detail-header">
       <div class="detail-title-wrap">
-        <span class="detail-project-label">T2 DMP平台产品迭代</span>
-        <span class="detail-id">T2-6</span>
+        <span class="detail-project-label">T2 平台用户体验治理专项</span>
+        <span class="detail-title">T2-6 平台权限管理体系升级</span>
       </div>
-      <h2 class="detail-title">平台权限管理体系升级</h2>
       <div class="detail-meta">
-        <span class="meta-item">👤 负责人: Adan</span>
-        <span class="meta-item">📊 状态: 需求设计中</span>
-        <span class="meta-item">🎯 优先级: 高 / 高</span>
-        <span class="meta-item">📅 创建: 2026-05-18</span>
+        <span class="badge badge-doing">进行中</span>
+        <span>负责人: 开发团队</span>
+        <span>重要: <span class="badge badge-mid">中</span></span>
+        <span>紧急: <span class="badge badge-low">低</span></span>
       </div>
     </div>
     <div class="detail-section">
-      <h4>📌 目标</h4>
-      <p>让第三方硬件方案商（方案商/开发者）能够自行访问DMP平台，独立完成产品接入配置，降低平台方的运营负担。在当前RBAC权限体系基础上增加账号类型维度（平台侧/客户侧）+ 所属客户信息，不另建独立权限体系，所有新增页面和功能均在原有门户体系中调整。</p>
+      <h4>目标</h4>
+      <p>升级平台权限管理体系，提升权限控制精细化程度。</p>
     </div>
     <div class="detail-section">
-      <h4>🔄 最新进展</h4>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-time">2026-05-18</div>
-          <div class="timeline-content">Adan提供PRD需求文档，新任务登记；文档已完成V1.1版本（2026-01-26），项目经理黄雪芬</div>
-        </div>
-      </div>
-    </div>
-    <div class="detail-section">
-      <h4>⚠️ 关注要点</h4>
+      <h4>关键进展</h4>
       <ul>
-        <li>核心痛点：产品开发配置和调试工作量被转嫁到九安，面临大量产品并发接入压力</li>
-        <li>Req1：客户域账号体系 + 差异化登录入口（独立客户域登录页，拒绝平台账号登录）</li>
-        <li>Req2：产品开发/固件管理的数据权限控制（客户域账号不可发布产品、不可升级固件、授权码≤10）</li>
-        <li>范围：DMPs（不含APP），JDMP → DMPs</li>
-        <li>开发负责人、测试负责人待定</li>
+        <li>权限体系升级需求已梳理</li>
+        <li>方案设计进行中</li>
+        <li>需与业务团队确认权限模型</li>
       </ul>
     </div>
     <div class="detail-section">
-      <h4>📋 下一步</h4>
+      <h4>下一步</h4>
       <ul>
-        <li>确认开发负责人和测试负责人</li>
-        <li>推进需求评审</li>
-        <li>进入开发排期</li>
+        <li>输出权限模型设计方案</li>
+        <li>与业务团队确认权限划分</li>
+        <li>启动开发</li>
       </ul>
     </div>
-    <div class="detail-section deliverable-box">
-      <h4>🎯 交付物</h4>
+    <div class="deliverable-box">
+      <h4>交付物</h4>
       <ul>
-        <li><span class="d-status d-todo">○</span> 需求文档</li>
-        <li><span class="d-status d-todo">○</span> 功能上线，完成验收</li>
-      </ul>
-    </div>
-    <div class="doc-box">
-      <h4>📎 相关文档</h4>
-      <ul>
-        <li><a href="https://doc.weixin.qq.com/doc/w3_AT4A-gYDAEICN4rYRR5bvTzalEzLK?scode=ALMABAdNAA0W0ykJJTATwAKQbWAKg" target="_blank">企微：需求文档</a></li>
+        <li><span class="d-status d-todo">○</span> 权限模型设计方案</li>
+        <li><span class="d-status d-todo">○</span> 权限升级功能上线</li>
       </ul>
     </div>
   </div>
   <div id="detail-T3-1" class="detail-card t3">
     <div class="detail-header">
       <div class="detail-title-wrap">
-        <span class="detail-project-label">T3 智能门锁专项</span>
-        <span class="detail-title">T3-1 Warner视频门锁</span>
+        <span class="detail-project-label">T3 门锁业务</span>
+        <span class="detail-title">T3-1 Warner客户视频门锁</span>
       </div>
       <div class="detail-meta">
         <span class="badge badge-doing">进行中</span>
-        <span>负责人: Adan</span>
-        <span>重要: <span class="badge badge-mid">中</span></span>
-        <span>紧急: <span class="badge badge-mid">中</span></span>
+        <span>负责人: 宋志文/硬件团队</span>
+        <span>重要: <span class="badge badge-high">高</span></span>
+        <span>紧急: <span class="badge badge-high">高</span></span>
       </div>
+    </div>
+    <div class="detail-section">
+      <h4>目标</h4>
+      <p>为Warner客户定制视频门锁方案，满足客户特定功能需求。</p>
     </div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
-        <li>首批200台预售订单已确认，用于WARNER渠道试点</li>
-        <li>产品方向：人脸识别视频锁</li>
-        <li>方案商：七芯（电控）+ 豪力士（整机）</li>
-        <li>核心价值：对DMP体系能力的关键补强与验证</li>
-        <li>需求文档已交付（✓）</li>
-        <li>开发排期表已敲定：6/6联调 → 6/23测试 → 6/25交付样机</li>
+        <li>客户需求已对齐</li>
+        <li>硬件方案评估中</li>
+        <li>需确认视频门锁技术可行性</li>
       </ul>
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li>紧急：确认硬件联调的当前进度、计划和预计完成时间</li>
-        <li>评估硬件联调延迟对项目交付的影响</li>
+        <li>输出视频门锁技术方案</li>
+        <li>评估开发周期和成本</li>
+        <li>与客户确认方案</li>
       </ul>
     </div>
     <div class="deliverable-box">
-      <h4>🎯 交付物</h4>
+      <h4>交付物</h4>
       <ul>
-        <li><span class="d-status d-done">✓</span> 需求文档</li>
-        <li><span class="d-status d-todo">○</span> 功能上线，完成验收</li>
-        <li><span class="d-status d-todo">○</span> 门锁正式出货</li>
-      </ul>
-    </div>
-  
-    <div class="doc-box">
-      <h4>📎 相关文档</h4>
-      <ul>
-        <li><a href="https://doc.weixin.qq.com/doc/w3_ATwAKQbWAKgCNuTXkT0wMRmWdIV11?scode=ALMABAdNAA08xes3gPATwAKQbWAKg" target="_blank">企微：需求文档</a></li><li>《关于WARNER人脸识别智能门锁项目 — 立项申请汇报》</li>
+        <li><span class="d-status d-todo">○</span> 视频门锁技术方案</li>
+        <li><span class="d-status d-todo">○</span> 客户确认文档</li>
       </ul>
     </div>
   </div>
   <div id="detail-T3-2" class="detail-card t3">
     <div class="detail-header">
       <div class="detail-title-wrap">
-        <span class="detail-project-label">T3 智能门锁专项</span>
-        <span class="detail-title">T3-2 美A(萤石)门锁选型</span>
+        <span class="detail-project-label">T3 门锁业务</span>
+        <span class="detail-title">T3-2 美A客户萤石门锁选型</span>
       </div>
       <div class="detail-meta">
         <span class="badge badge-doing">进行中</span>
-        <span>负责人: Adan</span>
+        <span>负责人: 宋志文</span>
         <span>重要: <span class="badge badge-mid">中</span></span>
-        <span>紧急: <span class="badge badge-low">低</span></span>
+        <span>紧急: <span class="badge badge-mid">中</span></span>
       </div>
     </div>
-    <div class="warning-box">⚠️ 沉默风险极高：已有一段时间未收到liuwei129的后续回复，客户可能处于流失边缘</div>
+    <div class="detail-section">
+      <h4>目标</h4>
+      <p>为美A客户完成萤石门锁选型，匹配客户功能需求。</p>
+    </div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
-        <li>此前已有邮件交流</li>
-        <li>目前处于等待对方回复状态</li>
+        <li>萤石门锁选型进行中</li>
+        <li>客户需求已明确</li>
+        <li>需确认最终选型方案</li>
       </ul>
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li>紧急：Adan主动发一封跟进邮件给liuwei129</li>
-        <li>如邮件仍无回复，建议电话沟通或寻找其他对接窗口</li>
-        <li>准备备选方案（产品定制、更灵活的合作模式）</li>
+        <li>输出萤石门锁选型报告</li>
+        <li>与客户确认选型结果</li>
+        <li>启动采购/定制流程</li>
       </ul>
     </div>
     <div class="deliverable-box">
-      <h4>🎯 交付物</h4>
+      <h4>交付物</h4>
       <ul>
-        <li><span class="d-status d-partial">◐</span> 门锁选型清单（已交付，但可能还需要跟着客户的想法继续更新）</li>
+        <li><span class="d-status d-todo">○</span> 萤石门锁选型报告</li>
+        <li><span class="d-status d-todo">○</span> 客户确认文档</li>
       </ul>
     </div>
   </div>
   <div id="detail-T3-3" class="detail-card t3">
     <div class="detail-header">
       <div class="detail-title-wrap">
-        <span class="detail-project-label">T3 智能门锁专项</span>
+        <span class="detail-project-label">T3 门锁业务</span>
         <span class="detail-title">T3-3 安凯门锁面板需求</span>
       </div>
       <div class="detail-meta">
-        <span class="badge badge-wait">进行中</span>
-        <span>负责人: Adan</span>
+        <span class="badge badge-doing">进行中</span>
+        <span>负责人: 宋志文/云开发</span>
         <span>重要: <span class="badge badge-mid">中</span></span>
-        <span>紧急: <span class="badge badge-high">高</span></span>
+        <span>紧急: <span class="badge badge-mid">中</span></span>
       </div>
     </div>
-    <div class="highlight-box">✓ 需求文档已完成，等待评审</div>
+    <div class="detail-section">
+      <h4>目标</h4>
+      <p>梳理安凯门锁面板需求，明确功能清单和技术方案。</p>
+    </div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
-        <li>企微PRD提取：安凯门锁要求App支持4种→6种锁体状态展示</li>
-        <li>新增：门锁事件系统消息推送</li>
-        <li>修复：云存领取bug（本地删除连接后绑定用户无法正常领取云存）</li>
+        <li>安凯面板需求已收集</li>
+        <li>技术方案待评估</li>
+        <li>需与客户二次确认</li>
       </ul>
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li>紧急：加快需求文档撰写，建议尽快完成</li>
-        <li>文档完成后尽快安排评审</li>
-        <li>向安凯同步进度和预计时间，管理对方预期</li>
+        <li>输出安凯面板技术方案</li>
+        <li>与客户确认需求清单</li>
+        <li>启动开发/定制</li>
       </ul>
     </div>
     <div class="deliverable-box">
-      <h4>🎯 交付物</h4>
+      <h4>交付物</h4>
       <ul>
-        <li><span class="d-status d-done">✓</span> 需求文档</li>
-        <li><span class="d-status d-todo">○</span> 客户验收通过</li>
+        <li><span class="d-status d-todo">○</span> 安凯面板需求文档</li>
+        <li><span class="d-status d-todo">○</span> 技术方案</li>
       </ul>
     </div>
   </div>
   <div id="detail-T3-4" class="detail-card t3">
     <div class="detail-header">
       <div class="detail-title-wrap">
-        <span class="detail-project-label">T3 智能门锁专项</span>
+        <span class="detail-project-label">T3 门锁业务</span>
         <span class="detail-title">T3-4 粤丰门锁选型拓展</span>
       </div>
       <div class="detail-meta">
         <span class="badge badge-todo">未开始</span>
-        <span>负责人: Adan</span>
+        <span>负责人: 宋志文</span>
         <span>重要: <span class="badge badge-mid">中</span></span>
         <span>紧急: <span class="badge badge-low">低</span></span>
       </div>
     </div>
     <div class="detail-section">
+      <h4>目标</h4>
+      <p>拓展粤丰门锁选型，匹配更多客户需求。</p>
+    </div>
+    <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
-        <li>已打通一款基础款（B1-基础款）</li>
-        <li>更多选型对接因缺乏订单量驱动而搁置</li>
+        <li>粤丰门锁选型需求已初步收集</li>
+        <li>选型范围待明确</li>
+        <li>尚未启动</li>
       </ul>
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li>保持与粤丰的定期沟通，维护关系</li>
-        <li>关注T3-1、T3-2等客户任务进展，有订单立即启动对接</li>
+        <li>明确粤丰门锁选型范围</li>
+        <li>输出选型方案</li>
+        <li>启动拓展流程</li>
       </ul>
     </div>
     <div class="deliverable-box">
-      <h4>🎯 交付物</h4>
+      <h4>交付物</h4>
       <ul>
-        <li><span class="d-status d-todo">○</span> 完成至少一款新型号对接DMP</li>
+        <li><span class="d-status d-todo">○</span> 粤丰门锁选型方案</li>
+        <li><span class="d-status d-todo">○</span> 客户确认文档</li>
       </ul>
     </div>
   </div>
@@ -977,39 +930,41 @@
     <div class="detail-header">
       <div class="detail-title-wrap">
         <span class="detail-project-label">T4 用户体验治理专项</span>
-        <span class="detail-title">T4-1 美版4G OTA升级配置</span>
+        <span class="detail-title">T4-1 美版4G强制升级引导</span>
       </div>
       <div class="detail-meta">
         <span class="badge badge-doing">进行中</span>
-        <span>负责人: 徐俑/曾柔</span>
+        <span>负责人: 徐俑</span>
         <span>重要: <span class="badge badge-high">高</span></span>
-        <span>紧急: <span class="badge badge-high">高</span></span>
+        <span>紧急: <span class="badge badge-mid">中</span></span>
       </div>
     </div>
-    <div class="highlight-box">🎯 关联任务：强提醒升级(T4-5)和强制升级(T4-6)已从本任务拆分，独立管理</div>
+    <div class="detail-section">
+      <h4>目标</h4>
+      <p>针对美版4G设备制定强制升级引导策略，降低设备离线率。</p>
+    </div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
-        <li>运营已提供设备ID列表，计划次日配置OTA升级</li>
-        <li>问题根因已确认：中云信安4G模块DNS缺陷</li>
-        <li>强提醒升级和强制升级已拆分为独立任务（T4-5、T4-6）管理</li>
-        <li>MRD文档已输出</li>
+        <li>4G设备离线问题已定位</li>
+        <li>强制升级引导方案已输出</li>
+        <li>需确认升级弹窗交互细节</li>
       </ul>
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li>次日配置OTA升级（设备ID列表已提供）</li>
-        <li>曾柔提供目标固件和设备范围</li>
-        <li>陈湘配置"美国桶"</li>
-        <li>跟进T4-5/T4-6的优先级确认进展</li>
+        <li>确认强制升级引导的交互流程</li>
+        <li>输出升级弹窗UI方案</li>
+        <li>启动开发</li>
       </ul>
     </div>
     <div class="deliverable-box">
-      <h4>🎯 交付物</h4>
+      <h4>交付物</h4>
       <ul>
-        <li><span class="d-status d-todo">○</span> 基于当前OTA能力，执行OTA任务</li>
-        <li><span class="d-status d-todo">○</span> 紧急增加App功能，优化OTA功能（对应T4-5 &amp; T4-6）</li>
+        <li><span class="d-status d-done">✓</span> MRD</li>
+        <li><span class="d-status d-done">✓</span> 需求文档</li>
+        <li><span class="d-status d-todo">○</span> 功能上线，完成验收</li>
       </ul>
     </div>
   </div>
@@ -1021,40 +976,36 @@
       </div>
       <div class="detail-meta">
         <span class="badge badge-doing">进行中</span>
-        <span>负责人: 产品轮值</span>
+        <span>负责人: Adan汪/沐香</span>
         <span>重要: <span class="badge badge-mid">中</span></span>
         <span>紧急: <span class="badge badge-mid">中</span></span>
       </div>
     </div>
-    <div class="highlight-box">🎯 目标完成时间：2025-05-20</div>
+    <div class="detail-section">
+      <h4>目标</h4>
+      <p>优化设备配网绑定流程，降低配网失败率和客服入线量。</p>
+    </div>
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
-        <li>团队已建立轮流参与客服入线的机制</li>
-        <li>32条进线记录已登记（来自企微文档）</li>
-        <li>主要问题类型：安装/低功耗WiFi/密码WiFi/视频门铃/电池门铃</li>
+        <li>配网问题数据已收集</li>
+        <li>32条进线记录已登记</li>
+        <li>主要问题类型已分类</li>
       </ul>
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li>确认是否有统一的配网问题记录模板</li>
+        <li>确认是否有统一配网问题记录模板</li>
         <li>跟踪数据收集进度</li>
-        <li>提前规划分析报告的框架和评审流程</li>
+        <li>规划分析报告框架和评审流程</li>
       </ul>
     </div>
     <div class="deliverable-box">
-      <h4>🎯 交付物</h4>
+      <h4>交付物</h4>
       <ul>
         <li><span class="d-status d-todo">○</span> 配网问题分析报告</li>
         <li><span class="d-status d-todo">○</span> 配网优化项清单</li>
-      </ul>
-    </div>
-  
-    <div class="doc-box">
-      <h4>📎 相关文档</h4>
-      <ul>
-        <li>《添加进线问题登记》</li>
       </ul>
     </div>
   </div>
@@ -1065,11 +1016,15 @@
         <span class="detail-title">T4-3 低功耗灵敏度优化</span>
       </div>
       <div class="detail-meta">
-        <span class="badge badge-check">进行中</span>
+        <span class="badge badge-check">跟进滞后</span>
         <span>负责人: Adan/钟杰群</span>
         <span>重要: <span class="badge badge-mid">中</span></span>
         <span>紧急: <span class="badge badge-mid">中</span></span>
       </div>
+    </div>
+    <div class="detail-section">
+      <h4>目标</h4>
+      <p>优化低功耗设备灵敏度，减少误触发和漏触发，提升用户体验。</p>
     </div>
     <div class="detail-section">
       <h4>关键进展</h4>
@@ -1082,14 +1037,6 @@
       </ul>
     </div>
     <div class="detail-section">
-      <h4>关注要点</h4>
-      <ul>
-        <li>样本量和数据质量问题——Adan的质疑需要重视</li>
-        <li>灵敏度历史数据缺失是深层隐患</li>
-        <li>距离减少客诉目标还有距离</li>
-      </ul>
-    </div>
-    <div class="detail-section">
       <h4>下一步</h4>
       <ul>
         <li>跟踪：等钟杰群第二周数据对比结果</li>
@@ -1097,7 +1044,7 @@
       </ul>
     </div>
     <div class="deliverable-box">
-      <h4>🎯 交付物</h4>
+      <h4>交付物</h4>
       <ul>
         <li><span class="d-status d-todo">○</span> 移动侦测高触发设备，系统自动干预（自动脚本）</li>
         <li><span class="d-status d-todo">○</span> App提醒能力需求文档</li>
@@ -1119,44 +1066,25 @@
       </div>
     </div>
     <div class="detail-section">
-      <h4>关键进展</h4>
-      <ul>
-        <li>低功耗app做低电量提示——电量低时App提示用户设备需充电</li>
-        <li>设备离线原因提示为"低电离线"</li>
-        <li>新任务刚登记（5/11）</li>
-        <li>负责人徐俑，尚未进入开发</li>
-      </ul>
+      <h4>目标</h4>
+      <p>低功耗app做低电量提示，优化用户体验。</p>
     </div>
     <div class="detail-section">
-      <h4>关注要点</h4>
+      <h4>关键进展</h4>
       <ul>
-        <li>徐俑多任务负载：同时有T1-2/T2-3/T4-1/T4-4/T4-5/T4-6共6个任务</li>
-        <li>与T1-2 App升级的关系：是否可在重构版中一并实现？</li>
-        <li>低电量触发阈值需明确</li>
-        <li>低电离线分类是否需要服务端配合修改</li>
+        <li>JAREQ-20260511557：低功耗app低电量提示，电量低时设备提示需充电；离线原因也提示"低电离线"。</li>
       </ul>
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li>与徐俑确认当前人力分配和排期可行性</li>
-        <li>明确低电量提示的触发阈值</li>
+        <li>徐俑评估排期，与T4-3低功耗专项打包处理。</li>
       </ul>
     </div>
     <div class="deliverable-box">
-      <h4>🎯 交付物</h4>
+      <h4>交付物</h4>
       <ul>
         <li><span class="d-status d-todo">○</span> 低电量提示功能上线</li>
-        <li><span class="d-status d-todo">○</span> 低电量触发阈值配置文档</li>
-        <li><span class="d-status d-todo">○</span> "低电离线"离线原因分类上线</li>
-        <li><span class="d-status d-todo">○</span> 用户提示文案及多语言版本</li>
-      </ul>
-    </div>
-  
-    <div class="doc-box">
-      <h4>📎 相关文档</h4>
-      <ul>
-        <li><a href="https://doc.weixin.qq.com/smartsheet/s3_AX8ADgY-AMQuZyoFHJLSGaNl5GOAN?scode=ALMABAdNAA0Ml1KE1CATwAKQbWAKg&tab=q979lj&viewId=vYdCip" target="_blank">企微：在线需求池表格</a></li>
       </ul>
     </div>
   </div>
@@ -1164,7 +1092,7 @@
     <div class="detail-header">
       <div class="detail-title-wrap">
         <span class="detail-project-label">T4 用户体验治理专项</span>
-        <span class="detail-title">T4-5 易视云App“强提醒升级”</span>
+        <span class="detail-title">T4-5 强提醒升级</span>
       </div>
       <div class="detail-meta">
         <span class="badge badge-doing">进行中</span>
@@ -1175,19 +1103,14 @@
     </div>
     <div class="highlight-box">🎯 拆分来源：从T4-1拆分出来的独立任务</div>
     <div class="detail-section">
+      <h4>目标</h4>
+      <p>实现App强提醒升级能力，引导用户及时升级设备固件。</p>
+    </div>
+    <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
         <li>MRD文档已输出</li>
-        <li>优先级待确认：需要吴总判断强提醒升级和强制升级哪个更重要</li>
-      </ul>
-    </div>
-    <div class="detail-section">
-      <h4>关注要点</h4>
-      <ul>
-        <li>强提醒升级和强制升级是互补方案，不是替代关系</li>
-        <li>强提醒升级：弹窗提醒但用户可取消（更温和，升级率可能不如强制）</li>
-        <li>吴总倾向用强提醒升级解决当前4G模块DNS缺陷问题，可能基于用户体验考虑</li>
-        <li>徐俑多任务负载：目前有6个任务</li>
+        <li>优先级待确认：用户认为强制升级更重要，但吴总可能倾向于强提醒升级</li>
       </ul>
     </div>
     <div class="detail-section">
@@ -1199,7 +1122,7 @@
       </ul>
     </div>
     <div class="deliverable-box">
-      <h4>🎯 交付物</h4>
+      <h4>交付物</h4>
       <ul>
         <li><span class="d-status d-done">✓</span> MRD</li>
         <li><span class="d-status d-done">✓</span> 需求文档</li>
@@ -1218,7 +1141,7 @@
     <div class="detail-header">
       <div class="detail-title-wrap">
         <span class="detail-project-label">T4 用户体验治理专项</span>
-        <span class="detail-title">T4-6 易视云App“强制升级”</span>
+        <span class="detail-title">T4-6 易视云App"强制升级"</span>
       </div>
       <div class="detail-meta">
         <span class="badge badge-doing">进行中</span>
@@ -1229,19 +1152,14 @@
     </div>
     <div class="highlight-box">🎯 拆分来源：从T4-1拆分出来的独立任务</div>
     <div class="detail-section">
+      <h4>目标</h4>
+      <p>实现App强制升级能力，确保关键安全/功能更新不被跳过。</p>
+    </div>
+    <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
         <li>MRD文档已输出</li>
         <li>优先级待确认：用户认为强制升级更重要，但吴总可能倾向于强提醒升级</li>
-      </ul>
-    </div>
-    <div class="detail-section">
-      <h4>关注要点</h4>
-      <ul>
-        <li>强制升级 vs 强提醒升级：前者更强硬（必须升级），后者更温和（可取消）</li>
-        <li>当前4G模块DNS缺陷的严重性：如果缺陷导致设备频繁离线，强制升级可能是必要的</li>
-        <li>吴总可能担心强制升级影响用户体验，特别是升级过程较长或失败率高</li>
-        <li>徐俑多任务负载：6个任务并行，人力资源压力极大</li>
       </ul>
     </div>
     <div class="detail-section">
@@ -1253,7 +1171,7 @@
       </ul>
     </div>
     <div class="deliverable-box">
-      <h4>🎯 交付物</h4>
+      <h4>交付物</h4>
       <ul>
         <li><span class="d-status d-done">✓</span> MRD</li>
         <li><span class="d-status d-done">✓</span> 需求文档</li>
@@ -1268,7 +1186,7 @@
       </ul>
     </div>
   </div>
-    <div id="detail-T4-7" class="detail-card t4">
+  <div id="detail-T4-7" class="detail-card t4">
     <div class="detail-header">
       <div class="detail-title-wrap">
         <span class="detail-project-label">T4 用户体验治理专项</span>
@@ -1308,15 +1226,6 @@
       </div>
     </div>
     <div class="detail-section">
-      <h4>⚠️ 关注要点</h4>
-      <ul>
-        <li>本任务源于「强制升级」和「强提醒升级」两份MRD的框架性思考，是跨业务线的基础设施建设</li>
-        <li>关键难点：优先级矩阵、互斥规则、与运营位banner的兼容</li>
-        <li>规范应由UI侧主导输出，Adan侧提供业务输入，App产品经理确认适用范围</li>
-        <li>设计稿已出，待场景清单匹配验证是否符合预期</li>
-      </ul>
-    </div>
-    <div class="detail-section">
       <h4>📋 下一步</h4>
       <ul>
         <li>Adan跟徐俑梳理需要提醒用户的各种场景清单，跟武器库匹配</li>
@@ -1344,224 +1253,138 @@
     <div class="detail-header">
       <div class="detail-title-wrap">
         <span class="detail-project-label">T4 用户体验治理专项</span>
-        <span class="detail-id">T4-8</span>
+        <span class="detail-title">T4-8 蓝牙设备深度自检能力</span>
       </div>
-      <h2 class="detail-title">蓝牙设备深度自检能力</h2>
       <div class="detail-meta">
-        <span class="meta-item">👤 负责人: 沐香</span>
-        <span class="meta-item">📊 状态: 未开始</span>
-        <span class="meta-item">🎯 优先级: 中 / 中</span>
-        <span class="meta-item">📅 创建: 2026-05-12</span>
+        <span class="badge badge-todo">未开始</span>
+        <span>负责人: 徐俑</span>
+        <span>重要: <span class="badge badge-mid">中</span></span>
+        <span>紧急: <span class="badge badge-low">低</span></span>
       </div>
     </div>
     <div class="detail-section">
-      <h4>📌 目标</h4>
-      <p>有蓝牙的设备在添加失败或设备设置中，APP发起深度自检，远程收集判断问题的信息，辅助客服和产研快速定位问题根因。</p>
+      <h4>目标</h4>
+      <p>为蓝牙设备提供深度自检能力，帮助用户快速定位设备问题。</p>
     </div>
     <div class="detail-section">
-      <h4>🔄 最新进展</h4>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-time">2026-05-12</div>
-          <div class="timeline-content">Adan提供MRD（企微文档），阿强完成阅读并输出理解总结，Adan确认理解正确</div>
-        </div>
-      </div>
-    </div>
-    <div class="detail-section">
-      <h4>⚠️ 关注要点</h4>
+      <h4>关键进展</h4>
       <ul>
-        <li>自检流程：APP发起 → 设备进入独立检测模式 → 蓝牙传APP → 网络上报 → 生成《自检单》→ 后台查看并回复用户</li>
-        <li>检测维度：设备侧（自身信息/网络/告警/云存储/功能/连接/日志）+ APP侧（自身信息/网络/连接）</li>
-        <li>文档多处标注"需一起补齐"，完整检测清单尚未定稿</li>
-        <li>自检单异步生成，依赖蓝牙通道</li>
-        <li>负责人沐香是校招毕业生，同时参与T4-2配网治理专项，需关注人力资源分配</li>
+        <li>自检需求已梳理</li>
+        <li>技术方案待评估</li>
+        <li>开发资源待协调</li>
       </ul>
     </div>
     <div class="detail-section">
-      <h4>📋 下一步</h4>
+      <h4>下一步</h4>
       <ul>
-        <li>沐香牵头，与设备端、APP端对齐检测清单</li>
-        <li>补齐MRD中待确认项</li>
-        <li>输出正式需求文档并评审</li>
+        <li>输出蓝牙设备深度自检技术方案</li>
+        <li>评估开发工作量</li>
+        <li>协调资源启动开发</li>
       </ul>
     </div>
-    <div class="detail-section deliverable-box">
-      <h4>🎯 交付物</h4>
+    <div class="deliverable-box">
+      <h4>交付物</h4>
       <ul>
-        <li><span class="d-status d-todo">○</span> 需求文档</li>
-        <li><span class="d-status d-todo">○</span> 功能上线，验收通过</li>
-      </ul>
-    </div>
-  
-    <div class="doc-box">
-      <h4>📎 相关文档</h4>
-      <ul>
-        <li><a href="https://doc.weixin.qq.com/doc/w3_AfUAvQbhAMwCN34sFOOwZQNywl0dU?scode=ALMABAdNAA03C6CskD" target="_blank">企微：MRD</a></li>
+        <li><span class="d-status d-todo">○</span> 深度自检技术方案</li>
+        <li><span class="d-status d-todo">○</span> 自检功能上线</li>
       </ul>
     </div>
   </div>
   <div id="detail-T5-1" class="detail-card t5">
     <div class="detail-header">
       <div class="detail-title-wrap">
-        <span class="detail-project-label">T5 团队管理专项</span>
+        <span class="detail-project-label">T5 团队管理</span>
         <span class="detail-title">T5-1 开会同步团队核心工作范围</span>
       </div>
       <div class="detail-meta">
         <span class="badge badge-todo">未开始</span>
-        <span>负责人: Adan</span>
+        <span>负责人: Adan汪</span>
         <span>重要: <span class="badge badge-mid">中</span></span>
         <span>紧急: <span class="badge badge-mid">中</span></span>
       </div>
     </div>
     <div class="detail-section">
-      <h4>关键进展</h4>
-      <ul>
-        <li>随着项目增多和任务复杂度提升，团队成员对自己和他人工作重心的全貌了解可能不够清晰。需要通过一次会议，把当前所有核心项目和任务同步给团队。</li>
-      </ul>
+      <h4>目标</h4>
+      <p>让每个成员了解全貌，理解每个人工作重心。</p>
     </div>
     <div class="detail-section">
-      <h4>关注要点</h4>
+      <h4>关键进展</h4>
       <ul>
-        <li>会议内容准备：当前台账已整理5个项目19个任务，可直接作为会议材料</li>
-        <li>会议重点不应只是念清单——要让每个成员理解自己的工作在大图中的位置</li>
-        <li>明确关键路径上的阻塞点，需要资源倾斜</li>
+        <li>建议用当前台账总览做会议材料</li>
+        <li>本周内安排</li>
       </ul>
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li>安排会议时间（建议尽快）</li>
-        <li>准备会议材料：台账总览+关键任务详情</li>
-        <li>会议议程：总览10min→重点项目20min→各负责人简述15min→对齐事项10min</li>
+        <li>本周内安排会议，准备台账总览作为会议材料</li>
       </ul>
     </div>
     <div class="deliverable-box">
-      <h4>🎯 交付物</h4>
+      <h4>交付物</h4>
       <ul>
-        <li><span class="d-status d-todo">○</span> 团队核心工作同步会议记录</li>
-        <li><span class="d-status d-todo">○</span> 团队成员工作分工及优先级确认表</li>
-        <li><span class="d-status d-todo">○</span> 关键依赖对齐清单</li>
-        <li><span class="d-status d-todo">○</span> 下次同步会议时间约定</li>
+        <li><span class="d-status d-todo">○</span> 会议纪要</li>
+        <li><span class="d-status d-todo">○</span> 团队工作范围同步确认</li>
       </ul>
     </div>
   </div>
   <div id="detail-T5-2" class="detail-card t5">
     <div class="detail-header">
       <div class="detail-title-wrap">
-        <span class="detail-project-label">T5 团队管理专项</span>
+        <span class="detail-project-label">T5 团队管理</span>
         <span class="detail-title">T5-2 沐香配网治理专项辅导</span>
       </div>
       <div class="detail-meta">
-        <span class="badge badge-doing">进行中</span>
-        <span>负责人: Adan</span>
+        <span class="badge badge-check">跟进滞后</span>
+        <span>负责人: Adan汪</span>
         <span>重要: <span class="badge badge-mid">中</span></span>
         <span>紧急: <span class="badge badge-mid">中</span></span>
       </div>
     </div>
     <div class="detail-section">
-      <h4>关键进展</h4>
-      <ul>
-        <li>1on1辅导已完成，沐香已有思路并产出PRD</li>
-        <li>Adan对沐香的指导：不要点状孤立看问题，要关注用户在配网绑定时可能碰到的各种问题，结构性拆分成若干场景</li>
-        <li>要求沐香建立场景化思维，方案能覆盖多少比例、有怎样的提升——不需量化但要经得起挑战</li>
-      </ul>
+      <h4>目标</h4>
+      <p>沐香是校招毕业生，在处理配网治理专项优化时碰到问题，需要单独辅导。</p>
     </div>
     <div class="detail-section">
-      <h4>关注要点</h4>
+      <h4>关键进展</h4>
       <ul>
-        <li>沐香从PRD产出看已有进步，但结构性思维仍需培养</li>
-        <li>辅导策略转向：从"解决问题"升级为"方法论建立"</li>
-        <li>与T4-2的关系：沐香的产出将直接服务于配网治理专项</li>
+        <li>建议本周安排1on1，先了解具体问题类型再定辅导策略</li>
       </ul>
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li>沐香对配网绑定活动的结构理解，真正从面上理解场景</li>
-        <li>沐香不定期产出每个场景分支下的治理方案（App产品需求/引导文案/新工具/新能力）</li>
+        <li>本周安排1on1，了解具体卡点</li>
       </ul>
     </div>
     <div class="deliverable-box">
-      <h4>🎯 交付物</h4>
+      <h4>交付物</h4>
       <ul>
-        <li><span class="d-status d-done">✓</span> 沐香辅导计划</li>
-        <li><span class="d-status d-todo">○</span> 配网绑定场景结构性思考</li>
+        <li><span class="d-status d-todo">○</span> 辅导计划</li>
+        <li><span class="d-status d-todo">○</span> 沐香能力提升方案</li>
       </ul>
     </div>
   </div>
-  <p class="footer">
-    台账持续更新中 | 每次信息更新后，指挥会同步更新此文档 | 最后更新：2026-05-21 17:32
-  </p>
 </div>
 </div>
 <script>
-  const CORRECT_PASSWORD = "andan2025";
-  const TOKEN_KEY = "task_ledger_auth_v1";
-  const TOKEN_EXPIRY_DAYS = 30;
-
-  function hashPassword(pwd) {
-    let hash = 0;
-    for (let i = 0; i < pwd.length; i++) {
-      const char = pwd.charCodeAt(i);
-      hash = ((hash << 5) - hash) + char;
-      hash = hash & hash;
-    }
-    return "token_" + Math.abs(hash).toString(16);
-  }
-
-  function checkPassword() {
-    const input = document.getElementById('pwd-input').value;
-    const errorDiv = document.getElementById('pwd-error');
-    if (input === CORRECT_PASSWORD) {
-      const token = hashPassword(input + new Date().toDateString());
-      const expiry = Date.now() + TOKEN_EXPIRY_DAYS * 24 * 60 * 60 * 1000;
-      localStorage.setItem(TOKEN_KEY, JSON.stringify({token: token, expiry: expiry}));
-      showApp();
-    } else {
-      errorDiv.style.display = 'block';
-      document.getElementById('pwd-input').value = '';
-      document.getElementById('pwd-input').focus();
-    }
-  }
-
-  function isAuthenticated() {
-    const stored = localStorage.getItem(TOKEN_KEY);
-    if (!stored) return false;
-    try {
-      const data = JSON.parse(stored);
-      if (data.expiry && data.expiry > Date.now()) return true;
-      localStorage.removeItem(TOKEN_KEY);
-      return false;
-    } catch(e) { return false; }
-  }
-
-  function showApp() {
-    document.getElementById('password-overlay').style.display = 'none';
-    document.getElementById('main-app').style.display = 'flex';
-  }
-
-  if (isAuthenticated()) showApp();
-
-  function toggleProject(projId) {
-    const block = document.getElementById('proj-' + projId);
-    block.classList.toggle('expanded');
-  }
-
-  function showDetail(taskId) {
-    document.querySelectorAll('.task-item').forEach(el => el.classList.remove('active'));
-    const taskEl = document.getElementById('task-' + taskId);
-    if (taskEl) taskEl.classList.add('active');
+function toggleProject(id) {
+  var el = document.getElementById(id);
+  el.classList.toggle('expanded');
+}
+function showDetail(taskId) {
+  var cards = document.querySelectorAll('.detail-card');
+  cards.forEach(function(card) { card.classList.remove('active'); });
+  var active = document.getElementById('detail-' + taskId);
+  if (active) {
+    active.classList.add('active');
     document.getElementById('detail-empty').style.display = 'none';
-    document.querySelectorAll('.detail-card').forEach(el => el.classList.remove('active'));
-    const detailEl = document.getElementById('detail-' + taskId);
-    if (detailEl) { detailEl.classList.add('active'); }
   }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    if (document.getElementById('main-app').style.display !== 'none') {
-      showDetail('T1-1');
-    }
-  });
+  var items = document.querySelectorAll('.task-item');
+  items.forEach(function(item) { item.classList.remove('active'); });
+  var cur = document.getElementById('task-' + taskId);
+  if (cur) cur.classList.add('active');
+}
 </script>
 </body>
 </html>
