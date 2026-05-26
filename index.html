@@ -122,7 +122,7 @@
 <div class="left-panel">
   <div class="left-header">
     <h1>📋 项目任务台账</h1>
-    <p class="meta">最后更新：2026-05-22 15:08:15 | 共5项目，23个任务</p>
+    <p class="meta">最后更新：2026-05-26 17:22:59 | 共5项目，24个任务</p>
   </div>
   <div class="stats-bar">
     <div class="stat-chip"><div class="num">5</div><div class="lbl">项目</div></div>
@@ -355,7 +355,7 @@
     <div class="project-block t5 expanded" id="proj-T5">
       <div class="project-header" onclick="toggleProject('T5')">
         <div class="project-title"><span class="project-id t5">T5</span>团队管理</div>
-        <div class="project-count">2个任务</div>
+        <div class="project-count">3个任务</div>
       </div>
       <div class="project-tasks">
         <div class="task-item" id="task-T5-1" onclick="showDetail('T5-1')">
@@ -369,6 +369,16 @@
         </div>
         <div class="task-item" id="task-T5-2" onclick="showDetail('T5-2')">
           <div class="task-item-id">T5-2</div>
+          <div class="task-item" id="task-T5-3" onclick="showDetail('T5-3')">
+            <div class="task-item-id">T5-3</div>
+            <div class="task-item-name">使用AI生成产品需求文档</div>
+            <div class="task-item-badges">
+              <span class="badge badge-doing">进行中</span>
+              <span class="badge badge-mid">中</span>
+              <span class="badge badge-mid">中</span>
+            </div>
+          </div>
+
           <div class="task-item-name">沐香配网治理专项辅导</div>
           <div class="task-item-badges">
             <span class="badge badge-doing">进行中</span>
@@ -1350,6 +1360,46 @@
       </ul>
     </div>
   </div>
+  <div id="detail-T5-3" class="detail-card t5">
+    <div class="detail-header">
+      <div class="detail-title-wrap">
+        <span class="detail-project-label">T5 团队管理专项</span>
+        <span class="detail-title">T5-3 使用AI生成产品需求文档</span>
+      </div>
+      <div class="detail-meta">
+        <span class="badge badge-doing">进行中</span>
+        <span>负责人: 登月者0001</span>
+        <span>重要: <span class="badge badge-mid">中</span></span>
+        <span>紧急: <span class="badge badge-mid">中</span></span>
+      </div>
+    </div>
+    <div class="highlight-box">核心探索方向：从单Agent直接生成转向多Agent协作，当前处于方案设计阶段</div>
+    <div class="detail-section">
+      <h4>关键进展</h4>
+      <ul>
+        <li>已跑通龙虾理解和认知平台软件跟App软件</li>
+        <li>单Agent（龙虾）直接生成PRD效果不佳</li>
+        <li>正在探索多Agent协作方式</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4>下一步</h4>
+      <ul>
+        <li>设计多Agent协作的工作流（如：认知Agent + 分析Agent + 撰写Agent）</li>
+        <li>验证多Agent协作生成的PRD质量</li>
+        <li>对比单Agent vs 多Agent产出效果</li>
+      </ul>
+    </div>
+    <div class="deliverable-box">
+      <h4>交付物</h4>
+      <ul>
+        <li><span class="d-status d-todo">○</span> 多Agent协作生成PRD的可行性验证报告</li>
+        <li><span class="d-status d-todo">○</span> 最佳实践工作流文档</li>
+        <li><span class="d-status d-todo">○</span> AI生成PRD的质量评估标准</li>
+      </ul>
+    </div>
+  </div>
+
   <p class="footer">
     台账持续更新中 | 每次信息更新后，指挥会同步更新此文档 | 最后更新：2026-05-21 17:32
   </p>
