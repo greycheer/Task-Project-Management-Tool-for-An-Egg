@@ -122,7 +122,7 @@
 <div class="left-panel">
   <div class="left-header">
     <h1>📋 项目任务台账</h1>
-    <p class="meta">最后更新：2026-06-01 08:49:32 | 共5项目，20个任务</p>
+    <p class="meta">最后更新：2026-06-01 17:56:21 | 共5项目，20个任务</p>
   </div>
   <div class="stats-bar">
     <div class="stat-chip"><div class="num">5</div><div class="lbl">项目</div></div>
@@ -1007,14 +1007,14 @@
       </ul>
     </div>
   </div>
-  <div id="detail-T4-3" class="detail-card t4">
+    <div id="detail-T4-3" class="detail-card t4">
     <div class="detail-header">
       <div class="detail-title-wrap">
         <span class="detail-project-label">T4 用户体验治理专项</span>
         <span class="detail-title">T4-3 低功耗灵敏度优化</span>
       </div>
       <div class="detail-meta">
-        <span class="badge badge-check">进行中</span>
+        <span class="badge badge-check">跟进滞后</span>
         <span>负责人: Adan/钟杰群</span>
         <span>重要: <span class="badge badge-mid">中</span></span>
         <span>紧急: <span class="badge badge-mid">中</span></span>
@@ -1023,22 +1023,28 @@
     <div class="detail-section">
       <h4>关键进展</h4>
       <ul>
-        <li>4/17: 钟杰群输出测试设备清单，选定B4-Q-W6和B4-M-A6</li>
-        <li>4/17重大发现：16万台设备中只有2台有灵敏度历史数据</li>
-        <li>5/6: 钟杰群初步结论——灵敏度调节后P50以上档位唤醒次数下降</li>
-        <li>5/7 Adan质疑：样本太少、噪音多、实验组不降反升</li>
-        <li>企微专项提取：全量非AOV设备、PIR周触发次数看板待建</li>
+        <li>整体方案已跑通：数据采集→分析→策略设定→自动脚本执行</li>
+        <li>测试型号已选定：B4-Q-W6（室外）和B4-M-A6（室内）</li>
+        <li>4/27开发已处理完实验数据</li>
+        <li>5/6初步验证有效：灵敏度调节后，P50以上档位设备平均唤醒次数下降，误唤醒率降低</li>
+        <li>5/7 Adan质疑样本量太小（仅116台）、噪音大，实验组存在不降反升的情况</li>
+        <li>5/18 会议确定新方向：从局部型号验证转向全局数据策略设计，确定4个行动项（top50型号梳理、室内/室外标签分类、误唤醒率分析、触发条件策略设计）</li>
+        <li>6/1 误唤醒场景分析完成——已分析6000+图片，识别出绿化型（院子/农场/花园）和街道型（门口/车道/巷子）典型误唤醒场景，与肖工确认可进行干预；干预条件：室外机 & 周唤醒>2000 & 误唤醒率>90%</li>
       </ul>
     </div>
     <div class="detail-section">
       <h4>下一步</h4>
       <ul>
-        <li>跟踪：等钟杰群第二周数据对比结果</li>
-        <li>向张荟瑶/硬件团队获取实验室灵敏度-唤醒率关系数据</li>
+        <li>找服务端解决：如何让数据组获取到设备对应的移动侦测图片</li>
+        <li>提供方案：定时脚本如何控制设备灵敏度修改</li>
+        <li>张荟瑶：完成室内机/室外机标签梳理，补充实验室灵敏度-唤醒率关系数据</li>
+        <li>数据团队：持续产出误唤醒场景分析数据，支撑自动化策略调优</li>
+        <li>App提示策略设计：确认是否已启动，与自动干预策略形成双轮驱动</li>
+        <li>评估自动化排期：从"验证"到"每天定时执行的自动化脚本"需服务端开发资源，提前评估排期</li>
       </ul>
     </div>
     <div class="deliverable-box">
-      <h4>🎯 交付物</h4>
+      <h4>交付物</h4>
       <ul>
         <li><span class="d-status d-todo">○</span> 移动侦测高触发设备，系统自动干预（自动脚本）</li>
         <li><span class="d-status d-todo">○</span> App提醒能力需求文档</li>
@@ -1046,7 +1052,7 @@
       </ul>
     </div>
   </div>
-  <div id="detail-T4-4" class="detail-card t4">
+<div id="detail-T4-4" class="detail-card t4">
     <div class="detail-header">
       <div class="detail-title-wrap">
         <span class="detail-project-label">T4 用户体验治理专项</span>
